@@ -1,60 +1,114 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+import { withSnackbar } from 'notistack'
 import { withStyles } from '@material-ui/core/styles'
-import Input from '@material-ui/core/Input'
-import InputLabel from '@material-ui/core/InputLabel'
-import InputAdornment from '@material-ui/core/InputAdornment'
-import FormControl from '@material-ui/core/FormControl'
+
 import TextField from '@material-ui/core/TextField'
 import Grid from '@material-ui/core/Grid'
-import AccountCircle from '@material-ui/icons/AccountCircle'
+import Paper from '@material-ui/core/Paper'
+import SendIcon from '@material-ui/icons/Send'
+import VpnKeyIcon from '@material-ui/icons/VpnKey'
+import EmailIcon from '@material-ui/icons/Email'
 
-const styles = theme => ({
-  margin: {
-    margin: theme.spacing.unit
+import ActionButton from '../../Components/ActionButton/ActionButton'
+import styles from './Login.styles'
+import { endpoints, checkAuth } from '../../utils'
+
+const Login = ({ classes, enqueueSnackbar, history }) => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    if (checkAuth()) {
+      history.push('/')
+    }
+  }, [])
+  const changeEmail = (e) => {
+    setEmail(e.target.value)
   }
-})
-
-function InputWithIcon(props) {
-  const { classes } = props
+  const changePassword = (e) => {
+    setPassword(e.target.value)
+  }
+  const handleSubmit = (e) => {
+    setLoading(true)
+    e.preventDefault()
+    const credentials = {
+      correo: email,
+      password
+    }
+    axios.post(endpoints.login, credentials)
+      .then((res) => {
+        const { data } = res
+        setLoading(false)
+        enqueueSnackbar('Login correcto.', { variant: 'success' })
+        localStorage.setItem('token', data.content.token)
+        history.push('/')
+      })
+      .catch((err) => {
+        if (!err.response) {
+          return
+        }
+        setLoading(false)
+        const { response } = err
+        if (!response.data) {
+          enqueueSnackbar('No se recibio respuesta del servidor', { variant: 'error' })
+        }
+        const variantSnack = response.status === 400 ? 'warning' : 'error'
+        enqueueSnackbar(response.data.content, { variant: variantSnack })
+      })
+  }
 
   return (
-    <div>
-      <FormControl className={classes.margin}>
-        <InputLabel htmlFor="input-with-icon-adornment">With a start adornment</InputLabel>
-        <Input
-          id="input-with-icon-adornment"
-          startAdornment={(
-            <InputAdornment position="start">
-              <AccountCircle />
-            </InputAdornment>
-          )}
-        />
-      </FormControl>
-      <TextField
-        className={classes.margin}
-        id="input-with-icon-textfield"
-        label="TextField"
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <AccountCircle />
-            </InputAdornment>
-          )
-        }}
-      />
+    <div className={classes.container}>
+      <Paper className={classes.paper}>
+        <form>
+          <div className={classes.margin}>
+            <Grid container spacing={8} alignItems="flex-end" justify="center">
+              <Grid item xs={1}>
+                <EmailIcon />
+              </Grid>
+              <Grid item xs={11}>
+                <TextField
+                  label="Correo elentrónico"
+                  fullWidth
+                  onChange={changeEmail}
+                  value={email}
+                  type="email"
+                />
+              </Grid>
+            </Grid>
+          </div>
 
-      <div className={classes.margin}>
-        <Grid container spacing={8} alignItems="flex-end">
-          <Grid item>
-            <AccountCircle />
-          </Grid>
-          <Grid item>
-            <TextField id="input-with-icon-grid" label="With a grid" />
-          </Grid>
-        </Grid>
-      </div>
+          <div className={classes.margin}>
+            <Grid container spacing={8} alignItems="flex-end">
+              <Grid item xs={1}>
+                <VpnKeyIcon />
+              </Grid>
+              <Grid item xs={11}>
+                <TextField
+                  label="Contraseña"
+                  fullWidth
+                  onChange={changePassword}
+                  value={password}
+                  type="password"
+                />
+              </Grid>
+            </Grid>
+          </div>
+
+          <ActionButton
+            onClick={handleSubmit}
+            iconRight={<SendIcon />}
+            text="Enviar"
+            typeButton="submit"
+            loading={loading}
+            full
+          />
+        </form>
+      </Paper>
     </div>
   )
 }
 
-export default withStyles(styles)(InputWithIcon)
+export default withSnackbar(withStyles(styles)(Login))

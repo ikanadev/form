@@ -2,6 +2,10 @@ const checkAuth = () => {
   const token = localStorage.getItem('token')
   return !!token
 }
-const sm = ''
+const endpoint = 'http://localhost:4000/api/'
 
-export { checkAuth, sm }
+const endpoints = {
+  login: `${endpoint}login`
+}
+
+export { checkAuth, endpoints }
