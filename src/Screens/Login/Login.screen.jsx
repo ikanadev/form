@@ -9,6 +9,8 @@ import Paper from '@material-ui/core/Paper'
 import SendIcon from '@material-ui/icons/Send'
 import VpnKeyIcon from '@material-ui/icons/VpnKey'
 import EmailIcon from '@material-ui/icons/Email'
+import { useStore } from 'outstated'
+import userState from '../../stores/user'
 
 import ActionButton from '../../Components/ActionButton/ActionButton'
 import styles from './Login.styles'
@@ -18,6 +20,7 @@ const Login = ({ classes, enqueueSnackbar, history }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
+  const { setUserData } = useStore(userState)
 
   useEffect(() => {
     if (checkAuth()) {
@@ -39,16 +42,15 @@ const Login = ({ classes, enqueueSnackbar, history }) => {
     }
     axios.post(endpoints.login, credentials)
       .then((res) => {
-        const { data } = res
+        const { content } = res.data
+        const { id, email: correo, nombre } = content.user
+        setUserData(id, nombre, content.type, correo)
         setLoading(false)
         enqueueSnackbar('Login correcto.', { variant: 'success' })
-        localStorage.setItem('token', data.content.token)
+        localStorage.setItem('token', content.token)
         history.push('/')
       })
       .catch((err) => {
-        if (!err.response) {
-          return
-        }
         setLoading(false)
         const { response } = err
         if (!response.data) {

@@ -5037,6 +5037,14 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
+material-ui-chip-input@^1.0.0-beta.16:
+  version "1.0.0-beta.16"
+  resolved "https://registry.yarnpkg.com/material-ui-chip-input/-/material-ui-chip-input-1.0.0-beta.16.tgz#339d469b57dc0234aa94bdb533d1e806f850e90d"
+  integrity sha512-KZOoiNrW4FaZIAnOs2IqGQfpubd5Qu3yvP+iVLojNRESuHCD+dw+Ok7Oxl5ZgBBJCb9L0ETCrugdqthB+cjUbA==
+  dependencies:
+    classnames "^2.2.5"
+    prop-types "^15.6.1"
+
 md5.js@^1.3.4:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/md5.js/-/md5.js-1.3.5.tgz#b5d07b8e3216e3e27cd728d72f70d1e6a342005f"
@@ -5727,6 +5735,11 @@ osenv@^0.1.4:
   dependencies:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.0"
+
+outstated@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/outstated/-/outstated-2.0.1.tgz#130e48e17a7f9b3bf938dbcec19dcb15bc74b708"
+  integrity sha512-naMqg2sGsE52sPAm/p6CPpe92av6OSMF5Z/fTidX3EbUTtlpAw6Z0ZWcWZFvWX16rUxr/yw8SsVHWtFyiZVRDw==
 
 p-cancelable@^0.3.0:
   version "0.3.0"

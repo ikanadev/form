@@ -17,7 +17,7 @@ const theme = createMuiTheme({
   typography: {
     fontFamily: ['PT Sans', 'Comfortaa', 'Arial', 'sans-serif'].join(','),
     useNextVariants: true,
-    fontSize: 17
+    fontSize: 14
   }
 })
 /**
