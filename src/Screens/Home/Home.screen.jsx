@@ -26,7 +26,7 @@ const Home = ({ match, classes, history }) => {
       <DrawerMenu open={isDrawerOpen} onClose={toogleDrawer} history={history} match={match} />
       <MenuIcon className={classes.drawerIcon} onClick={toogleDrawer} />
       <Grid container className={classes.container}>
-        <Grid item xs={12} md={10} lg={8} xl={6}>
+        <Grid item xs={12} md={12} lg={10} xl={8}>
 
           <Paper className={classes.paperContainer}>
             <PrivateRoute path={path} component={FormList} exact />

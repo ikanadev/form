@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import TextField from '@material-ui/core/TextField'
@@ -20,7 +20,6 @@ const Option = ({
     const { value: valueSelect } = e.target
     if (valueSelect === (`${options.length}`)) {
       setWithInput(true)
-      otherRef.current.focus()
       return
     }
     setWithInput(false)
@@ -31,9 +30,16 @@ const Option = ({
     setOtherValue(valueOther)
     onChange(e)
   }
+
+  useEffect(() => {
+    if (withInput) {
+      otherRef.current.focus()
+    }
+  }, [withInput])
   return (
     <Grid item xs={12} md={6} lg={width} style={{ paddingLeft: 8, paddingRight: 8, paddingTop: 6 }}>
       <TextField
+        variant="outlined"
         select
         autoFocus={autoFocus}
         fullWidth
@@ -53,6 +59,7 @@ const Option = ({
         }
       </TextField>
       <TextField
+        disabled={!withInput}
         className={!withInput ? classes.input : null}
         fullWidth
         value={otherValue}

@@ -35,7 +35,7 @@ export default () => {
   const [est19, setEst19] = useState('')
   const [est20, setEst20] = useState('')
   const [est21, setEst21] = useState('')
-  
+
   // SITUACION LABORAL
   const [est22, setEst22] = useState('1')
   const [est23, setEst23] = useState('1')
@@ -104,7 +104,7 @@ export default () => {
           ]}
         />
         <CustomOption
-          width={3}
+          width={6}
           value={est14}
           onChange={handleValue(setEst14)}
           text="Desde su Hogar Accede a Internet por:"
@@ -140,50 +140,33 @@ export default () => {
         />
         <CustomInputs
           width={6}
+          upTo={0}
           onChange={handleFlatValue(setEst17)}
           text="Motivos por que eligió la carrera"
         />
-        <CustomMultiOption
-          width={4}
+        <CustomInputs
+          width={6}
+          upTo={8}
           onChange={handleFlatValue(setEst18)}
-          title="Área de preferencia en la Carrera:"
-          options={[
-            'Programación',
-            'Desarrollo de Sistemas',
-            'Algorítmica',
-            'Redes',
-            'Inteligencia Artificial',
-            'Big Data',
-            'Desarrollo Web',
-            'Robótica'
-          ]}
-        />
-        <CustomMultiOption
-          width={4}
-          onChange={handleFlatValue(setEst19)}
-          title="Razones por las que Abandonó Materias:"
-          options={[
-            'Nunca Abandoné Materias',
-            'Por Materias de Servicio',
-            'Por Choque de Horarios',
-            'Por mi Trabajo'
-          ]}
-        />
-        <CustomMultiOption
-          width={4}
-          onChange={handleFlatValue(setEst21)}
-          title="Razones por las que Abandonó la Carrera:"
-          options={[
-            'Motivos Personales',
-            'No Vencí Materias de Servicio',
-            'La Carrera no tiene Horarios de Trabajo',
-            'Motivos Familiares'
-          ]}
+          text="Área de preferencia en la Carrera:"
         />
         <CustomInputs
           width={6}
+          upTo={4}
+          onChange={handleFlatValue(setEst19)}
+          text="Razones por las que Abandonó Materias:"
+        />
+        <CustomInputs
+          width={6}
+          upTo={0}
           onChange={handleFlatValue(setEst20)}
-          text="Materias que Prefiere Cursar en Verano y/o Invierno:"
+          text="Materias que prefiere cursar en verano y/o invierno"
+        />
+        <CustomInputs
+          width={6}
+          upTo={4}
+          onChange={handleFlatValue(setEst21)}
+          text="Razones por las que Abandonó la Carrera:"
         />
       </FieldSet>
 

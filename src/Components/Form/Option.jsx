@@ -7,6 +7,7 @@ const Option = ({
 }) => (
   <Grid item xs={12} md={6} lg={width} style={{ paddingLeft: 8, paddingRight: 8, paddingTop: 6 }}>
     <TextField
+      variant="outlined"
       select
       autoFocus={autoFocus}
       fullWidth

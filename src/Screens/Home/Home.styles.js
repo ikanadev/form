@@ -8,7 +8,8 @@ export default theme => ({
     padding: theme.spacing.unit * 2
   },
   paperContainer: {
-    padding: theme.spacing.unit * 2,
+    backgroundColor: '#C9E0FF',
+    padding: theme.spacing.unit * 4,
     display: 'flex',
     flexDirection: 'column',
     alignContent: 'center',

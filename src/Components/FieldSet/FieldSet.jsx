@@ -5,11 +5,12 @@ import { withStyles } from '@material-ui/core/styles'
 
 const styles = () => ({
   fieldset: {
-    paddingBottom: 18,
-    paddingTop: 0,
-    borderRadius: 14,
-    borderColor: '#cbcbcb',
-    width: '100%'
+    padding: 25,
+    borderWidth: 0,
+    borderRadius: 5,
+    width: '100%',
+    marginBottom: 25,
+    backgroundColor: '#FFF'
   }
 })
 
@@ -17,12 +18,15 @@ const FieldSet = ({
   title, children, classes
 }) => (
   <fieldset className={classes.fieldset}>
-    <legend>
-      <Typography variant="subtitle1">
+    <legend style={{
+      backgroundColor: '#FFF', borderRadius: 5, paddingLeft: 14, paddingRight: 14
+    }}
+    >
+      <Typography variant="h6">
         {title}
       </Typography>
     </legend>
-    <Grid container spacing={8} alignItems="flex-start">
+    <Grid container spacing={32} alignItems="flex-start">
       {children}
     </Grid>
   </fieldset>
