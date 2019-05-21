@@ -9,7 +9,7 @@ import Checkbox from '@material-ui/core/Checkbox'
 const styles = () => ({
   checkbox: {
     padding: 0,
-    marginLeft: 12
+    marginLeft: 8
   }
 })
 

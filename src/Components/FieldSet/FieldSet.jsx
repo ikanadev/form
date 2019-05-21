@@ -22,7 +22,7 @@ const FieldSet = ({
         {title}
       </Typography>
     </legend>
-    <Grid container spacing={0} alignItems="flex-start">
+    <Grid container spacing={8} alignItems="flex-start">
       {children}
     </Grid>
   </fieldset>

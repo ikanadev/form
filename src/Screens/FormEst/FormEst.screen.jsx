@@ -7,6 +7,7 @@ import Option from '../../Components/Form/Option'
 import CustomOption from '../../Components/Form/CustomOption'
 import CustomInputs from '../../Components/Form/CustomInputs'
 import MultiOption from '../../Components/Form/MultiOption'
+import CustomMultiOption from '../../Components/Form/CustomMultiOption'
 
 export default () => {
   // ASPECTOS GENERALES
@@ -31,6 +32,17 @@ export default () => {
   const [est16, setEst16] = useState('1')
   const [est17, setEst17] = useState('')
   const [est18, setEst18] = useState('')
+  const [est19, setEst19] = useState('')
+  const [est20, setEst20] = useState('')
+  const [est21, setEst21] = useState('')
+  
+  // SITUACION LABORAL
+  const [est22, setEst22] = useState('1')
+  const [est23, setEst23] = useState('1')
+  const [est24, setEst24] = useState('')
+  const [est25, setEst25] = useState('1')
+  const [est26, setEst26] = useState('1')
+
 
   const handleValue = setter => (e) => {
     const { value } = e.target
@@ -38,7 +50,6 @@ export default () => {
     setter(value)
   }
   const handleFlatValue = setter => (value) => {
-    console.log('CHIPS', est17, est18)
     setter(value)
   }
   return (
@@ -115,7 +126,7 @@ export default () => {
 
       <FieldSet title="II. Vinculación con la Carrera">
         <Option
-          width={4}
+          width={6}
           value={est16}
           onChange={handleValue(setEst16)}
           text="Modalidad de Ingreso:"
@@ -128,11 +139,11 @@ export default () => {
           ]}
         />
         <CustomInputs
-          width={4}
+          width={6}
           onChange={handleFlatValue(setEst17)}
           text="Motivos por que eligió la carrera"
         />
-        <MultiOption
+        <CustomMultiOption
           width={4}
           onChange={handleFlatValue(setEst18)}
           title="Área de preferencia en la Carrera:"
@@ -144,8 +155,95 @@ export default () => {
             'Inteligencia Artificial',
             'Big Data',
             'Desarrollo Web',
-            'Robótica',
-            'Otros'
+            'Robótica'
+          ]}
+        />
+        <CustomMultiOption
+          width={4}
+          onChange={handleFlatValue(setEst19)}
+          title="Razones por las que Abandonó Materias:"
+          options={[
+            'Nunca Abandoné Materias',
+            'Por Materias de Servicio',
+            'Por Choque de Horarios',
+            'Por mi Trabajo'
+          ]}
+        />
+        <CustomMultiOption
+          width={4}
+          onChange={handleFlatValue(setEst21)}
+          title="Razones por las que Abandonó la Carrera:"
+          options={[
+            'Motivos Personales',
+            'No Vencí Materias de Servicio',
+            'La Carrera no tiene Horarios de Trabajo',
+            'Motivos Familiares'
+          ]}
+        />
+        <CustomInputs
+          width={6}
+          onChange={handleFlatValue(setEst20)}
+          text="Materias que Prefiere Cursar en Verano y/o Invierno:"
+        />
+      </FieldSet>
+
+      <FieldSet title="III. Situación Laboral">
+        <CustomOption
+          width={6}
+          text="Actualmente"
+          value={est22}
+          onChange={handleValue(setEst22)}
+          options={[
+            'Trabajo a tiempo completo',
+            'Trabajo a medio tiempo',
+            'Trabajo de forma eventual',
+            'Trabajo en un emprendimiento propio',
+            'No trabajo',
+            'Otro'
+          ]}
+        />
+        <Option
+          width={6}
+          text="Relación de su trabajo con la Carrera"
+          value={est23}
+          onChange={handleValue(setEst23)}
+          options={[
+            'Mi trabajo está muy relacionado con la Carrera',
+            'Mi trabajo tienen poca relación con la Carrera',
+            'Mi trabajo no está relacionado con la Carrera'
+          ]}
+        />
+        <CustomMultiOption
+          width={4}
+          title="Razones por la que trabaja"
+          onChange={setEst24}
+          options={[
+            'Económico',
+            'Ganar experiencia',
+            'Capacitación'
+          ]}
+        />
+        <CustomOption
+          width={4}
+          text="Tipo de empleo"
+          value={est25}
+          onChange={handleValue(setEst25)}
+          options={[
+            'Empleo de planta',
+            'Empleo Eventual',
+            'Empleo por consultoría',
+            'Otro'
+          ]}
+        />
+        <Option
+          width={4}
+          text="Alcance de la institución"
+          value={est26}
+          onChange={handleValue(setEst26)}
+          options={[
+            'Local',
+            'Nacional',
+            'Internacional'
           ]}
         />
       </FieldSet>
