@@ -42,6 +42,10 @@ export default () => {
   const [est24, setEst24] = useState('')
   const [est25, setEst25] = useState('1')
   const [est26, setEst26] = useState('1')
+  const [est27, setEst27] = useState('1')
+  const [est28, setEst28] = useState('1')
+  const [est29, setEst29] = useState('1')
+  const [est30, setEst30] = useState('1')
 
 
   const handleValue = setter => (e) => {
@@ -196,15 +200,11 @@ export default () => {
             'Mi trabajo no está relacionado con la Carrera'
           ]}
         />
-        <CustomMultiOption
+         <CustomInputs
           width={4}
-          title="Razones por la que trabaja"
-          onChange={setEst24}
-          options={[
-            'Económico',
-            'Ganar experiencia',
-            'Capacitación'
-          ]}
+          upTo={3}
+          onChange={handleFlatValue(setEst24)}
+          text="Razones por las que trabaja:"
         />
         <CustomOption
           width={4}
@@ -229,6 +229,84 @@ export default () => {
             'Internacional'
           ]}
         />
+        <CustomOption
+          width={4}
+          text="Rubro o actividad de la institución"
+          value={est27}
+          onChange={handleValue(setEst27)}
+          options={[
+            'Banca',
+            'Educación regular',
+            'Educación superior',
+            'Dministración publica',
+            'Telecomunicaciones',
+            'Desarrollo de software',
+            'Prensa',
+            'Salud',
+            'Transporte',
+            'Turismo',
+            'Hoteleria',
+            'Agropecuaria',
+            'Minería',
+            'Gastronomía',
+            'Contrucción',
+            'Comercio',
+            'Automotores',
+            'Publicidad',
+            'Entretenimiento',
+            'Comercio',
+            'Otro'
+          ]}
+        />
+        <CustomOption
+          width={4}
+          text="Cargo que ocupa"
+          value={est28}
+          onChange={handleValue(setEst28)}
+          options={[
+            'Operador de Computadoras',
+            'Transcriptor',
+            'Programador',
+            'Analista de sistemas',
+            'Jefe de proyecto',
+            'Administrador de base de datos',
+            'Administrador de redes',
+            'Jefe de sistemas',
+            'Jefe de TI',
+            'Administrador de Sistemas',
+            'Otro'
+          ]}
+        />
+        <CustomOption
+          width={5}
+          text="Forma de ingreo a la institución"
+          value={est29}
+          onChange={handleValue(setEst29)}
+          options={[
+            'Independiente',
+            'Pasantia',
+            'Beca trabajo',
+            'Convocatoria publica',
+            'Invitación',
+            'Otro'
+          ]}
+        />
+
+        <CustomOption
+          width={4}
+          text="Tipo de institución"
+          value={est30}
+          onChange={handleValue(setEst30)}
+          options={[
+            'Estatal',
+            'Privada',
+            'Empredimiento propio',
+            'Otro'
+          ]}
+        />
+
+       
+
       </FieldSet>
     </Fragment>
   )
