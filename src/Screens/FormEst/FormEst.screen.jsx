@@ -6,7 +6,7 @@ import Simple from '../../Components/Form/Simple'
 import Option from '../../Components/Form/Option'
 import CustomOption from '../../Components/Form/CustomOption'
 import CustomInputs from '../../Components/Form/CustomInputs'
-import MultiOption from '../../Components/Form/MultiOption'
+import Multiple from '../../Components/Form/Multiple'
 import CustomMultiOption from '../../Components/Form/CustomMultiOption'
 
 export default () => {
@@ -58,6 +58,7 @@ export default () => {
         Cuestionario para Estudiantes
       </Typography>
       <FieldSet title="I. Aspectos Generales">
+        <Multiple title="Aspectos en su formacion" width={4} />
         <Simple width={4} value={est1} text="C.I.:" onChange={handleValue(setEst1)} autoFocus />
         <Simple width={8} value={est2} text="Nombre Completo:" onChange={handleValue(setEst2)} />
         <Simple width={4} value={est3} text="Gestión que Ingresó:" type="number" onChange={handleValue(setEst3)} />
