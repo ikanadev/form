@@ -10,7 +10,7 @@ const styles = () => ({
     borderRadius: 5,
     width: '100%',
     marginBottom: 25,
-    backgroundColor: '#FFF'
+    backgroundColor: '#FFFFFF'
   }
 })
 
@@ -19,7 +19,7 @@ const FieldSet = ({
 }) => (
   <fieldset className={classes.fieldset}>
     <legend style={{
-      backgroundColor: '#FFF', borderRadius: 5, paddingLeft: 14, paddingRight: 14
+      backgroundColor: '#FFFFFF', borderRadius: 5, paddingLeft: 14, paddingRight: 14
     }}
     >
       <Typography variant="h6">

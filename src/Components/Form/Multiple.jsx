@@ -50,6 +50,7 @@ const Multiple = ({
       md={6}
       lg={width}
       style={{
+        margin: 8,
         paddingLeft: 8,
         paddingRight: 8,
         paddingTop: 6,

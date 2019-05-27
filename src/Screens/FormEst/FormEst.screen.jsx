@@ -1,15 +1,19 @@
 import React, { Fragment, useState } from 'react'
+import axios from 'axios'
 import Typography from '@material-ui/core/Typography'
-import FieldSet from '../../Components/FieldSet/FieldSet'
+import SendIcon from '@material-ui/icons/Send'
 
+import ActionButton from '../../Components/ActionButton/ActionButton'
+import FieldSet from '../../Components/FieldSet/FieldSet'
 import Simple from '../../Components/Form/Simple'
 import Option from '../../Components/Form/Option'
 import CustomOption from '../../Components/Form/CustomOption'
 import CustomInputs from '../../Components/Form/CustomInputs'
 import Multiple from '../../Components/Form/Multiple'
+import { endpoints } from '../../utils'
 
 export default () => {
-  // ASPECTOS GENERALES
+  // I. ASPECTOS GENERALES
   const [est1, setEst1] = useState('')
   const [est2, setEst2] = useState('')
   const [est3, setEst3] = useState('')
@@ -27,7 +31,7 @@ export default () => {
   const [est14, setEst14] = useState('1')
   const [est15, setEst15] = useState('1')
 
-  // VINCULACION CON LA CARRERA
+  // II. VINCULACION CON LA CARRERA
   const [est16, setEst16] = useState('1')
   const [est17, setEst17] = useState('')
   const [est18, setEst18] = useState('')
@@ -35,7 +39,7 @@ export default () => {
   const [est20, setEst20] = useState('')
   const [est21, setEst21] = useState('')
 
-  // SITUACION LABORAL
+  // III. SITUACION LABORAL
   const [est22, setEst22] = useState('1')
   const [est23, setEst23] = useState('1')
   const [est24, setEst24] = useState('')
@@ -48,7 +52,7 @@ export default () => {
   const [est31, setEst31] = useState('')
   const [est32, setEst32] = useState('')
 
-  // PERFIL PROFESIONAL ACTUAL
+  // IV. PERFIL PROFESIONAL ACTUAL
   const [est33, setEst33] = useState('')
   const [est34, setEst34] = useState('')
   const [est35, setEst35] = useState('')
@@ -57,7 +61,44 @@ export default () => {
   const [est36, setEst36] = useState('')
   const [est37, setEst37] = useState('')
   const [est38, setEst38] = useState('')
+  const [est39, setEst39] = useState('')
+  const [est40, setEst40] = useState('')
+  const [est41, setEst41] = useState('')
+  const [est42, setEst42] = useState('')
 
+  // VI INFRAESTRUCTURA
+  const [est43, setEst43] = useState('')
+  const [est44, setEst44] = useState('')
+
+  // VII GRADOS TITULACION Y MENCIONES
+  const [est45, setEst45] = useState('')
+  const [est46, setEst46] = useState('')
+  const [est47, setEst47] = useState('')
+  const [est48, setEst48] = useState('1')
+  const [est49, setEst49] = useState('')
+
+  // VIII AREAS DE CONOCIMIENTO
+  const [est50, setEst50] = useState('')
+  const [est51, setEst51] = useState('')
+  const [est52, setEst52] = useState('')
+  const [est53, setEst53] = useState('')
+  const [est54, setEst54] = useState('')
+
+  // IX COMPOETENCIAS DEL PROFESIONAL EN EL AREA
+  const [est55, setEst55] = useState('')
+  const [est56, setEst56] = useState('')
+  const [est57, setEst57] = useState('')
+
+  // X ASPIRACIONES FUTURAS
+  const [est58, setEst58] = useState('1')
+  const [est59, setEst59] = useState('')
+  const [est60, setEst60] = useState('')
+  const [est61, setEst61] = useState('')
+  const [est62, setEst62] = useState('')
+  const [est63, setEst63] = useState('')
+  const [est64, setEst64] = useState('')
+  const [est65, setEst65] = useState('')
+  const [est66, setEst66] = useState('')
 
   const handleValue = setter => (e) => {
     const { value } = e.target
@@ -66,6 +107,87 @@ export default () => {
   }
   const handleFlatValue = setter => (value) => {
     setter(value)
+  }
+
+  const onSubmit = () => {
+    const data = {
+      est1,
+      est2,
+      est3,
+      est4,
+      est5,
+      est6,
+      est7,
+      est8,
+      est9,
+      est10,
+      est11,
+      est12,
+      est13,
+      est14,
+      est15,
+      est16,
+      est17,
+      est18,
+      est19,
+      est20,
+      est21,
+      est22,
+      est23,
+      est24,
+      est25,
+      est26,
+      est27,
+      est28,
+      est29,
+      est30,
+      est31,
+      est32,
+      est33,
+      est34,
+      est35,
+      est36,
+      est37,
+      est38,
+      est39,
+      est40,
+      est41,
+      est42,
+      est43,
+      est44,
+      est45,
+      est46,
+      est47,
+      est48,
+      est49,
+      est50,
+      est51,
+      est52,
+      est53,
+      est54,
+      est55,
+      est56,
+      est57,
+      est58,
+      est59,
+      est60,
+      est61,
+      est62,
+      est63,
+      est64,
+      est65,
+      est66
+    }
+    console.log(data)
+    const config = {
+      headers: {
+        Authorization: localStorage.getItem('token')
+      }
+    }
+    // everithing works fine, but need some refactor to manage tokens
+    axios.post(endpoints.formEst, data, config)
+      .then(res => console.log(res))
+      .catch(e => console.log(e.message))
   }
   return (
     <Fragment>
@@ -289,7 +411,7 @@ export default () => {
           ]}
         />
         <CustomOption
-          width={5}
+          width={4}
           text="Forma de ingreo a la institución"
           value={est29}
           onChange={handleValue(setEst29)}
@@ -333,7 +455,7 @@ export default () => {
         />
       </FieldSet>
 
-      <FieldSet title="I.V. Perfil Profesional Actual">
+      <FieldSet title="IV. Perfil Profesional Actual">
         <Multiple
           title="El licenciado en Informática, al concluir la curricula será capaz de:"
           width={12}
@@ -374,7 +496,262 @@ export default () => {
         />
         <Simple width={12} value={est37} text="Qué debilidades tiene el plan de estudios actual?" onChange={handleValue(setEst37)} />
         <Simple width={12} value={est38} text="Qué fortalezas tiene el plan de estudios actual?" onChange={handleValue(setEst38)} />
+        <CustomInputs
+          width={12}
+          upTo={0}
+          onChange={handleFlatValue(setEst39)}
+          text="Mencione al menos 3 materias que considera le hacen falta a la Mención Ingeniería de Sistemas Informáticos"
+        />
+        <CustomInputs
+          width={12}
+          upTo={0}
+          onChange={handleFlatValue(setEst40)}
+          text="Mencione al menos 3 materias que considera le hacen falta a la Mención de Ciencias de la Computación"
+        />
+        <CustomInputs
+          width={12}
+          upTo={0}
+          onChange={handleFlatValue(setEst41)}
+          text="Mencione al menos 3 materias que NO debería estar en la Mención Ingeniería de sistemas informáticos."
+        />
+        <CustomInputs
+          width={12}
+          upTo={0}
+          onChange={handleFlatValue(setEst42)}
+          text="Mencione al menos 3 materias que NO deberían estar en la Mención Ciencias de la Computación"
+        />
       </FieldSet>
+
+      <FieldSet title="VI. Infraestructura (Aulas, Laboratorios, Biblioteca, Servicios).">
+        <Multiple
+          title="Aulas y Equipamiento"
+          width={12}
+          onChange={handleFlatValue(setEst43)}
+          options={[
+            'La cantidad de aulas es adecuada para atender las necesidades de estudiantes y docentes',
+            'El equipamiento de las aulaas es suficiente para atender las necesidades de los docentes y estudiantes.',
+            'La cantidad de laboratorios es adecuada para atender las necesidades de estudiantes y docentes.',
+            'El equipamiento de los laboratorios es suficiente para atender las nececidades de estudiantes y docentes.',
+            'La biblioteca es adecuada para atender las necesidades de docentes y estudiantes.',
+            'El equipamiento de la biblioteca es suficiente para atender las necesidades de docentes y estudiantes.',
+            'La infraestructura tecnológica es adecuada para atender las necesidades de estudiantes y docentes.',
+            'El servicio de Internet en la carrera permite desarrollar las actividades académicas satisfactoriamente.'
+          ]}
+        />
+        <Simple
+          width={12}
+          value={est44}
+          text="¿Desde su vivencia, qué sugiere mejorar de la infraestructura actual de la carrera?"
+          onChange={handleValue(setEst44)}
+        />
+      </FieldSet>
+
+      <FieldSet title="VII. Grados, Titulación y Menciones">
+        <Multiple
+          title="Licenciado en Informática"
+          width={12}
+          onChange={handleFlatValue(setEst45)}
+          options={[
+            'El título de licenciado en Informática es coherente con la demanda del mercado acutal',
+            'La meción Ingeniería en Sistemas Informáticos es coherente con la demanda del mercado actual',
+            'La Mención Ciencias de la Computación es coherente con la demanda del mercado actual'
+          ]}
+        />
+        <Simple width={12} value={est46} text="¿Qué otros programas se deben implementar en Informática?" onChange={handleValue(setEst46)} />
+        <Multiple
+          title="Carreras o Programas"
+          width={12}
+          onChange={handleFlatValue(setEst47)}
+          options={[
+            'Licenciatura en Informática',
+            'Ingeniería en Sistemas Informáticos',
+            'Licenciatura en Ciencias de la Computación',
+            'Ingeniería en Software',
+            'Ingeniería Infomática',
+            'Ingeniería en Sistemas',
+            'Licenciatura en Informática Educativa',
+            'Ingeniería en Redes y TIC',
+            'Ingeniería en Redes y Telecomunicaciones',
+            'Ingeniería en Informática Industrial',
+            'Licenciatura en Seguridad de la Información'
+          ]}
+        />
+        <CustomOption
+          width={6}
+          text="La especialización debería hacerse:"
+          value={est48}
+          onChange={handleValue(setEst48)}
+          options={[
+            'En el postgrado',
+            'En el pregrado',
+            'Otro'
+          ]}
+        />
+        <CustomInputs
+          width={6}
+          upTo={5}
+          onChange={handleFlatValue(setEst49)}
+          text="¿Qué modalidades de graduación elegiría?"
+        />
+      </FieldSet>
+
+      <FieldSet title="VIII. Áreas de Conocimiento">
+        <CustomInputs
+          width={6}
+          upTo={12}
+          onChange={handleFlatValue(setEst50)}
+          text="En cuanto a lenguajes de programación"
+        />
+        <CustomInputs
+          width={6}
+          upTo={12}
+          onChange={handleFlatValue(setEst51)}
+          text="En cuanto a gestores de bases de datos"
+        />
+        <CustomInputs
+          width={4}
+          upTo={4}
+          onChange={handleFlatValue(setEst52)}
+          text="En cuanto a metodologías de desarrollo"
+        />
+        <CustomInputs
+          width={4}
+          upTo={4}
+          onChange={handleFlatValue(setEst53)}
+          text="En cuanto a sistemas operativos"
+        />
+        <CustomInputs
+          width={4}
+          upTo={12}
+          onChange={handleFlatValue(setEst54)}
+          text="En cuanto a Frameworks"
+        />
+      </FieldSet>
+
+      <FieldSet title="IX. Competencias del Profesional en el ÁREA DE INFORMÁTICA Y SISTEMAS">
+        <Multiple
+          title="¿Cuáles considera que son las competencias generales que debe tener un Informático?"
+          width={12}
+          onChange={handleFlatValue(setEst55)}
+          options={[
+            'Trabajar en un contexto multidisciplinario',
+            'Trabajar en el contexto internaciones',
+            'Comportamineto ético enla profesión y la vida',
+            'Capacidad de actualizarse permanentemente',
+            'Capacidad crítica',
+            'Capacidad de trabajo en equipo',
+            'Capacidad reflexiva',
+            'Capacidad Creativa',
+            'Conocimiento del idioma Inglés',
+            'Capacidad de emprender proyectos',
+            'Capacidad de tomar decisiones',
+            'Capacidad de adaptarse a nuevas situaciones',
+            'Utilizar metodologías de investigación'
+          ]}
+        />
+        <Multiple
+          title="¿Cuáles considera que son las competencias específicas que debe tener un Informático?"
+          width={12}
+          onChange={handleFlatValue(setEst56)}
+          options={[
+            'Diseñar soluciones informáticas a pedido',
+            'Aplicar metodologías de desarrollo',
+            'Capacidad de siseñar construir y administar redes',
+            'Aplicar el enfoque sistémico para resolver problemas',
+            'Documentar proyectos del área',
+            'Capacidad de dirigir proyectos informáticos',
+            'Capacidad de trabajo en entornos virtuales',
+            'Comunicación escrita en el ámbito académico',
+            'Capacidad de proponer alternativas tecnológicas',
+            'Capacidad de adaptarse a tecnologías futuras',
+            'Capacidad de diseñar e implementar software educativo',
+            'Capacidad de impartir docencia e investigar',
+            'Capacidad de diseñar e implementar sistemas embebidos'
+          ]}
+        />
+        <CustomInputs
+          width={12}
+          upTo={21}
+          onChange={handleFlatValue(setEst57)}
+          text="Líneas de Investigación"
+        />
+      </FieldSet>
+
+      <FieldSet title="X. Aspiraciones Futuras">
+        <CustomOption
+          width={6}
+          text="Cuando termine la carrera, me gustaría trabajar en:"
+          value={est58}
+          onChange={handleValue(setEst58)}
+          options={[
+            'Emprendimiento propio',
+            'Educación regular',
+            'Sector público',
+            'Banca',
+            'ONG s',
+            'Empresas de desarrollo de software',
+            'Empresas de telecomunicaciones',
+            'Empresas de seguridad Informática',
+            'Empresas de monitoreo',
+            'Institutos de investigación',
+            'Educación superior',
+            'Freelance',
+            'Marketing digital',
+            'Auditoría de sistemas',
+            'Análisis de riesgo',
+            'Otro'
+          ]}
+        />
+        <Simple width={6} value={est59} text="¿Dónde te gustaría trabajar?" onChange={handleValue(setEst59)} />
+        <CustomInputs
+          width={12}
+          upTo={7}
+          onChange={handleFlatValue(setEst60)}
+          text="¿Que certificaciones consideras importantes?"
+        />
+        <CustomInputs
+          width={6}
+          upTo={0}
+          onChange={handleFlatValue(setEst61)}
+          text="Diplomado:"
+        />
+        <CustomInputs
+          width={6}
+          upTo={0}
+          onChange={handleFlatValue(setEst62)}
+          text="Maestría:"
+        />
+        <CustomInputs
+          width={6}
+          upTo={0}
+          onChange={handleFlatValue(setEst63)}
+          text="Doctorado:"
+        />
+        <CustomInputs
+          width={6}
+          upTo={0}
+          onChange={handleFlatValue(setEst64)}
+          text="Otro:"
+        />
+        <Simple width={8} value={est65} text="¿Qué cargo te gustaría tener cuando te titules?" onChange={handleValue(setEst65)} />
+      </FieldSet>
+
+      <FieldSet title="XI. Sugerencias">
+        <Simple
+          width={12}
+          value={est66}
+          text="Mencione alguna sugerencia para mejorar el plan de estudios de la Carrera"
+          onChange={handleValue(setEst66)}
+        />
+      </FieldSet>
+      <div style={{ width: '100%' }}>
+        <ActionButton
+          text="Enviar"
+          onClick={onSubmit}
+          iconRight={<SendIcon />}
+          full
+        />
+      </div>
     </Fragment>
   )
 }
