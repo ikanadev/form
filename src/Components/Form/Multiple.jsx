@@ -10,7 +10,7 @@ const styles = () => ({
   cont: {
     display: 'flex',
     orientation: 'horizontal',
-    marginBottom: 5
+    marginBottom: 0
   },
   text: {
     flex: 2
@@ -26,7 +26,7 @@ const styles = () => ({
 const Multiple = ({
   width,
   title,
-  options = ['uno', 'dos'],
+  options = [],
   classes,
   onChange
 }) => {

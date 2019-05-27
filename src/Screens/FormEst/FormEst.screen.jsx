@@ -7,7 +7,6 @@ import Option from '../../Components/Form/Option'
 import CustomOption from '../../Components/Form/CustomOption'
 import CustomInputs from '../../Components/Form/CustomInputs'
 import Multiple from '../../Components/Form/Multiple'
-import CustomMultiOption from '../../Components/Form/CustomMultiOption'
 
 export default () => {
   // ASPECTOS GENERALES
@@ -46,6 +45,18 @@ export default () => {
   const [est28, setEst28] = useState('1')
   const [est29, setEst29] = useState('1')
   const [est30, setEst30] = useState('1')
+  const [est31, setEst31] = useState('')
+  const [est32, setEst32] = useState('')
+
+  // PERFIL PROFESIONAL ACTUAL
+  const [est33, setEst33] = useState('')
+  const [est34, setEst34] = useState('')
+  const [est35, setEst35] = useState('')
+
+  // V. PLAN DE ESTUDIOS ACTUAL
+  const [est36, setEst36] = useState('')
+  const [est37, setEst37] = useState('')
+  const [est38, setEst38] = useState('')
 
 
   const handleValue = setter => (e) => {
@@ -62,7 +73,6 @@ export default () => {
         Cuestionario para Estudiantes
       </Typography>
       <FieldSet title="I. Aspectos Generales">
-        <Multiple title="Aspectos en su formacion" width={4} />
         <Simple width={4} value={est1} text="C.I.:" onChange={handleValue(setEst1)} autoFocus />
         <Simple width={8} value={est2} text="Nombre Completo:" onChange={handleValue(setEst2)} />
         <Simple width={4} value={est3} text="Gestión que Ingresó:" type="number" onChange={handleValue(setEst3)} />
@@ -201,7 +211,7 @@ export default () => {
             'Mi trabajo no está relacionado con la Carrera'
           ]}
         />
-         <CustomInputs
+        <CustomInputs
           width={4}
           upTo={3}
           onChange={handleFlatValue(setEst24)}
@@ -292,7 +302,6 @@ export default () => {
             'Otro'
           ]}
         />
-
         <CustomOption
           width={4}
           text="Tipo de institución"
@@ -305,9 +314,66 @@ export default () => {
             'Otro'
           ]}
         />
+        <CustomInputs
+          width={6}
+          upTo={3}
+          onChange={handleFlatValue(setEst31)}
+          text="Principales actividades que desarrolla durante su trabajo:"
+        />
+        <Multiple
+          title="Aspectos en su formacion"
+          width={6}
+          onChange={handleFlatValue(setEst32)}
+          options={[
+            'Materias de servicio (Mat-Fis)',
+            'Materias de la carrera (Prog-BD-Redes)',
+            'Materias con laboratorios',
+            'Prestigio de la universidad'
+          ]}
+        />
+      </FieldSet>
 
-       
+      <FieldSet title="I.V. Perfil Profesional Actual">
+        <Multiple
+          title="El licenciado en Informática, al concluir la curricula será capaz de:"
+          width={12}
+          onChange={handleFlatValue(setEst33)}
+          options={[
+            'Generar conocieminetos para modernizar los procesos de gestión y producción industrial.',
+            'Organizar y administrar sistemas informáticos',
+            'Organizar trabajo multidiciplinario',
+            'Innovar tecnologías para el mercado',
+            'Desarrollar y dirigir la investigación'
+          ]}
+        />
+        <Multiple
+          title="Pregunta 34, Pagina 3"
+          width={12}
+          onChange={handleFlatValue(setEst34)}
+          options={[
+            'El perfil del profesional en Informática es pertinente con la realidad actual',
+            'El perfil del profesional en Informática expresa con claridad las competencias del futuro profesional'
+          ]}
+        />
+        <Simple width={12} value={est35} text="Qué se debe mejorar del perfil profesional actual?" onChange={handleValue(setEst35)} />
+      </FieldSet>
 
+      <FieldSet title="V. Plan de Estudios Actual">
+        <Multiple
+          title="Asignaturas y plan de estudio."
+          width={12}
+          onChange={handleFlatValue(setEst36)}
+          options={[
+            'Las asignaturas del plan de estudios son adecuadas para formar al profesional en Informática',
+            'Los contenidos de las asignaturas del plan de estudios están actualizados',
+            'Las asignaturas del plan de estudios se imparten de manera didáctica.',
+            'La cantidad de asignaturas del plan de estudios es adecuada para formar al profesional en informática',
+            'La proporción de horas teóricas y práctica de las adsignaturas son adecuadas para el proceso de formación',
+            'La estructura de materias es adecuada para la formación del profesional en Informática'
+          ]}
+        />
+        <Simple width={12} value={est37} text="Qué debilidades tiene el plan de estudios actual?" onChange={handleValue(setEst37)} />
+        <Simple width={12} value={est38} text="Qué fortalezas tiene el plan de estudios actual?" onChange={handleValue(setEst38)} />
       </FieldSet>
     </Fragment>
   )
