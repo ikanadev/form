@@ -9,7 +9,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/dist'),
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: '[name].[chunkhash].js'
   },
   module: {
     rules: [{
@@ -69,7 +69,6 @@ module.exports = {
           ecma: 8,
           warnings: false,
           compress: {
-            warnings: false,
             conditionals: true,
             unused: true,
             comparisons: true,

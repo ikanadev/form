@@ -1,5 +1,6 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, useRef } from 'react'
 import axios from 'axios'
+import { withSnackbar } from 'notistack'
 import Typography from '@material-ui/core/Typography'
 import SendIcon from '@material-ui/icons/Send'
 
@@ -12,7 +13,9 @@ import CustomInputs from '../../Components/Form/CustomInputs'
 import Multiple from '../../Components/Form/Multiple'
 import { endpoints } from '../../utils'
 
-export default () => {
+const FormEst = ({ enqueueSnackbar }) => {
+  const firstRef = useRef(0)
+  const [loading, setLoading] = useState(false)
   // I. ASPECTOS GENERALES
   const [est1, setEst1] = useState('')
   const [est2, setEst2] = useState('')
@@ -109,7 +112,10 @@ export default () => {
     setter(value)
   }
 
+  const scrollToTop = () => window.scrollTo(0, firstRef.current.offsetTop)
+
   const onSubmit = () => {
+    setLoading(true)
     const data = {
       est1,
       est2,
@@ -178,7 +184,6 @@ export default () => {
       est65,
       est66
     }
-    console.log(data)
     const config = {
       headers: {
         Authorization: localStorage.getItem('token')
@@ -186,15 +191,92 @@ export default () => {
     }
     // everithing works fine, but need some refactor to manage tokens
     axios.post(endpoints.formEst, data, config)
-      .then(res => console.log(res))
-      .catch(e => console.log(e.message))
+      .then(() => {
+        setLoading(false)
+        enqueueSnackbar('Formulario Enviado Correctamente.', { variant: 'success' })
+        scrollToTop()
+        setEst1('')
+        setEst2('')
+        setEst3('')
+        setEst4('')
+        setEst5('1970-01-01')
+        setEst6('')
+        setEst7('')
+        setEst8('')
+        setEst9('')
+        setEst10('1')
+        setEst11('1')
+        setEst12('1')
+        setEst13('1')
+        setEst14('1')
+        setEst15('1')
+        setEst16('1')
+        setEst17('')
+        setEst18('')
+        setEst19('')
+        setEst20('')
+        setEst21('')
+        setEst22('1')
+        setEst23('1')
+        setEst24('')
+        setEst25('1')
+        setEst26('1')
+        setEst27('1')
+        setEst28('1')
+        setEst29('1')
+        setEst30('1')
+        setEst31('')
+        setEst32('')
+        setEst33('')
+        setEst34('')
+        setEst35('')
+        setEst36('')
+        setEst37('')
+        setEst38('')
+        setEst39('')
+        setEst40('')
+        setEst41('')
+        setEst42('')
+        setEst43('')
+        setEst44('')
+        setEst45('')
+        setEst46('')
+        setEst47('')
+        setEst48('1')
+        setEst49('')
+        setEst50('')
+        setEst51('')
+        setEst52('')
+        setEst53('')
+        setEst54('')
+        setEst55('')
+        setEst56('')
+        setEst57('')
+        setEst58('1')
+        setEst59('')
+        setEst60('')
+        setEst61('')
+        setEst62('')
+        setEst63('')
+        setEst64('')
+        setEst65('')
+        setEst66('')
+      })
+      .catch((e) => {
+        setLoading(false)
+        if (e.response && e.response.data.content) {
+          enqueueSnackbar(e.response.data.content, { variant: 'error' })
+          return
+        }
+        enqueueSnackbar(e.message, { variant: 'error' })
+      })
   }
   return (
     <Fragment>
       <Typography color="primary" variant="h4">
         Cuestionario para Estudiantes
       </Typography>
-      <FieldSet title="I. Aspectos Generales">
+      <FieldSet title="I. Aspectos Generales" innerRef={firstRef}>
         <Simple width={4} value={est1} text="C.I.:" onChange={handleValue(setEst1)} autoFocus />
         <Simple width={8} value={est2} text="Nombre Completo:" onChange={handleValue(setEst2)} />
         <Simple width={4} value={est3} text="Gestión que Ingresó:" type="number" onChange={handleValue(setEst3)} />
@@ -746,6 +828,7 @@ export default () => {
       </FieldSet>
       <div style={{ width: '100%' }}>
         <ActionButton
+          loading={loading}
           text="Enviar"
           onClick={onSubmit}
           iconRight={<SendIcon />}
@@ -755,3 +838,5 @@ export default () => {
     </Fragment>
   )
 }
+
+export default withSnackbar(FormEst)
