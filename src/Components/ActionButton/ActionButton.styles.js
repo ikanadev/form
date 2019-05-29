@@ -1,14 +1,14 @@
 export default theme => ({
   container: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing(1),
     position: 'relative'
   },
   leftIcon: {
-    marginRight: theme.spacing.unit,
+    marginRight: theme.spacing(1),
     display: 'flex'
   },
   rightIcon: {
-    marginLeft: theme.spacing.unit,
+    marginLeft: theme.spacing(1),
     display: 'flex'
   },
   buttonProgress: {

@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles'
 
 const styles = () => ({
   fieldset: {
-    padding: 25,
+    padding: 50,
     borderWidth: 0,
     borderRadius: 5,
     width: '100%',
@@ -26,7 +26,7 @@ const FieldSet = ({
         {title}
       </Typography>
     </legend>
-    <Grid container spacing={32} alignItems="flex-start">
+    <Grid container spacing={10} alignItems="flex-start">
       {children}
     </Grid>
   </fieldset>

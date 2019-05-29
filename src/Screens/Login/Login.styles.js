@@ -10,9 +10,9 @@ export default theme => ({
   paper: {
     width: '50%',
     minWidth: 500,
-    padding: theme.spacing.unit * 2
+    padding: theme.spacing(2)
   },
   margin: {
-    margin: theme.spacing.unit * 2
+    margin: theme.spacing(2)
   }
 })

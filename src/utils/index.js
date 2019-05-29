@@ -6,7 +6,14 @@ const endpoint = 'http://localhost:4000/api/'
 
 const endpoints = {
   login: `${endpoint}login`,
-  formEst: `${endpoint}form/form-est`
+  formEst: `${endpoint}form/form-est`,
+  newUser: `${endpoint}user`
 }
 
-export { checkAuth, endpoints }
+const headerConfig = {
+  headers: {
+    Authorization: localStorage.getItem('token')
+  }
+}
+
+export { checkAuth, endpoints, headerConfig }
