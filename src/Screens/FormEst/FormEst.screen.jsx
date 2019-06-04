@@ -103,6 +103,10 @@ const FormEst = ({ enqueueSnackbar }) => {
   const [est65, setEst65] = useState('')
   const [est66, setEst66] = useState('')
 
+  // DATOS DE LA ENCUESTA
+  const [est67, setEst67] = useState('')
+  const [est68, setEst68] = useState('2019-05-01')
+
   const handleValue = setter => (e) => {
     const { value } = e.target
     // console.log(value)
@@ -182,7 +186,9 @@ const FormEst = ({ enqueueSnackbar }) => {
       est63,
       est64,
       est65,
-      est66
+      est66,
+      est67,
+      est68
     }
     const config = {
       headers: {
@@ -261,6 +267,8 @@ const FormEst = ({ enqueueSnackbar }) => {
         setEst64('')
         setEst65('')
         setEst66('')
+        setEst67('')
+        setEst68('2019-05-01')
       })
       .catch((e) => {
         setLoading(false)
@@ -520,7 +528,7 @@ const FormEst = ({ enqueueSnackbar }) => {
         />
         <CustomInputs
           width={6}
-          upTo={3}
+          upTo={10}
           onChange={handleFlatValue(setEst31)}
           text="Principales actividades que desarrolla durante su trabajo:"
         />
@@ -825,6 +833,10 @@ const FormEst = ({ enqueueSnackbar }) => {
           text="Mencione alguna sugerencia para mejorar el plan de estudios de la Carrera"
           onChange={handleValue(setEst66)}
         />
+      </FieldSet>
+      <FieldSet title="Datos de la Encuesta">
+        <Simple width={8} value={est67} text="Encuestador:" onChange={handleValue(setEst67)} />
+        <Simple width={4} value={est68} text="Fecha de Encuesta:" type="date" onChange={handleValue(setEst68)} />
       </FieldSet>
       <div style={{ width: '100%' }}>
         <ActionButton
