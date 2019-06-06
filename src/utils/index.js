@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 const checkAuth = () => {
   const token = localStorage.getItem('token')
   return !!token
@@ -5,9 +7,10 @@ const checkAuth = () => {
 const endpoint = 'http://localhost:4000/api/'
 
 const endpoints = {
-  login: `${endpoint}login`,
-  formEst: `${endpoint}form/form-est`,
-  newUser: `${endpoint}user`
+  login: 'login',
+  formEst: 'form/form-est',
+  newUser: 'user',
+  usersList: 'users'
 }
 
 const headerConfig = {
@@ -16,4 +19,16 @@ const headerConfig = {
   }
 }
 
-export { checkAuth, endpoints, headerConfig }
+const axiosClone = axios.create({
+  baseURL: endpoint,
+  headers: {
+    Authorization: localStorage.getItem('item')
+  }
+})
+
+export {
+  axiosClone as axios,
+  checkAuth,
+  endpoints,
+  headerConfig
+}

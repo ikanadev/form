@@ -1,11 +1,13 @@
 import React, { Fragment } from 'react'
 import { withRouter } from 'react-router-dom'
-import Typography from '@material-ui/core/Typography'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks'
+import Paper from '@material-ui/core/Paper'
+
+import Title from '../../Components/Title/Title'
 
 const formularios = [
   {
@@ -21,21 +23,21 @@ const FormList = ({ history, match }) => {
   }
   return (
     <Fragment>
-      <Typography color="primary" variant="h4">
-        Formularios
-      </Typography>
-      <List style={{ width: '100%' }}>
-        {
-          formularios.map(form => (
-            <ListItem key={form.id} button onClick={navigate(form.route)}>
-              <ListItemIcon>
-                <LibraryBooksIcon />
-              </ListItemIcon>
-              <ListItemText primary={form.name} />
-            </ListItem>
-          ))
-        }
-      </List>
+      <Title title="Formularios" />
+      <Paper>
+        <List style={{ width: '100%' }}>
+          {
+            formularios.map(form => (
+              <ListItem key={form.id} button onClick={navigate(form.route)}>
+                <ListItemIcon>
+                  <LibraryBooksIcon />
+                </ListItemIcon>
+                <ListItemText primary={form.name} />
+              </ListItem>
+            ))
+          }
+        </List>
+      </Paper>
     </Fragment>
   )
 }

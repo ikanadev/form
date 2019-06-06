@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
 import { withSnackbar } from 'notistack'
 import { withStyles } from '@material-ui/core/styles'
 
@@ -14,7 +13,7 @@ import userState from '../../stores/user'
 
 import ActionButton from '../../Components/ActionButton/ActionButton'
 import styles from './Login.styles'
-import { endpoints, checkAuth } from '../../utils'
+import { endpoints, checkAuth, axios } from '../../utils'
 
 const Login = ({ classes, enqueueSnackbar, history }) => {
   const [email, setEmail] = useState('')

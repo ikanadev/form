@@ -1,12 +1,13 @@
 import React, { Fragment, useState } from 'react'
 import axios from 'axios'
-import Typography from '@material-ui/core/Typography'
 import SendIcon from '@material-ui/icons/Send'
 import { withSnackbar } from 'notistack'
 
 import FielSet from '../../Components/FieldSet/FieldSet'
 import Simple from '../../Components/Form/Simple'
 import ActionButton from '../../Components/ActionButton/ActionButton'
+import UsersList from './UsersList'
+import Title from '../../Components/Title/Title'
 import { endpoints, headerConfig } from '../../utils'
 
 const Users = ({ enqueueSnackbar }) => {
@@ -58,9 +59,8 @@ const Users = ({ enqueueSnackbar }) => {
 
   return (
     <Fragment>
-      <Typography color="primary" variant="h4">
-        Administrar Cuentas
-      </Typography>
+      <Title title="Administrar Cuentas" />
+
       <FielSet title="Registrar nuevo Transcriptor">
         <Simple width={4} value={nombre} text="Nombre(s):" onChange={handleValue(setNombre)} autoFocus />
         <Simple width={4} value={appat} text="Apellido Paterno:" onChange={handleValue(setAppat)} />
@@ -79,6 +79,7 @@ const Users = ({ enqueueSnackbar }) => {
           />
         </div>
       </FielSet>
+      <UsersList />
     </Fragment>
   )
 }

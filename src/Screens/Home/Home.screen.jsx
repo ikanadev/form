@@ -1,6 +1,5 @@
 import React, { useState, Fragment } from 'react'
 import { withStyles } from '@material-ui/core/styles'
-import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import MenuIcon from '@material-ui/icons/Menu'
 
@@ -28,11 +27,9 @@ const Home = ({ match, classes, history }) => {
       <Grid container className={classes.container}>
         <Grid item xs={12} md={12} lg={10} xl={8}>
 
-          <Paper className={classes.paperContainer}>
-            <PrivateRoute path={path} component={FormList} exact />
-            <PrivateRoute path={`${path}/users`} component={Users} />
-            <PrivateRoute path={`${path}/form-est`} component={FormEst} />
-          </Paper>
+          <PrivateRoute path={path} component={FormList} exact />
+          <PrivateRoute path={`${path}/form-est`} component={FormEst} />
+          <PrivateRoute path={`${path}/users`} component={Users} />
 
         </Grid>
       </Grid>

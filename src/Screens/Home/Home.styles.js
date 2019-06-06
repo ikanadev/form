@@ -7,15 +7,6 @@ export default theme => ({
     alignItems: 'center',
     padding: theme.spacing(2)
   },
-  paperContainer: {
-    backgroundColor: '#DFDFDF',
-    padding: theme.spacing(4),
-    display: 'flex',
-    flexDirection: 'column',
-    alignContent: 'center',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
   drawerIcon: {
     position: 'absolute',
     top: theme.spacing(2),

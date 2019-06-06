@@ -1,7 +1,5 @@
 import React, { Fragment, useState, useRef } from 'react'
-import axios from 'axios'
 import { withSnackbar } from 'notistack'
-import Typography from '@material-ui/core/Typography'
 import SendIcon from '@material-ui/icons/Send'
 
 import ActionButton from '../../Components/ActionButton/ActionButton'
@@ -11,7 +9,8 @@ import Option from '../../Components/Form/Option'
 import CustomOption from '../../Components/Form/CustomOption'
 import CustomInputs from '../../Components/Form/CustomInputs'
 import Multiple from '../../Components/Form/Multiple'
-import { endpoints } from '../../utils'
+import Title from '../../Components/Title/Title'
+import { endpoints, axios } from '../../utils'
 
 const FormEst = ({ enqueueSnackbar }) => {
   const firstRef = useRef(0)
@@ -190,13 +189,8 @@ const FormEst = ({ enqueueSnackbar }) => {
       est67,
       est68
     }
-    const config = {
-      headers: {
-        Authorization: localStorage.getItem('token')
-      }
-    }
     // everithing works fine, but need some refactor to manage tokens
-    axios.post(endpoints.formEst, data, config)
+    axios.post(endpoints.formEst, data)
       .then(() => {
         setLoading(false)
         enqueueSnackbar('Formulario Enviado Correctamente.', { variant: 'success' })
@@ -281,9 +275,7 @@ const FormEst = ({ enqueueSnackbar }) => {
   }
   return (
     <Fragment>
-      <Typography color="primary" variant="h4">
-        Cuestionario para Estudiantes
-      </Typography>
+      <Title title="Cuestionario para Estudiantes" />
       <FieldSet title="I. Aspectos Generales" innerRef={firstRef}>
         <Simple width={4} value={est1} text="C.I.:" onChange={handleValue(setEst1)} autoFocus />
         <Simple width={8} value={est2} text="Nombre Completo:" onChange={handleValue(setEst2)} />
