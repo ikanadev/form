@@ -20,6 +20,7 @@ const Drawermenu = ({
   open, onClose, history, match, classes
 }) => {
   const { user } = useStore(userState)
+  const type = localStorage.getItem('type')
   const [selectedItem, setItemSelected] = useState(0)
   const goToRoute = (route, index) => () => {
     setItemSelected(index)
@@ -45,12 +46,16 @@ const Drawermenu = ({
           </ListItemIcon>
           <ListItemText primary="Mis Listas" />
         </ListItem>
-        <ListItem selected={selectedItem === 1} button onClick={goToRoute(`${match.url}/users`, 1)}>
-          <ListItemIcon>
-            <PeopleIcon />
-          </ListItemIcon>
-          <ListItemText primary="Panel de Usuarios" />
-        </ListItem>
+        {
+          type === 'admin' && (
+            <ListItem selected={selectedItem === 1} button onClick={goToRoute(`${match.url}/users`, 1)}>
+              <ListItemIcon>
+                <PeopleIcon />
+              </ListItemIcon>
+              <ListItemText primary="Panel de Usuarios" />
+            </ListItem>
+          )
+        }
         <ListItem selected={selectedItem === 2} button onClick={logout}>
           <ListItemIcon>
             <ExitIcon />

@@ -47,6 +47,7 @@ const Login = ({ classes, enqueueSnackbar, history }) => {
         setLoading(false)
         enqueueSnackbar('Login correcto.', { variant: 'success' })
         localStorage.setItem('token', content.token)
+        localStorage.setItem('type', content.type)
         history.push('/')
       })
       .catch((err) => {

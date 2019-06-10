@@ -10,7 +10,8 @@ const endpoints = {
   login: 'login',
   formEst: 'form/form-est',
   newUser: 'user',
-  usersList: 'users'
+  usersList: 'users',
+  handleActive: 'user/active'
 }
 
 const headerConfig = {
@@ -22,7 +23,7 @@ const headerConfig = {
 const axiosClone = axios.create({
   baseURL: endpoint,
   headers: {
-    Authorization: localStorage.getItem('item')
+    Authorization: localStorage.getItem('token')
   }
 })
 
