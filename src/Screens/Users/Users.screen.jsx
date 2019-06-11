@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from 'react'
-import axios from 'axios'
 import SendIcon from '@material-ui/icons/Send'
 import { withSnackbar } from 'notistack'
 
@@ -8,7 +7,7 @@ import Simple from '../../Components/Form/Simple'
 import ActionButton from '../../Components/ActionButton/ActionButton'
 import UsersList from './UsersList'
 import Title from '../../Components/Title/Title'
-import { endpoints, headerConfig } from '../../utils'
+import { endpoints, axios } from '../../utils'
 
 const Users = ({ enqueueSnackbar }) => {
   const [loading, setLoading] = useState(false)
@@ -31,8 +30,7 @@ const Users = ({ enqueueSnackbar }) => {
     const data = {
       nombre, appat, apmat, ci, cel: Number.parseInt(cel, 10), correo, dir
     }
-    console.log(headerConfig)
-    axios.post(endpoints.newUser, data, headerConfig)
+    axios.post(endpoints.newUser, data)
       .then((res) => {
         const { data: resData } = res
         if (resData.success) {
@@ -66,7 +64,7 @@ const Users = ({ enqueueSnackbar }) => {
         <Simple width={4} value={appat} text="Apellido Paterno:" onChange={handleValue(setAppat)} />
         <Simple width={4} value={apmat} text="Apellido Materno:" onChange={handleValue(setApmat)} />
         <Simple width={4} value={ci} text="C.I.:" type="number" onChange={handleValue(setCi)} />
-        <Simple width={4} value={cel} text="Teléfono:" type="number" onChange={handleValue(setCel)} />
+        <Simple width={4} value={cel} text="Teléfono o Celular:" type="number" onChange={handleValue(setCel)} />
         <Simple width={4} value={correo} text="Correo Electrónico:" type="email" onChange={handleValue(setCorreo)} />
         <Simple width={4} value={dir} text="Dirección:" onChange={handleValue(setDir)} />
         <div style={{ width: '100%' }}>

@@ -20,7 +20,6 @@ const Drawermenu = ({
   open, onClose, history, match, classes
 }) => {
   const { user } = useStore(userState)
-  const type = localStorage.getItem('type')
   const [selectedItem, setItemSelected] = useState(0)
   const goToRoute = (route, index) => () => {
     setItemSelected(index)
@@ -36,7 +35,7 @@ const Drawermenu = ({
       <div className={classes.header}>
         <AccountCircleIcon className={classes.icon} />
         <Typography>
-          {user.name}
+          {`${user.nombre} ${user.appat}`}
         </Typography>
       </div>
       <List>
@@ -44,10 +43,10 @@ const Drawermenu = ({
           <ListItemIcon>
             <ListIcon />
           </ListItemIcon>
-          <ListItemText primary="Mis Listas" />
+          <ListItemText primary="Mis Formularios" />
         </ListItem>
         {
-          type === 'admin' && (
+          user.type === 'admin' && (
             <ListItem selected={selectedItem === 1} button onClick={goToRoute(`${match.url}/users`, 1)}>
               <ListItemIcon>
                 <PeopleIcon />
@@ -56,7 +55,13 @@ const Drawermenu = ({
             </ListItem>
           )
         }
-        <ListItem selected={selectedItem === 2} button onClick={logout}>
+        <ListItem selected={selectedItem === 2} button onClick={goToRoute(`${match.url}/password`, 2)}>
+          <ListItemIcon>
+            <ListIcon />
+          </ListItemIcon>
+          <ListItemText primary="Cambiar Password" />
+        </ListItem>
+        <ListItem selected={selectedItem === 3} button onClick={logout}>
           <ListItemIcon>
             <ExitIcon />
           </ListItemIcon>

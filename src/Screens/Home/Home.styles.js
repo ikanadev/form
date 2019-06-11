@@ -26,5 +26,11 @@ export default theme => ({
     [theme.breakpoints.down('sm')]: {
       position: 'relative'
     }
+  },
+  progressCont: {
+    display: 'flex',
+    height: '100vh',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 })

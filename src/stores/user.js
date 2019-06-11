@@ -5,13 +5,16 @@ export default () => {
     id: 0,
     name: '',
     type: '',
-    email: ''
+    email: '',
+    appat: '',
+    apmat: '',
+    activo: false,
+    cel: 0,
+    ci: ''
   })
 
-  const setUserData = (id, name, type, email) => {
-    setUser({
-      id, name, type, email
-    })
+  const setUserData = (userData) => {
+    setUser(userData)
   }
 
   return { user, setUserData }

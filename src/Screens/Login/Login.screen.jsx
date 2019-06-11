@@ -42,8 +42,7 @@ const Login = ({ classes, enqueueSnackbar, history }) => {
     axios.post(endpoints.login, credentials)
       .then((res) => {
         const { content } = res.data
-        const { id, email: correo, nombre } = content.user
-        setUserData(id, nombre, content.type, correo)
+        setUserData(content.user)
         setLoading(false)
         enqueueSnackbar('Login correcto.', { variant: 'success' })
         localStorage.setItem('token', content.token)
