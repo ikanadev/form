@@ -65,11 +65,11 @@ const Login = ({ classes, enqueueSnackbar, history }) => {
       <Paper className={classes.paper}>
         <form>
           <div className={classes.margin}>
-            <Grid container spacing={8} alignItems="flex-end" justify="center">
-              <Grid item xs={1}>
+            <Grid container spacing={8} alignItems="flex-end" direction="row" justify="center">
+              <Grid item xs={2}>
                 <EmailIcon />
               </Grid>
-              <Grid item xs={11}>
+              <Grid item xs={10}>
                 <TextField
                   label="Correo elentrónico"
                   fullWidth
@@ -83,10 +83,10 @@ const Login = ({ classes, enqueueSnackbar, history }) => {
 
           <div className={classes.margin}>
             <Grid container spacing={8} alignItems="flex-end">
-              <Grid item xs={1}>
+              <Grid item xs={2}>
                 <VpnKeyIcon />
               </Grid>
-              <Grid item xs={11}>
+              <Grid item xs={10}>
                 <TextField
                   label="Contraseña"
                   fullWidth
