@@ -19,9 +19,11 @@ const UsersList = () => {
     axios.get(endpoints.usersList)
       .then(({ data: { content } }) => {
         setLoading(false)
-        setUsers(content.users)
+        if (Array.isArray(content.users)) {
+          setUsers(content.users)
+        }
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err.request))
   }
   const handleChange = id => () => {
     axios.post(endpoints.handleActive, { id })

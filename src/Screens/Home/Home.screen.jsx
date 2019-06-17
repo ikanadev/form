@@ -1,4 +1,5 @@
 import React, { useState, Fragment, useEffect } from 'react'
+import { withSnackbar } from 'notistack'
 import { useStore } from 'outstated'
 import { withStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
@@ -17,7 +18,9 @@ import ChangePassword from '../ChangePassword/ChangePassword.screen'
 
 import styles from './Home.styles'
 
-const Home = ({ match, classes, history }) => {
+const Home = ({
+  match, classes, history, enqueueSnackbar
+}) => {
   const { path } = match
   const { user, setUserData } = useStore(userState)
   const [isDrawerOpen, setOpenDrawer] = useState(false)
@@ -31,6 +34,17 @@ const Home = ({ match, classes, history }) => {
       axios.get(endpoints.newUser)
         .then(({ data: { content } }) => {
           setUserData(content.user)
+        })
+        .catch((err) => {
+          if (err.response && err.response.data) {
+            enqueueSnackbar(err.response.data.content, { variant: 'warning' })
+            localStorage.removeItem('token')
+            history.push('/')
+          } else {
+            enqueueSnackbar(err.message, { variant: 'error' })
+            localStorage.removeItem('token')
+            history.push('/')
+          }
         })
     }
   }, [])
@@ -69,4 +83,4 @@ const Home = ({ match, classes, history }) => {
   )
 }
 
-export default withStyles(styles)(Home)
+export default withSnackbar(withStyles(styles)(Home))

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, memo } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import ChipInput from 'material-ui-chip-input'
@@ -10,7 +10,7 @@ const styles = () => ({
 })
 
 const CustomInputs = ({
-  width, text, classes, onChange, upTo = 1
+  width, text, classes, setter, upTo = 1
 }) => {
   const [options, setOptions] = useState([])
   const [customOptions, setCustomOptions] = useState([])
@@ -29,7 +29,7 @@ const CustomInputs = ({
     setCustomOptions(customOptions.filter(chipItem => chipItem !== chip))
   }
   useEffect(() => {
-    onChange(`${options.join(',')};${customOptions.join(',')}`)
+    setter(`${options.join(',')};${customOptions.join(',')}`)
   }, [options, customOptions])
   return (
     <Grid item xs={12} md={6} lg={width} style={{ paddingLeft: 8, paddingRight: 8, paddingTop: 6 }}>
@@ -49,4 +49,4 @@ const CustomInputs = ({
   )
 }
 
-export default withStyles(styles)(CustomInputs)
+export default withStyles(styles)(memo(CustomInputs))

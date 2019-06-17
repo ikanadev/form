@@ -1,4 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, {
+  useState, useRef, useEffect, memo
+} from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import TextField from '@material-ui/core/TextField'
@@ -11,11 +13,11 @@ const styles = () => ({
 })
 
 const Option = ({
-  width, value, onChange, text, autoFocus = false, options = [], classes
+  width, value, setter, text, autoFocus = false, options = [], classes
 }) => {
   const otherRef = useRef(null)
   const [withInput, setWithInput] = useState(false)
-  const [otherValue, setOtherValue] = useState('')
+  // const [otherValue, setOtherValue] = useState('')
   const onChangeSelect = (e) => {
     const { value: valueSelect } = e.target
     if (valueSelect === (`${options.length}`)) {
@@ -23,16 +25,17 @@ const Option = ({
       return
     }
     setWithInput(false)
-    onChange(e)
+    setter(valueSelect)
   }
   const onChangeOther = (e) => {
     const { value: valueOther } = e.target
-    setOtherValue(valueOther)
-    onChange(e)
+    // setOtherValue(valueOther)
+    setter(valueOther)
   }
 
   useEffect(() => {
     if (withInput) {
+      setter('')
       otherRef.current.focus()
     }
   }, [withInput])
@@ -50,6 +53,7 @@ const Option = ({
           native: true
         }}
       >
+        <option value={0}>0. Ninguno</option>
         {
           options.map((option, index) => (
             <option key={index} value={index + 1}> {/* eslint-disable-line */}
@@ -62,7 +66,7 @@ const Option = ({
         disabled={!withInput}
         className={!withInput ? classes.input : null}
         fullWidth
-        value={otherValue}
+        value={withInput && value}
         placeholder="Ingrese aquí el texto"
         onChange={onChangeOther}
         inputProps={{
@@ -73,4 +77,9 @@ const Option = ({
   )
 }
 
-export default withStyles(styles)(Option)
+export default memo(withStyles(styles)(Option), (prevProps, nextProps) => {
+  if (prevProps.options.length === nextProps.options.length && prevProps.value === nextProps.value) {
+    return true
+  }
+  return false
+})

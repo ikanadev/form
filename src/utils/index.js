@@ -15,22 +15,19 @@ const endpoints = {
   handleActive: 'user/active'
 }
 
-const headerConfig = {
-  headers: {
-    Authorization: localStorage.getItem('token')
-  }
-}
-
 const axiosClone = axios.create({
   baseURL: endpoint,
   headers: {
     Authorization: localStorage.getItem('token')
   }
 })
+axiosClone.interceptors.request.use((config) => {
+  config.headers.Authorization = localStorage.getItem('token') // eslint-disable-line
+  return config
+})
 
 export {
   axiosClone as axios,
   checkAuth,
-  endpoints,
-  headerConfig
+  endpoints
 }

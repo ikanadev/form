@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
@@ -34,4 +34,4 @@ const ActionButton = ({
   </div>
 )
 
-export default withStyles(styles)(ActionButton)
+export default memo(withStyles(styles)(ActionButton))

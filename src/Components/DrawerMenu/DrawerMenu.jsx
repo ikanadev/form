@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 import ListIcon from '@material-ui/icons/List'
 import PeopleIcon from '@material-ui/icons/People'
+import VpnKeyIcon from '@material-ui/icons/VpnKey'
 import ExitIcon from '@material-ui/icons/ExitToApp'
 import { useStore } from 'outstated'
 import userState from '../../stores/user'
@@ -57,7 +58,7 @@ const Drawermenu = ({
         }
         <ListItem selected={selectedItem === 2} button onClick={goToRoute(`${match.url}/password`, 2)}>
           <ListItemIcon>
-            <ListIcon />
+            <VpnKeyIcon />
           </ListItemIcon>
           <ListItemText primary="Cambiar Password" />
         </ListItem>

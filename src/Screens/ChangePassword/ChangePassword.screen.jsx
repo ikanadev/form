@@ -17,10 +17,6 @@ const ChangePassword = ({ classes, enqueueSnackbar }) => {
   const [confirm, setConfirm] = useState('')
   const [loading, setLoading] = useState(false)
 
-  const handleValue = setter => (e) => {
-    const { value } = e.target
-    setter(value)
-  }
   const handleSubmit = () => {
     if (newP !== confirm) {
       enqueueSnackbar('Los passwords no coinciden', { variant: 'warning' })
@@ -51,9 +47,9 @@ const ChangePassword = ({ classes, enqueueSnackbar }) => {
       <Title title="Cambiar Password" />
       <Paper className={classes.paper}>
         <Grid container>
-          <Simple width={4} value={old} text="Anterior Password" onChange={handleValue(setOld)} autoFocus />
-          <Simple width={4} value={newP} text="Nuevo Password" type="password" onChange={handleValue(setNewP)} />
-          <Simple width={4} value={confirm} text="Confirmar Nuevo Password" type="password" onChange={handleValue(setConfirm)} />
+          <Simple width={4} value={old} text="Anterior Password" setter={setOld} autoFocus />
+          <Simple width={4} value={newP} text="Nuevo Password" type="password" setter={setNewP} />
+          <Simple width={4} value={confirm} text="Confirmar Nuevo Password" type="password" setter={setConfirm} />
         </Grid>
         <ActionButton
           text="Guardar"

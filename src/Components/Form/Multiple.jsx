@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, memo } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import TextField from '@material-ui/core/TextField'
@@ -28,7 +28,7 @@ const Multiple = ({
   title,
   options = [],
   classes,
-  onChange
+  setter
 }) => {
   const [answers, setAnswers] = useState(options.map(() => 1))
   const changeInput = pos => (ev) => {
@@ -41,7 +41,7 @@ const Multiple = ({
     setAnswers(newAnswers)
   }
   useEffect(() => {
-    onChange(answers.join(','))
+    setter(answers.join(','))
   }, [answers])
   return (
     <Grid
@@ -107,4 +107,9 @@ const Multiple = ({
   )
 }
 
-export default withStyles(styles)(Multiple)
+export default memo(withStyles(styles)(Multiple), (prevProps, nextProps) => {
+  if (prevProps.options.length === nextProps.options.length) {
+    return true
+  }
+  return false
+})

@@ -19,12 +19,6 @@ const Users = ({ enqueueSnackbar }) => {
   const [correo, setCorreo] = useState('')
   const [dir, setDir] = useState('')
 
-  const handleValue = setter => (e) => {
-    const { value } = e.target
-    // console.log(value)
-    setter(value)
-  }
-
   const onSubmit = () => {
     setLoading(true)
     const data = {
@@ -60,13 +54,13 @@ const Users = ({ enqueueSnackbar }) => {
       <Title title="Administrar Cuentas" />
 
       <FielSet title="Registrar nuevo Transcriptor">
-        <Simple width={4} value={nombre} text="Nombre(s):" onChange={handleValue(setNombre)} autoFocus />
-        <Simple width={4} value={appat} text="Apellido Paterno:" onChange={handleValue(setAppat)} />
-        <Simple width={4} value={apmat} text="Apellido Materno:" onChange={handleValue(setApmat)} />
-        <Simple width={4} value={ci} text="C.I.:" type="number" onChange={handleValue(setCi)} />
-        <Simple width={4} value={cel} text="Teléfono o Celular:" type="number" onChange={handleValue(setCel)} />
-        <Simple width={4} value={correo} text="Correo Electrónico:" type="email" onChange={handleValue(setCorreo)} />
-        <Simple width={4} value={dir} text="Dirección:" onChange={handleValue(setDir)} />
+        <Simple width={4} value={nombre} text="Nombre(s):" setter={setNombre} autoFocus />
+        <Simple width={4} value={appat} text="Apellido Paterno:" setter={setAppat} />
+        <Simple width={4} value={apmat} text="Apellido Materno:" setter={setApmat} />
+        <Simple width={4} value={ci} text="C.I.:" type="number" setter={setCi} />
+        <Simple width={4} value={cel} text="Teléfono o Celular:" type="number" setter={setCel} />
+        <Simple width={4} value={correo} text="Correo Electrónico:" type="email" setter={setCorreo} />
+        <Simple width={4} value={dir} text="Dirección:" setter={setDir} />
         <div style={{ width: '100%' }}>
           <ActionButton
             loading={loading}
