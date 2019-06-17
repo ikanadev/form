@@ -15,7 +15,7 @@ import { endpoints, axios } from '../../utils'
 const FormEst = ({ enqueueSnackbar }) => {
   const firstRef = useRef(null)
   const [loading, setLoading] = useState(false)
-  const [nro, setNro] = useState(0)
+  const [nro, setNro] = useState('')
   // I. ASPECTOS GENERALES
   const [est1, setEst1] = useState('')
   const [est2, setEst2] = useState('')

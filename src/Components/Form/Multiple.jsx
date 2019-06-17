@@ -92,9 +92,9 @@ const Multiple = ({
                 }}
               >
                 {
-                  [1, 2, 3, 4, 5].map((_, i) => (
-                    <option key={i} value={i + 1}> {/* eslint-disable-line */}
-                      {i + 1}
+                  [0, 1, 2, 3, 4, 5].map((_, i) => (
+                    <option key={i} value={i}> {/* eslint-disable-line */}
+                      {i}
                     </option>
                   ))
                 }
