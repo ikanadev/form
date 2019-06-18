@@ -1,6 +1,8 @@
 import React, { Fragment, useState, useRef } from 'react'
 import { withSnackbar } from 'notistack'
 import SendIcon from '@material-ui/icons/Send'
+import Button from '@material-ui/core/Button'
+import Grid from '@material-ui/core/Grid'
 
 import ActionButton from '../../Components/ActionButton/ActionButton'
 import FieldSet from '../../Components/FieldSet/FieldSet'
@@ -108,6 +110,54 @@ const FormEst = ({ enqueueSnackbar }) => {
   const [est68, setEst68] = useState('2019-05-01')
 
   const scrollToTop = () => window.scrollTo(0, firstRef.current.offsetTop)
+
+  const searchStudent = () => {
+    setLoading(true)
+    axios.post(endpoints.student, { ci: est1 })
+      .then(({ data }) => {
+        setLoading(false)
+        if (data.content) {
+          const {
+            student: {
+              apmat, appat, cel, email, email2, fecNac, genero, modIngreso, nombre, perIngreso, telf
+            }
+          } = data.content
+          let modalidad = '0'
+          switch (modIngreso) {
+            case 'Curso prefacultativo':
+              modalidad = '1'
+              break
+            case 'Prueba de suficiencia':
+              modalidad = '2'
+              break
+            case 'Traspaso interno UMSA':
+              modalidad = '4'
+              break
+            case 'Paralela':
+              modalidad = '5'
+              break
+            case 'Carrera Paralela':
+              modalidad = '5'
+              break
+            default:
+              break
+          }
+          setEst2(`${appat} ${apmat} ${nombre}`)
+          setEst3(perIngreso)
+          setEst5(fecNac)
+          setEst7(telf)
+          setEst8(cel)
+          setEst9(email === '' ? email2 : email)
+          setEst10(genero === 'M' ? '2' : '1')
+          setEst16(modalidad)
+          return
+        }
+        enqueueSnackbar(`No se econtró un estudiante con ci: ${est1}`)
+      }).catch(() => {
+        setLoading(false)
+        enqueueSnackbar(`No se econtró un estudiante con ci: ${est1}`)
+      })
+  }
 
   const onSubmit = () => {
     setLoading(true)
@@ -272,10 +322,23 @@ const FormEst = ({ enqueueSnackbar }) => {
       <Title title="Cuestionario para Estudiantes" />
       <FieldSet title="I. Aspectos Generales">
         <div ref={firstRef} />
-        <Simple width={3} value={nro} text="Nro. Formulario:" setter={setNro} type="number" autoFocus />
-        <Simple width={3} value={est1} text="C.I.:" setter={setEst1} />
+        <Simple width={2} value={nro} text="Nro. Formulario:" setter={setNro} type="number" autoFocus />
+        <Simple width={2} value={est1} text="C.I.:" setter={setEst1} />
+        <Grid
+          item
+          lg={2}
+          style={{
+            paddingLeft: 8,
+            paddingRight: 8,
+            paddingTop: 6
+          }}
+        >
+          <Button onClick={searchStudent} variant="contained" color="primary" disabled={loading}>
+            Buscar
+          </Button>
+        </Grid>
         <Simple width={6} value={est2} text="Nombre Completo:" setter={setEst2} />
-        <Simple width={4} value={est3} text="Gestión que Ingresó:" type="number" setter={setEst3} />
+        <Simple width={4} value={est3} text="Gestión que Ingresó:" setter={setEst3} />
         <Simple width={4} value={est4} text="Semestre que Cursa:" setter={setEst4} />
         <Simple width={4} value={est5} text="Fecha de Nacimiento:" type="date" setter={setEst5} />
         <Simple width={4} value={est6} text="Lugar de Nacimiento:" setter={setEst6} />
@@ -762,30 +825,38 @@ const FormEst = ({ enqueueSnackbar }) => {
       </FieldSet>
 
       <FieldSet title="X. Aspiraciones Futuras">
-        <CustomOption
+        <CustomInputs
           width={6}
           text="Cuando termine la carrera, me gustaría trabajar en:"
-          value={est58}
+          upTo={15}
           setter={setEst58}
-          options={[
-            'Emprendimiento propio',
-            'Educación regular',
-            'Sector público',
-            'Banca',
-            'ONG s',
-            'Empresas de desarrollo de software',
-            'Empresas de telecomunicaciones',
-            'Empresas de seguridad Informática',
-            'Empresas de monitoreo',
-            'Institutos de investigación',
-            'Educación superior',
-            'Freelance',
-            'Marketing digital',
-            'Auditoría de sistemas',
-            'Análisis de riesgo',
-            'Otro'
-          ]}
         />
+        {/*
+          <CustomOption
+            width={6}
+            text="Cuando termine la carrera, me gustaría trabajar en:"
+            value={est58}
+            setter={setEst58}
+            options={[
+              'Emprendimiento propio',
+              'Educación regular',
+              'Sector público',
+              'Banca',
+              'ONG s',
+              'Empresas de desarrollo de software',
+              'Empresas de telecomunicaciones',
+              'Empresas de seguridad Informática',
+              'Empresas de monitoreo',
+              'Institutos de investigación',
+              'Educación superior',
+              'Freelance',
+              'Marketing digital',
+              'Auditoría de sistemas',
+              'Análisis de riesgo',
+              'Otro'
+            ]}
+          />
+        */}
         <Simple width={6} value={est59} text="¿Dónde te gustaría trabajar?" setter={setEst59} />
         <CustomInputs
           width={12}

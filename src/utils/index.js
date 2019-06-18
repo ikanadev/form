@@ -12,7 +12,8 @@ const endpoints = {
   formEst: 'form/form-est',
   newUser: 'user',
   usersList: 'users',
-  handleActive: 'user/active'
+  handleActive: 'user/active',
+  student: 'student'
 }
 
 const axiosClone = axios.create({
