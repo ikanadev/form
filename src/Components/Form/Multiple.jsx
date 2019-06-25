@@ -28,9 +28,10 @@ const Multiple = ({
   title,
   options = [],
   classes,
-  setter
+  setter,
+  value
 }) => {
-  const [answers, setAnswers] = useState(options.map(() => 1))
+  const [answers, setAnswers] = useState(options.map(() => 0))
   const changeInput = pos => (ev) => {
     const newAnswers = answers.map((val, index) => {
       if (index === pos) {
@@ -43,6 +44,11 @@ const Multiple = ({
   useEffect(() => {
     setter(answers.join(','))
   }, [answers])
+  useEffect(() => {
+    if (value === '') {
+      setAnswers(options.map(() => 0))
+    }
+  }, [value])
   return (
     <Grid
       item
@@ -61,7 +67,7 @@ const Multiple = ({
       <FormLabel>{ title }</FormLabel>
       <FormGroup>
         {
-          options.map((option, index) => (
+          answers.map((answer, index) => (
             <div
               className={classes.cont}
               key={index} // eslint-disable-line
@@ -70,7 +76,7 @@ const Multiple = ({
                 className={classes.text}
                 variant="body1"
               >
-                {`${index + 1}. ${option}`}
+                {`${index + 1}. ${options[index]}`}
               </Typography>
               <TextField
                 className={classes.option}
@@ -81,6 +87,7 @@ const Multiple = ({
                 variant="outlined"
                 select
                 fullWidth
+                value={answer}
                 onChange={changeInput(index)}
                 SelectProps={{
                   native: true
@@ -108,7 +115,7 @@ const Multiple = ({
 }
 
 export default memo(withStyles(styles)(Multiple), (prevProps, nextProps) => {
-  if (prevProps.options.length === nextProps.options.length) {
+  if (prevProps.options.length === nextProps.options.length && prevProps.value === nextProps.value) {
     return true
   }
   return false

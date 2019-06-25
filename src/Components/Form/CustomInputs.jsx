@@ -10,7 +10,7 @@ const styles = () => ({
 })
 
 const CustomInputs = ({
-  width, text, classes, setter, upTo = 1
+  width, text, classes, setter, upTo = 1, value
 }) => {
   const [options, setOptions] = useState([])
   const [customOptions, setCustomOptions] = useState([])
@@ -31,6 +31,12 @@ const CustomInputs = ({
   useEffect(() => {
     setter(`${options.join(',')};${customOptions.join(',')}`)
   }, [options, customOptions])
+  useEffect(() => {
+    if (value === '') {
+      setOptions([])
+      setCustomOptions([])
+    }
+  }, [value])
   return (
     <Grid item xs={12} md={6} lg={width} style={{ paddingLeft: 8, paddingRight: 8, paddingTop: 6 }}>
       <ChipInput

@@ -238,7 +238,7 @@ const FormEst = ({ enqueueSnackbar }) => {
         setLoading(false)
         enqueueSnackbar('Formulario Enviado Correctamente.', { variant: 'success' })
         scrollToTop()
-        setNro(0)
+        setNro('')
         setEst1('')
         setEst2('')
         setEst3('')
@@ -248,27 +248,27 @@ const FormEst = ({ enqueueSnackbar }) => {
         setEst7('')
         setEst8('')
         setEst9('')
-        setEst10('1')
-        setEst11('1')
-        setEst12('1')
-        setEst13('1')
-        setEst14('1')
-        setEst15('1')
-        setEst16('1')
+        setEst10('0')
+        setEst11('0')
+        setEst12('0')
+        setEst13('0')
+        setEst14('0')
+        setEst15('0')
+        setEst16('0')
         setEst17('')
         setEst18('')
         setEst19('')
         setEst20('')
         setEst21('')
-        setEst22('1')
-        setEst23('1')
+        setEst22('0')
+        setEst23('0')
         setEst24('')
-        setEst25('1')
-        setEst26('1')
-        setEst27('1')
-        setEst28('1')
-        setEst29('1')
-        setEst30('1')
+        setEst25('0')
+        setEst26('0')
+        setEst27('0')
+        setEst28('0')
+        setEst29('0')
+        setEst30('0')
         setEst31('')
         setEst32('')
         setEst33('')
@@ -286,7 +286,7 @@ const FormEst = ({ enqueueSnackbar }) => {
         setEst45('')
         setEst46('')
         setEst47('')
-        setEst48('1')
+        setEst48('0')
         setEst49('')
         setEst50('')
         setEst51('')
@@ -296,7 +296,7 @@ const FormEst = ({ enqueueSnackbar }) => {
         setEst55('')
         setEst56('')
         setEst57('')
-        setEst58('1')
+        setEst58('0')
         setEst59('')
         setEst60('')
         setEst61('')
@@ -419,30 +419,35 @@ const FormEst = ({ enqueueSnackbar }) => {
         <CustomInputs
           width={6}
           upTo={0}
+          value={est17}
           setter={setEst17}
           text="Motivos por que eligió la carrera"
         />
         <CustomInputs
           width={6}
           upTo={8}
+          value={est18}
           setter={setEst18}
           text="Área de preferencia en la Carrera:"
         />
         <CustomInputs
           width={6}
           upTo={4}
+          value={est19}
           setter={setEst19}
           text="Razones por las que Abandonó Materias:"
         />
         <CustomInputs
           width={6}
           upTo={0}
+          value={est20}
           setter={setEst20}
           text="Materias que prefiere cursar en verano y/o invierno"
         />
         <CustomInputs
           width={6}
           upTo={4}
+          value={est21}
           setter={setEst21}
           text="Razones por las que Abandonó la Carrera:"
         />
@@ -480,6 +485,7 @@ const FormEst = ({ enqueueSnackbar }) => {
               <CustomInputs
                 width={4}
                 upTo={3}
+                value={est24}
                 setter={setEst24}
                 text="Razones por las que trabaja:"
               />
@@ -583,12 +589,14 @@ const FormEst = ({ enqueueSnackbar }) => {
               <CustomInputs
                 width={6}
                 upTo={10}
+                value={est31}
                 setter={setEst31}
                 text="Principales actividades que desarrolla durante su trabajo:"
               />
               <Multiple
                 title="Aspectos en su formacion"
                 width={6}
+                value={est32}
                 setter={setEst32}
                 options={[
                   'Materias de servicio (Mat-Fis)',
@@ -606,6 +614,7 @@ const FormEst = ({ enqueueSnackbar }) => {
         <Multiple
           title="El licenciado en Informática, al concluir la curricula será capaz de:"
           width={12}
+          value={est33}
           setter={setEst33}
           options={[
             'Generar conocieminetos para modernizar los procesos de gestión y producción industrial.',
@@ -618,6 +627,7 @@ const FormEst = ({ enqueueSnackbar }) => {
         <Multiple
           title="Pregunta 34, Pagina 3"
           width={12}
+          value={est34}
           setter={setEst34}
           options={[
             'El perfil del profesional en Informática es pertinente con la realidad actual',
@@ -631,6 +641,7 @@ const FormEst = ({ enqueueSnackbar }) => {
         <Multiple
           title="Asignaturas y plan de estudio."
           width={12}
+          value={est36}
           setter={setEst36}
           options={[
             'Las asignaturas del plan de estudios son adecuadas para formar al profesional en Informática',
@@ -646,24 +657,28 @@ const FormEst = ({ enqueueSnackbar }) => {
         <CustomInputs
           width={12}
           upTo={0}
+          value={est39}
           setter={setEst39}
           text="Mencione al menos 3 materias que considera le hacen falta a la Mención Ingeniería de Sistemas Informáticos"
         />
         <CustomInputs
           width={12}
           upTo={0}
+          value={est40}
           setter={setEst40}
           text="Mencione al menos 3 materias que considera le hacen falta a la Mención de Ciencias de la Computación"
         />
         <CustomInputs
           width={12}
           upTo={0}
+          value={est41}
           setter={setEst41}
           text="Mencione al menos 3 materias que NO debería estar en la Mención Ingeniería de sistemas informáticos."
         />
         <CustomInputs
           width={12}
           upTo={0}
+          value={est42}
           setter={setEst42}
           text="Mencione al menos 3 materias que NO deberían estar en la Mención Ciencias de la Computación"
         />
@@ -673,6 +688,7 @@ const FormEst = ({ enqueueSnackbar }) => {
         <Multiple
           title="Aulas y Equipamiento"
           width={12}
+          value={est43}
           setter={setEst43}
           options={[
             'La cantidad de aulas es adecuada para atender las necesidades de estudiantes y docentes',
@@ -697,6 +713,7 @@ const FormEst = ({ enqueueSnackbar }) => {
         <Multiple
           title="Licenciado en Informática"
           width={12}
+          value={est45}
           setter={setEst45}
           options={[
             'El título de licenciado en Informática es coherente con la demanda del mercado acutal',
@@ -708,6 +725,7 @@ const FormEst = ({ enqueueSnackbar }) => {
         <Multiple
           title="Carreras o Programas"
           width={12}
+          value={est47}
           setter={setEst47}
           options={[
             'Licenciatura en Informática',
@@ -737,6 +755,7 @@ const FormEst = ({ enqueueSnackbar }) => {
         <CustomInputs
           width={6}
           upTo={5}
+          value={est49}
           setter={setEst49}
           text="¿Qué modalidades de graduación elegiría?"
         />
@@ -746,30 +765,35 @@ const FormEst = ({ enqueueSnackbar }) => {
         <CustomInputs
           width={6}
           upTo={12}
+          value={est50}
           setter={setEst50}
           text="En cuanto a lenguajes de programación"
         />
         <CustomInputs
           width={6}
           upTo={12}
+          value={est51}
           setter={setEst51}
           text="En cuanto a gestores de bases de datos"
         />
         <CustomInputs
           width={4}
           upTo={4}
+          value={est52}
           setter={setEst52}
           text="En cuanto a metodologías de desarrollo"
         />
         <CustomInputs
           width={4}
           upTo={4}
+          value={est53}
           setter={setEst53}
           text="En cuanto a sistemas operativos"
         />
         <CustomInputs
           width={4}
           upTo={12}
+          value={est54}
           setter={setEst54}
           text="En cuanto a Frameworks"
         />
@@ -779,6 +803,7 @@ const FormEst = ({ enqueueSnackbar }) => {
         <Multiple
           title="¿Cuáles considera que son las competencias generales que debe tener un Informático?"
           width={12}
+          value={est55}
           setter={setEst55}
           options={[
             'Trabajar en un contexto multidisciplinario',
@@ -799,6 +824,7 @@ const FormEst = ({ enqueueSnackbar }) => {
         <Multiple
           title="¿Cuáles considera que son las competencias específicas que debe tener un Informático?"
           width={12}
+          value={est56}
           setter={setEst56}
           options={[
             'Diseñar soluciones informáticas a pedido',
@@ -819,6 +845,7 @@ const FormEst = ({ enqueueSnackbar }) => {
         <CustomInputs
           width={12}
           upTo={21}
+          value={est57}
           setter={setEst57}
           text="Líneas de Investigación"
         />
@@ -829,6 +856,7 @@ const FormEst = ({ enqueueSnackbar }) => {
           width={6}
           text="Cuando termine la carrera, me gustaría trabajar en:"
           upTo={15}
+          value={est58}
           setter={setEst58}
         />
         {/*
@@ -861,30 +889,35 @@ const FormEst = ({ enqueueSnackbar }) => {
         <CustomInputs
           width={12}
           upTo={7}
+          value={est60}
           setter={setEst60}
           text="¿Que certificaciones consideras importantes?"
         />
         <CustomInputs
           width={6}
           upTo={0}
+          value={est61}
           setter={setEst61}
           text="Diplomado:"
         />
         <CustomInputs
           width={6}
           upTo={0}
+          value={est62}
           setter={setEst62}
           text="Maestría:"
         />
         <CustomInputs
           width={6}
           upTo={0}
+          value={est63}
           setter={setEst63}
           text="Doctorado:"
         />
         <CustomInputs
           width={6}
           upTo={0}
+          value={est64}
           setter={setEst64}
           text="Otro:"
         />
