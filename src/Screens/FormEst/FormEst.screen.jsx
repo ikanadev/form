@@ -296,7 +296,7 @@ const FormEst = ({ enqueueSnackbar }) => {
         setEst55('')
         setEst56('')
         setEst57('')
-        setEst58('0')
+        setEst58('')
         setEst59('')
         setEst60('')
         setEst61('')

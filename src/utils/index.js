@@ -4,8 +4,8 @@ const checkAuth = () => {
   const token = localStorage.getItem('token')
   return !!token
 }
-// const endpoint = 'http://localhost:4000/api/'
-const endpoint = 'http://192.168.60.83:4000/api/'
+const endpoint = 'http://localhost:4000/api/'
+// const endpoint = 'http://192.168.60.83:4000/api/'
 
 const endpoints = {
   login: 'login',
