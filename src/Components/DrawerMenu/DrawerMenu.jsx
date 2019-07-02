@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, Fragment } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Drawer from '@material-ui/core/Drawer'
 import List from '@material-ui/core/List'
@@ -12,6 +12,7 @@ import ListIcon from '@material-ui/icons/List'
 import PeopleIcon from '@material-ui/icons/People'
 import VpnKeyIcon from '@material-ui/icons/VpnKey'
 import ExitIcon from '@material-ui/icons/ExitToApp'
+import SearchIcon from '@material-ui/icons/Search'
 import { useStore } from 'outstated'
 import userState from '../../stores/user'
 
@@ -48,21 +49,29 @@ const Drawermenu = ({
         </ListItem>
         {
           user.type === 'admin' && (
-            <ListItem selected={selectedItem === 1} button onClick={goToRoute(`${match.url}/users`, 1)}>
-              <ListItemIcon>
-                <PeopleIcon />
-              </ListItemIcon>
-              <ListItemText primary="Panel de Usuarios" />
-            </ListItem>
+            <Fragment>
+              <ListItem selected={selectedItem === 1} button onClick={goToRoute(`${match.url}/search-form`, 1)}>
+                <ListItemIcon>
+                  <SearchIcon />
+                </ListItemIcon>
+                <ListItemText primary="Buscar Formulario" />
+              </ListItem>
+              <ListItem selected={selectedItem === 2} button onClick={goToRoute(`${match.url}/users`, 2)}>
+                <ListItemIcon>
+                  <PeopleIcon />
+                </ListItemIcon>
+                <ListItemText primary="Panel de Usuarios" />
+              </ListItem>
+            </Fragment>
           )
         }
-        <ListItem selected={selectedItem === 2} button onClick={goToRoute(`${match.url}/password`, 2)}>
+        <ListItem selected={selectedItem === 3} button onClick={goToRoute(`${match.url}/password`, 3)}>
           <ListItemIcon>
             <VpnKeyIcon />
           </ListItemIcon>
           <ListItemText primary="Cambiar Password" />
         </ListItem>
-        <ListItem selected={selectedItem === 3} button onClick={logout}>
+        <ListItem selected={selectedItem === 4} button onClick={logout}>
           <ListItemIcon>
             <ExitIcon />
           </ListItemIcon>

@@ -12,6 +12,7 @@ import { axios, endpoints } from '../../utils'
 import userState from '../../stores/user'
 
 import FormList from '../FormList/FormList.screen'
+import SeachForm from '../SearchForm/SearchForm.screen'
 import Users from '../Users/Users.screen'
 import FormEst from '../FormEst/FormEst.screen'
 import ChangePassword from '../ChangePassword/ChangePassword.screen'
@@ -69,7 +70,10 @@ const Home = ({
                   <PrivateRoute path={`${path}/form-est`} component={FormEst} />
                   {
                     user.type === 'admin' && (
-                      <PrivateRoute path={`${path}/users`} component={Users} />
+                      <Fragment>
+                        <PrivateRoute path={`${path}/search-form`} component={SeachForm} />
+                        <PrivateRoute path={`${path}/users`} component={Users} />
+                      </Fragment>
                     )
                   }
                   <PrivateRoute path={`${path}/password`} component={ChangePassword} />
