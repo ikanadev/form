@@ -13,7 +13,8 @@ const endpoints = {
   newUser: 'user',
   usersList: 'users',
   handleActive: 'user/active',
-  student: 'student'
+  student: 'student',
+  searchFormEst: nro => `form/form-est/${nro}`
 }
 
 const axiosClone = axios.create({

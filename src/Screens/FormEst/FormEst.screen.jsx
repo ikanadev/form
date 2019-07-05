@@ -158,8 +158,25 @@ const FormEst = ({ enqueueSnackbar }) => {
         enqueueSnackbar(`No se econtró un estudiante con ci: ${est1}`)
       })
   }
+  const checkExistence = () => {
+    setLoading(true)
+    axios.get(endpoints.searchFormEst(nro))
+      .then(() => {
+        setLoading(false)
+        enqueueSnackbar('El formulario ya fue REGISTRADO', { variant: 'warning' })
+        setNro('')
+      })
+      .catch(() => {
+        setLoading(false)
+        enqueueSnackbar('Formulario NO registrado, puede continuar')
+      })
+  }
 
   const onSubmit = () => {
+    if (nro.charAt(0) === '0') {
+      enqueueSnackbar('El NRO de Formulario no debe tener 0\'s (ceros) por delante.')
+      return
+    }
     setLoading(true)
     const data = {
       nro,
@@ -322,22 +339,36 @@ const FormEst = ({ enqueueSnackbar }) => {
       <Title title="Cuestionario para Estudiantes" />
       <FieldSet title="I. Aspectos Generales">
         <div ref={firstRef} />
-        <Simple width={2} value={nro} text="Nro. Formulario:" setter={setNro} type="number" autoFocus />
-        <Simple width={2} value={est1} text="C.I.:" setter={setEst1} />
+        <Simple width={3} value={nro} text="Nro. Formulario:" setter={setNro} type="number" autoFocus />
         <Grid
           item
-          lg={2}
+          lg={3}
           style={{
             paddingLeft: 8,
             paddingRight: 8,
             paddingTop: 6
           }}
         >
-          <Button onClick={searchStudent} variant="contained" color="primary" disabled={loading}>
-            Buscar
+          <Button onClick={checkExistence} variant="contained" color="primary" disabled={loading} fullWidth>
+            Verificar Existencia
           </Button>
         </Grid>
-        <Simple width={6} value={est2} text="Nombre Completo:" setter={setEst2} />
+        <Simple width={3} value={est1} text="C.I.:" setter={setEst1} />
+        <Grid
+          item
+          lg={3}
+          style={{
+            paddingLeft: 8,
+            paddingRight: 8,
+            paddingTop: 6
+          }}
+          alignItems="center"
+        >
+          <Button onClick={searchStudent} variant="contained" color="primary" disabled={loading} fullWidth>
+            Buscar Estudiante
+          </Button>
+        </Grid>
+        <Simple width={12} value={est2} text="Nombre Completo:" setter={setEst2} />
         <Simple width={4} value={est3} text="Gestión que Ingresó:" setter={setEst3} />
         <Simple width={4} value={est4} text="Semestre que Cursa:" setter={setEst4} />
         <Simple width={4} value={est5} text="Fecha de Nacimiento:" type="date" setter={setEst5} />
