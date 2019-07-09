@@ -15,6 +15,7 @@ import FormList from '../FormList/FormList.screen'
 import SeachForm from '../SearchForm/SearchForm.screen'
 import Users from '../Users/Users.screen'
 import FormEst from '../FormEst/FormEst.screen'
+import FormPro from '../FormPro/FormPro.screen'
 import ChangePassword from '../ChangePassword/ChangePassword.screen'
 
 import styles from './Home.styles'
@@ -68,6 +69,7 @@ const Home = ({
 
                   <PrivateRoute path={path} component={FormList} exact />
                   <PrivateRoute path={`${path}/form-est`} component={FormEst} />
+                  <PrivateRoute path={`${path}/form-pro`} component={FormPro} />
                   {
                     user.type === 'admin' && (
                       <Fragment>

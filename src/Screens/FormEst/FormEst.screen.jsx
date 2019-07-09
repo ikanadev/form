@@ -362,7 +362,6 @@ const FormEst = ({ enqueueSnackbar }) => {
             paddingRight: 8,
             paddingTop: 6
           }}
-          alignItems="center"
         >
           <Button onClick={searchStudent} variant="contained" color="primary" disabled={loading} fullWidth>
             Buscar Estudiante

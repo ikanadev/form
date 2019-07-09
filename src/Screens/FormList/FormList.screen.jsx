@@ -14,6 +14,11 @@ const formularios = [
     id: 1,
     name: 'Cuestionario para estudiantes',
     route: 'form-est'
+  },
+  {
+    id: 2,
+    name: 'Cuestionario para profesionales',
+    route: 'form-pro'
   }
 ]
 

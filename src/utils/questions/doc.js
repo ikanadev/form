@@ -1,6 +1,4 @@
-// types: simple
 export default ({
-  nro: { title: 'Nro.' },
   // ASPECTOR GENERALES
   doc1: { title: 'C.I.:' },
   doc2: { title: 'Nombre completo:' },
