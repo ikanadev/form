@@ -13,6 +13,7 @@ import PeopleIcon from '@material-ui/icons/People'
 import VpnKeyIcon from '@material-ui/icons/VpnKey'
 import ExitIcon from '@material-ui/icons/ExitToApp'
 import SearchIcon from '@material-ui/icons/Search'
+import ReleaseIcon from '@material-ui/icons/NewReleases'
 import { useStore } from 'outstated'
 import userState from '../../stores/user'
 
@@ -33,7 +34,7 @@ const Drawermenu = ({
     history.push('/login')
   }
   return (
-    <Drawer open={open} onClose={onClose}>
+    <Drawer open={open} onClose={onClose} PaperProps={{ style: { minWidth: 250 } }}>
       <div className={classes.header}>
         <AccountCircleIcon className={classes.icon} />
         <Typography>
@@ -78,6 +79,16 @@ const Drawermenu = ({
           <ListItemText primary="Salir" classes={{ root: styles.text }} />
         </ListItem>
       </List>
+      <div style={{ position: 'absolute', bottom: 0, width: '100%' }}>
+        <List>
+          <ListItem button onClick={goToRoute(`${match.url}/features`)}>
+            <ListItemIcon>
+              <ReleaseIcon color="primary" />
+            </ListItemIcon>
+            <ListItemText primaryTypographyProps={{ color: 'primary' }} primary="Novedades y sugerencias" classes={{ root: styles.text }} />
+          </ListItem>
+        </List>
+      </div>
     </Drawer>
   )
 }

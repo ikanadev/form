@@ -100,9 +100,13 @@ const FormPro = ({ enqueueSnackbar }) => {
         enqueueSnackbar('El formulario ya fue registrado', { variant: 'warning' })
         setNro('')
       })
-      .catch(() => {
+      .catch(({ response }) => {
         setLoading(false)
-        enqueueSnackbar('Formulario NO registrado, puede continuar')
+        if (response && response.data && response.data.content) {
+          enqueueSnackbar(`${response.data.content}. Puede continuar con el llenado`)
+          return
+        }
+        enqueueSnackbar('Hubo un error verificando el formulario', { variant: 'error' })
       })
   }
 
@@ -353,8 +357,8 @@ const FormPro = ({ enqueueSnackbar }) => {
       </FieldSet>
 
       <FieldSet title="Datos de la Encuesta">
-        <Simple width={8} value={pro58} text="Encuestador:" setter={setPro58} />
-        <Simple width={4} value={pro59} text="Fecha de Encuesta:" type="date" setter={setPro59} />
+        <Simple width={8} value={pro58} text={q.pro58.title} setter={setPro58} />
+        <Simple width={4} value={pro59} text={q.pro59.title} type="date" setter={setPro59} />
       </FieldSet>
 
       <div style={{ width: '100%' }}>

@@ -12,13 +12,18 @@ import Title from '../../Components/Title/Title'
 const formularios = [
   {
     id: 1,
-    name: 'Cuestionario para estudiantes',
+    name: 'Cuestionario para Estudiantes',
     route: 'form-est'
   },
   {
     id: 2,
-    name: 'Cuestionario para profesionales',
+    name: 'Cuestionario para Profesionales',
     route: 'form-pro'
+  },
+  {
+    id: 3,
+    name: 'Cuestionario para Docentes',
+    route: 'form-doc'
   }
 ]
 

@@ -166,9 +166,13 @@ const FormEst = ({ enqueueSnackbar }) => {
         enqueueSnackbar('El formulario ya fue REGISTRADO', { variant: 'warning' })
         setNro('')
       })
-      .catch(() => {
+      .catch(({ response }) => {
         setLoading(false)
-        enqueueSnackbar('Formulario NO registrado, puede continuar')
+        if (response && response.data && response.data.content) {
+          enqueueSnackbar(`${response.data.content}. Puede continuar con el llenado`)
+          return
+        }
+        enqueueSnackbar('Hubo un error verificando el formulario', { variant: 'error' })
       })
   }
 

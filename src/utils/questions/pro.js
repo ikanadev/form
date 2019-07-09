@@ -196,5 +196,7 @@ export default ({
   pro54: { title: '¿Qué estudios de postgrado te interesaría seguir en los siguientes años? (Maestría)' },
   pro55: { title: '¿Qué estudios de postgrado te interesaría seguir en los siguientes años? (Doctorado)' },
   pro56: { title: '¿Qué estudios de postgrado te interesaría seguir en los siguientes años? (Otros)' },
-  pro57: { title: 'Mencione algunas sugerencias para mejorar el plan de estudios de la carrera de Informática:' }
+  pro57: { title: 'Mencione algunas sugerencias para mejorar el plan de estudios de la carrera de Informática:' },
+  pro58: { title: 'Encuestador:' },
+  pro59: { title: 'Fecha de encuesta:' }
 })
