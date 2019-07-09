@@ -9,12 +9,14 @@ const endpoint = 'http://localhost:4000/api/'
 
 const endpoints = {
   login: 'login',
-  formEst: 'form/form-est',
   newUser: 'user',
   usersList: 'users',
   handleActive: 'user/active',
   student: 'student',
-  searchFormEst: nro => `form/form-est/${nro}`
+  formEst: 'form/form-est',
+  searchFormEst: nro => `form/form-est/${nro}`,
+  formPro: 'form/form-pro',
+  searchFormPro: pro => `form/form-pro/${pro}`
 }
 
 const axiosClone = axios.create({

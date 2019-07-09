@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useRef } from 'react'
+import { withSnackbar } from 'notistack'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 import SendIcon from '@material-ui/icons/Send'
@@ -12,9 +13,10 @@ import CustomInputs from '../../Components/Form/CustomInputs'
 import Multiple from '../../Components/Form/Multiple'
 import Title from '../../Components/Title/Title'
 
+import { axios, endpoints } from '../../utils'
 import q from '../../utils/questions/pro'
 
-const FormPro = () => {
+const FormPro = ({ enqueueSnackbar }) => {
   const firstRef = useRef(null)
   const [loading, setLoading] = useState(false)
   const [nro, setNro] = useState('')
@@ -88,12 +90,164 @@ const FormPro = () => {
   const [pro58, setPro58] = useState('')
   const [pro59, setPro59] = useState('2000-11-01')
 
+  const scrollToTop = () => window.scrollTo(0, firstRef.current.offsetTop)
+
   const checkExistence = () => {
-    console.log('CHECK EXISTENCE')
+    setLoading(true)
+    axios.get(endpoints.searchFormPro(nro))
+      .then(() => {
+        setLoading(false)
+        enqueueSnackbar('El formulario ya fue registrado', { variant: 'warning' })
+        setNro('')
+      })
+      .catch(() => {
+        setLoading(false)
+        enqueueSnackbar('Formulario NO registrado, puede continuar')
+      })
   }
 
   const onSubmit = () => {
-
+    if (nro.charAt(0) === '0') {
+      enqueueSnackbar('El NRO de Formulario no debe tener 0\'s (ceros) por delante.')
+      return
+    }
+    setLoading(true)
+    const data = {
+      nro,
+      pro1,
+      pro2,
+      pro3,
+      pro4,
+      pro5,
+      pro6,
+      pro7,
+      pro8,
+      pro9,
+      pro10,
+      pro11,
+      pro12,
+      pro13,
+      pro14,
+      pro15,
+      pro16,
+      pro17,
+      pro18,
+      pro19,
+      pro20,
+      pro21,
+      pro22,
+      pro23,
+      pro24,
+      pro25,
+      pro26,
+      pro27,
+      pro28,
+      pro29,
+      pro30,
+      pro31,
+      pro32,
+      pro33,
+      pro34,
+      pro35,
+      pro36,
+      pro37,
+      pro38,
+      pro39,
+      pro40,
+      pro41,
+      pro42,
+      pro43,
+      pro44,
+      pro45,
+      pro46,
+      pro47,
+      pro48,
+      pro49,
+      pro50,
+      pro51,
+      pro52,
+      pro53,
+      pro54,
+      pro55,
+      pro56,
+      pro57,
+      pro58,
+      pro59
+    }
+    axios.post(endpoints.formPro, data)
+      .then(() => {
+        setLoading(false)
+        enqueueSnackbar('Formulario Enviado Correctamente.', { variant: 'success' })
+        scrollToTop()
+        setNro('')
+        setPro1('')
+        setPro2('')
+        setPro3('')
+        setPro4('')
+        setPro5('')
+        setPro6('')
+        setPro7('0')
+        setPro8('0')
+        setPro9('0')
+        setPro10('0')
+        setPro11('')
+        setPro12('')
+        setPro13('')
+        setPro14('')
+        setPro15('')
+        setPro16('0')
+        setPro17('')
+        setPro18('0')
+        setPro19('')
+        setPro20('')
+        setPro21('0')
+        setPro22('0')
+        setPro23('0')
+        setPro24('0')
+        setPro25('0')
+        setPro26('0')
+        setPro27('0')
+        setPro28('0')
+        setPro29('0')
+        setPro30('')
+        setPro31('')
+        setPro32('')
+        setPro33('')
+        setPro34('')
+        setPro35('')
+        setPro36('')
+        setPro37('')
+        setPro38('')
+        setPro39('')
+        setPro40('')
+        setPro41('')
+        setPro42('0')
+        setPro43('0')
+        setPro44('')
+        setPro45('')
+        setPro46('')
+        setPro47('')
+        setPro48('')
+        setPro49('')
+        setPro50('')
+        setPro51('')
+        setPro52('')
+        setPro53('')
+        setPro54('')
+        setPro55('')
+        setPro56('')
+        setPro57('')
+        setPro58('')
+        setPro59('2000-11-01')
+      })
+      .catch((e) => {
+        setLoading(false)
+        if (e.response && e.response.data.content) {
+          enqueueSnackbar(e.response.data.content, { variant: 'error' })
+          return
+        }
+        enqueueSnackbar(e.message, { variant: 'error' })
+      })
   }
 
   return (
@@ -216,4 +370,4 @@ const FormPro = () => {
   )
 }
 
-export default FormPro
+export default withSnackbar(FormPro)
