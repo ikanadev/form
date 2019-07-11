@@ -22,6 +22,11 @@ const formularios = [
   },
   {
     id: 3,
+    name: 'Cuestionario para Estudiantes Prefas',
+    route: 'form-pre'
+  },
+  {
+    id: 4,
     name: 'Cuestionario para Docentes',
     route: 'form-doc'
   }
