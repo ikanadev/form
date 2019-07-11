@@ -288,21 +288,21 @@ const FormPro = ({ enqueueSnackbar }) => {
         <CustomInputs width={12} upTo={0} value={pro13} text={q.pro13.title} setter={setPro13} />
         <CustomInputs width={12} upTo={0} value={pro14} text={q.pro14.title} setter={setPro14} />
         <CustomInputs width={12} upTo={0} value={pro15} text={q.pro15.title} setter={setPro15} />
-        <CustomOption width={4} value={pro16} text={q.pro16.title} setter={setPro16} options={q.pro16.options} />
-        <CustomInputs width={8} upTo={0} value={pro17} text={q.pro17.title} setter={setPro17} />
+        <CustomInputs width={5} upTo={9} value={pro16} text={q.pro16.title} setter={setPro16} />
+        <CustomInputs width={7} upTo={0} value={pro17} text={q.pro17.title} setter={setPro17} />
       </FieldSet>
 
       <FieldSet title="II. Situación Laboral">
         <CustomOption width={3} value={pro18} text={q.pro18.title} setter={setPro18} options={q.pro18.options} />
         <Simple width={6} value={pro19} text={q.pro19.title} setter={setPro19} />
         <Simple width={3} value={pro20} text={q.pro20.title} setter={setPro20} type="number" />
-        <CustomOption width={6} value={pro21} text={q.pro21.title} setter={setPro21} options={q.pro21.options} />
+        <CustomInputs width={6} upTo={2} value={pro21} text={q.pro21.title} setter={setPro21} />
         <Option width={6} value={pro22} text={q.pro22.title} setter={setPro22} options={q.pro22.options} />
         <Option width={4} value={pro23} text={q.pro23.title} setter={setPro23} options={q.pro23.options} />
         <Option width={4} value={pro24} text={q.pro24.title} setter={setPro24} options={q.pro24.options} />
         <CustomOption width={4} value={pro25} text={q.pro25.title} setter={setPro25} options={q.pro25.options} />
         <CustomOption width={6} value={pro26} text={q.pro26.title} setter={setPro26} options={q.pro26.options} />
-        <CustomOption width={6} value={pro27} text={q.pro27.title} setter={setPro27} options={q.pro27.options} />
+        <CustomInputs width={6} upTo={11} value={pro27} text={q.pro27.title} setter={setPro27} />
         <CustomOption width={4} value={pro28} text={q.pro28.title} setter={setPro28} options={q.pro28.options} />
         <CustomOption width={4} value={pro29} text={q.pro29.title} setter={setPro29} options={q.pro29.options} />
         <CustomInputs width={4} upTo={10} value={pro30} text={q.pro30.title} setter={setPro30} />
