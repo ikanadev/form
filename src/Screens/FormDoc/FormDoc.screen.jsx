@@ -12,25 +12,7 @@ const FormDoc = () => {
   const submit = () => console.log(val)
   return (
     <Fragment>
-      <Title title="Cuestionario para Docentes" />
-      <Fieldset title="En Progreso">
-        <DobleInput
-          width={12}
-          value={val}
-          setter={setVal}
-          text1="Revista local y Nacional"
-          text2="Revista indexada"
-        />
-        <Button onClick={reset}>
-          reser
-        </Button>
-        <Button onClick={submit}>
-          enfias
-        </Button>
-        <Typography>
-          Estamos trabajando en ello :D
-        </Typography>
-      </Fieldset>
+      <Title title="Cuestionario para Docentes (en Progreso)" />
     </Fragment>
   )
 }

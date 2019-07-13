@@ -150,7 +150,6 @@ const FormPre = ({ enqueueSnackbar }) => {
         setLoading(false)
         enqueueSnackbar('Formulario enviado.', { variant: 'success' })
         scrollToTop()
-        /*
         setNro('')
         setPre1('')
         setPre2('')
@@ -195,7 +194,7 @@ const FormPre = ({ enqueueSnackbar }) => {
         setPre39('')
         setPre40('')
         setPre41('')
-        setPre42('2000-11-01') */
+        setPre42('2000-11-01')
       })
       .catch((e) => {
         setLoading(false)
