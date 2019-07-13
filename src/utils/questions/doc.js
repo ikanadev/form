@@ -25,8 +25,11 @@ export default ({
   doc11: { title: 'Fomarción Postgradual (Maestría):' },
   doc12: { title: 'Formación Postgradual (Doctorado):' },
   doc13: { title: 'Formación Postgradual (Otros):' },
-  doc14: { title: 'Revistal locales y nacionales (Especifique):', title2: 'Título del artículo:' },
-  doc15: { title: 'Revistar indexadas (Especifique):', title2: 'Título del artículo:' },
+  doc14a: { title: 'Revista locale y/o nacionale (Especifique):', title2: 'Título del artículo:' },
+  doc14b: { title: 'Revista locale y/o nacionale (Especifique):', title2: 'Título del artículo:' },
+  doc14c: { title: 'Revista indexada (Especifique):', title2: 'Título del artículo:' },
+  doc14d: { title: 'Revista indexada (Especifique):', title2: 'Título del artículo:' },
+  doc15: { title: 'Otros:' },
   // VINCULACIÓN CON LA CARRERA
   doc16: {
     title: 'Categoría docente:',

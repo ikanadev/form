@@ -17,17 +17,17 @@ const formularios = [
   },
   {
     id: 2,
-    name: 'Cuestionario para Profesionales',
+    name: 'Cuestionario para Profesionales del Área de Informática y Sistemas',
     route: 'form-pro'
   },
   {
     id: 3,
-    name: 'Cuestionario para Estudiantes Prefas',
+    name: 'Cuestionario para Estudiantes del Curso Pre-Universitario',
     route: 'form-pre'
   },
   {
     id: 4,
-    name: 'Cuestionario para Docentes',
+    name: 'Cuestionario para Docentes de la Carrera de Informática',
     route: 'form-doc'
   }
 ]

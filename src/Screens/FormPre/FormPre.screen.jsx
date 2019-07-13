@@ -13,7 +13,7 @@ import CustomInputs from '../../Components/Form/CustomInputs'
 import Multiple from '../../Components/Form/Multiple'
 import Title from '../../Components/Title/Title'
 
-// import { axios, endpoints } from '../../utils'
+import { axios, endpoints } from '../../utils'
 import q from '../../utils/questions/pre'
 
 const FormPre = ({ enqueueSnackbar }) => {
@@ -25,7 +25,7 @@ const FormPre = ({ enqueueSnackbar }) => {
   const [pre2, setPre2] = useState('')
   const [pre3, setPre3] = useState('')
   const [pre4, setPre4] = useState('')
-  const [pre5, setPre5] = useState('')
+  const [pre5, setPre5] = useState('2000-11-01')
   const [pre6, setPre6] = useState('')
   const [pre7, setPre7] = useState('')
   const [pre8, setPre8] = useState('')
@@ -72,9 +72,140 @@ const FormPre = ({ enqueueSnackbar }) => {
   const [pre41, setPre41] = useState('')
   const [pre42, setPre42] = useState('2000-11-01')
 
-  const checkExistence = () => {}
+  const scrollToTop = () => window.scrollTo(0, firstRef.current.offsetTop)
 
-  const onSubmit = () => {}
+  const checkExistence = () => {
+    setLoading(true)
+    axios.get(endpoints.searchFormPre(nro))
+      .then(() => {
+        setLoading(false)
+        enqueueSnackbar('El formulario ya fue registrado', { variant: 'warning' })
+        setNro('')
+      })
+      .catch(({ response }) => {
+        setLoading(false)
+        if (response && response.data && response.data.content) {
+          enqueueSnackbar(`${response.data.content}. Puede continuar.`)
+          return
+        }
+        enqueueSnackbar('Hubo un error verificando el formulario', { variant: 'error' })
+      })
+  }
+
+  const onSubmit = () => {
+    if (nro.charAt(0) === '0') {
+      enqueueSnackbar('El NRO de Formulario no debe tener 0\'s (ceros) por delante.')
+      return
+    }
+    setLoading(true)
+    const data = {
+      nro,
+      pre1,
+      pre2,
+      pre3,
+      pre4,
+      pre5,
+      pre6,
+      pre7,
+      pre8,
+      pre9,
+      pre10,
+      pre11,
+      pre12,
+      pre13,
+      pre14,
+      pre15,
+      pre16,
+      pre17,
+      pre18,
+      pre19,
+      pre20,
+      pre21,
+      pre22,
+      pre23,
+      pre24,
+      pre25,
+      pre26,
+      pre26a,
+      pre27,
+      pre27a,
+      pre28,
+      pre29,
+      pre30,
+      pre31,
+      pre32,
+      pre33,
+      pre34,
+      pre35,
+      pre36,
+      pre37,
+      pre38,
+      pre39,
+      pre40,
+      pre41,
+      pre42
+    }
+    axios.post(endpoints.formPre, data)
+      .then(() => {
+        setLoading(false)
+        enqueueSnackbar('Formulario enviado.', { variant: 'success' })
+        scrollToTop()
+        /*
+        setNro('')
+        setPre1('')
+        setPre2('')
+        setPre3('')
+        setPre4('')
+        setPre5('2000-11-01')
+        setPre6('')
+        setPre7('')
+        setPre8('')
+        setPre9('0')
+        setPre10('0')
+        setPre11('0')
+        setPre12('0')
+        setPre13('0')
+        setPre14('0')
+        setPre15('')
+        setPre16('')
+        setPre17('')
+        setPre18('')
+        setPre19('')
+        setPre20('')
+        setPre21('')
+        setPre22('')
+        setPre23('')
+        setPre24('')
+        setPre25('')
+        setPre26('0')
+        setPre26a('')
+        setPre27('0')
+        setPre27a('')
+        setPre28('')
+        setPre29('')
+        setPre30('')
+        setPre31('')
+        setPre32('')
+        setPre33('0')
+        setPre34('0')
+        setPre35('0')
+        setPre36('0')
+        setPre37('')
+        setPre38('')
+        setPre39('')
+        setPre40('')
+        setPre41('')
+        setPre42('2000-11-01') */
+      })
+      .catch((e) => {
+        setLoading(false)
+        if (e.response && e.response.data.content) {
+          enqueueSnackbar(e.response.data.content, { variant: 'error' })
+          return
+        }
+        enqueueSnackbar(e.message, { variant: 'error' })
+      })
+  }
 
   return (
     <Fragment>
@@ -98,8 +229,8 @@ const FormPre = ({ enqueueSnackbar }) => {
         <Simple width={4} value={pre1} setter={setPre1} text={q.pre1.title} />
         <Simple width={8} value={pre2} setter={setPre2} text={q.pre2.title} />
         <Simple width={4} value={pre3} setter={setPre3} text={q.pre3.title} />
-        <Simple width={4} value={pre4} setter={setPre4} text={q.pre4.title} />
-        <Simple width={4} value={pre5} setter={setPre5} text={q.pre5.title} />
+        <Simple width={4} value={pre4} setter={setPre4} text={q.pre4.title} type="number" />
+        <Simple width={4} value={pre5} setter={setPre5} text={q.pre5.title} type="date" />
         <Simple width={4} value={pre6} setter={setPre6} text={q.pre6.title} />
         <Simple width={4} value={pre7} setter={setPre7} text={q.pre7.title} />
         <Simple width={4} value={pre8} setter={setPre8} text={q.pre8.title} />
@@ -157,7 +288,7 @@ const FormPre = ({ enqueueSnackbar }) => {
       </FieldSet>
 
       <FieldSet title="VI. SUGERENCIAS">
-        <Simple width={4} value={pre40} setter={setPre40} text={q.pre40.title} multiline />
+        <Simple width={12} value={pre40} setter={setPre40} text={q.pre40.title} multiline />
       </FieldSet>
 
       <FieldSet title="Datos de la Encuesta">

@@ -16,7 +16,9 @@ const endpoints = {
   formEst: 'form/form-est',
   searchFormEst: nro => `form/form-est/${nro}`,
   formPro: 'form/form-pro',
-  searchFormPro: pro => `form/form-pro/${pro}`
+  searchFormPro: pro => `form/form-pro/${pro}`,
+  formPre: 'form/form-pre',
+  searchFormPre: nro => `form/form-pre/${nro}`
 }
 
 const axiosClone = axios.create({

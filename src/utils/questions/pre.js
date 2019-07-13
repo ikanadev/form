@@ -120,7 +120,8 @@ export default ({
     title: 'Tipo de empleo',
     options: [
       'Empleo de planta',
-      'Empleo eventual'
+      'Empleo eventual',
+      'Otro'
     ]
   },
   // GRADOS TÍTULOS Y MENCIONES
