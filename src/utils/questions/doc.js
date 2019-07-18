@@ -70,9 +70,13 @@ export default ({
   doc22: { title: '¿Qué debilidades tiene el plan de estudios actual?' },
   doc23: { title: '¿Qué fortalezas tiene el plan de estudios acual?' },
   doc24: { title: 'Mencione al menos 3 materias que considera le hacen falta a la Mención Ingeniería de Sistemas Informáticos:' },
+  doc24a: { title: 'Justifique:' },
   doc25: { title: 'Mencione al menos 3 materias que considera le hacen falta a la Mención Ciencias de la Computación:' },
+  doc25a: { title: 'Justifique:' },
   doc26: { title: 'Mencione al menos 3 materias que NO deberían estar en la Mención Ingeniería de Sistemas Informáticos:' },
+  doc26a: { title: 'Justifique:' },
   doc27: { title: 'Mencione al menos 3 materias que NO deberían estar en la Mención Ciencias de la Computación:' },
+  doc27a: { title: 'Justifique:' },
   // INFRAESTRUCTURA (AULAS, LABORATORIOS, BIBLIOTECAS, SERVICIOS)
   doc28: {
     title: 'Pregunta 1:',
@@ -123,8 +127,8 @@ export default ({
     options: ['Tesis de grado', 'Proyectos de grado', 'Por excelencia', 'Examen de grado', 'Trabajo dirigido']
   },
   doc35: {
-    title: '¿Aproximadamente cuántos trabajos de grado monitorea semestralmente?',
-    options: ['Tesis de grado', 'Proyecto de grado', 'Total']
+    title: '¿Aproximadamente cuántas TESIS DE GRADO monitorea semestralmente?',
+    title2: '¿Aproximadamente cuántos PROYECTOS DE GRADO monitorea semestralmente?'
   },
   doc36: {
     title: '¿Aproximadamente cuánto demora el estudiate en realizar su trabajo de grado?',
@@ -175,8 +179,8 @@ export default ({
   doc44: { title: 'Línea de Investigación:' },
   // SUGERENCIAS
   doc45: { title: 'Mecione algunas sugerencias para desarrollar en el Proyecto de Rediseño y Diseño curricular en la Carrera.' },
-  pro46: { title: 'Encuestador:' },
-  pro47: { title: 'Fecha de encuesta:' }
+  doc46: { title: 'Encuestador:' },
+  doc47: { title: 'Fecha de encuesta:' }
 })
 
 /**

@@ -4,8 +4,8 @@ const checkAuth = () => {
   const token = localStorage.getItem('token')
   return !!token
 }
-// const endpoint = 'http://localhost:4000/api/'
-const endpoint = 'http://192.168.60.83:4000/api/'
+const endpoint = 'http://localhost:4000/api/'
+// const endpoint = 'http://192.168.60.83:4000/api/'
 
 const endpoints = {
   login: 'login',
@@ -18,7 +18,9 @@ const endpoints = {
   formPro: 'form/form-pro',
   searchFormPro: pro => `form/form-pro/${pro}`,
   formPre: 'form/form-pre',
-  searchFormPre: nro => `form/form-pre/${nro}`
+  searchFormPre: nro => `form/form-pre/${nro}`,
+  formDoc: 'form/form-doc',
+  searchFormDoc: nro => `form/form-doc/${nro}`
 }
 
 const axiosClone = axios.create({
