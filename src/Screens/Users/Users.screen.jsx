@@ -1,77 +1,64 @@
-import React, { Fragment, useState } from 'react'
-import SendIcon from '@material-ui/icons/Send'
+import React, { Fragment, useState, useEffect } from 'react'
+import AddIcon from '@material-ui/icons/Add'
 import { withSnackbar } from 'notistack'
 
-import FielSet from '../../Components/FieldSet/FieldSet'
-import Simple from '../../Components/Form/Simple'
 import ActionButton from '../../Components/ActionButton/ActionButton'
 import UsersList from './UsersList'
 import Title from '../../Components/Title/Title'
+import UserForm from './UserForm'
 import { endpoints, axios } from '../../utils'
 
 const Users = ({ enqueueSnackbar }) => {
   const [loading, setLoading] = useState(false)
-  const [nombre, setNombre] = useState('')
-  const [appat, setAppat] = useState('')
-  const [apmat, setApmat] = useState('')
-  const [ci, setCi] = useState('')
-  const [cel, setCel] = useState('')
-  const [correo, setCorreo] = useState('')
-  const [dir, setDir] = useState('')
+  const [showModal, setShowModal] = useState(false)
+  const [users, setUsers] = useState([])
+  const [error, setError] = useState(null)
 
-  const onSubmit = () => {
+  const handleModal = () => {
+    setShowModal(!showModal)
+  }
+
+  const fetchUsers = () => {
     setLoading(true)
-    const data = {
-      nombre, appat, apmat, ci, cel: Number.parseInt(cel, 10), correo, dir
-    }
-    axios.post(endpoints.newUser, data)
-      .then((res) => {
-        const { data: resData } = res
-        if (resData.success) {
-          enqueueSnackbar('Registro Exitoso...', { variant: 'success' })
-        }
-        setNombre('')
-        setAppat('')
-        setApmat('')
-        setCi('')
-        setCel('')
-        setCorreo('')
-        setDir('')
+    axios.get(endpoints.usersList)
+      .then(({ data: { content } }) => {
         setLoading(false)
+        if (Array.isArray(content.users)) {
+          setUsers(content.users)
+        }
       })
-      .catch((e) => {
+      .catch((err) => {
         setLoading(false)
-        if (e.response && e.response.data.content) {
-          enqueueSnackbar(e.response.data.content, { variant: 'error' })
-          return
-        }
-        enqueueSnackbar(e.message, { variant: 'error' })
+        setError(err.message)
+        enqueueSnackbar(err.message, { variant: 'error' })
       })
   }
+
+  useEffect(() => {
+    fetchUsers()
+  }, [])
 
   return (
     <Fragment>
       <Title title="Administrar Cuentas" />
-
-      <FielSet title="Registrar nuevo Transcriptor">
-        <Simple width={4} value={nombre} text="Nombre(s):" setter={setNombre} autoFocus />
-        <Simple width={4} value={appat} text="Apellido Paterno:" setter={setAppat} />
-        <Simple width={4} value={apmat} text="Apellido Materno:" setter={setApmat} />
-        <Simple width={4} value={ci} text="C.I.:" type="number" setter={setCi} />
-        <Simple width={4} value={cel} text="Teléfono o Celular:" type="number" setter={setCel} />
-        <Simple width={4} value={correo} text="Correo Electrónico:" type="email" setter={setCorreo} />
-        <Simple width={4} value={dir} text="Dirección:" setter={setDir} />
-        <div style={{ width: '100%' }}>
-          <ActionButton
-            loading={loading}
-            text="Enviar"
-            onClick={onSubmit}
-            iconRight={<SendIcon />}
-            full
-          />
-        </div>
-      </FielSet>
-      <UsersList />
+      <ActionButton
+        text="Agregar Usuario"
+        onClick={handleModal}
+        iconLeft={<AddIcon />}
+      />
+      <UserForm
+        open={showModal}
+        onClose={handleModal}
+        fetchUsers={fetchUsers}
+      />
+      <br />
+      <br />
+      <UsersList
+        loading={loading}
+        users={users}
+        err={error}
+        fetchUsers={fetchUsers}
+      />
     </Fragment>
   )
 }

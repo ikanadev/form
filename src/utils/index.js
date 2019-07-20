@@ -12,6 +12,7 @@ const endpoints = {
   newUser: 'user',
   usersList: 'users',
   handleActive: 'user/active',
+  getForms: id => `user/forms/${id}`,
   student: 'student',
   formEst: 'form/form-est',
   searchFormEst: nro => `form/form-est/${nro}`,
@@ -34,8 +35,16 @@ axiosClone.interceptors.request.use((config) => {
   return config
 })
 
+const forms = {
+  'form-est': { id: 1, name: 'Formulario de Estudiantes', endpoint: endpoints.searchFormEst },
+  'form-pro': { id: 2, name: 'Formulario Profesionales', endpoint: endpoints.searchFormPro },
+  'form-pre': { id: 3, name: 'Formulario Pre-Facultativo', endpoint: endpoints.searchFormPre },
+  'form-doc': { id: 4, name: 'Formulario de Docentes', endpoint: endpoints.searchFormDoc }
+}
+
 export {
   axiosClone as axios,
   checkAuth,
-  endpoints
+  endpoints,
+  forms
 }

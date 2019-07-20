@@ -14,6 +14,7 @@ import userState from '../../stores/user'
 import FormList from '../FormList/FormList.screen'
 import SeachForm from '../SearchForm/SearchForm.screen'
 import Users from '../Users/Users.screen'
+import UserForms from '../UserForms/UserForms'
 import FormEst from '../FormEst/FormEst.screen'
 import FormPro from '../FormPro/FormPro.screen'
 import FormPre from '../FormPre/FormPre.screen'
@@ -80,6 +81,7 @@ const Home = ({
                       <Fragment>
                         <PrivateRoute path={`${path}/search-form`} component={SeachForm} />
                         <PrivateRoute path={`${path}/users`} component={Users} />
+                        <PrivateRoute path={`${path}/user-forms`} component={UserForms} />
                       </Fragment>
                     )
                   }
