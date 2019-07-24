@@ -52,7 +52,7 @@ export default ({
   ins17: {
     title: 'Sección III Pregunta 1',
     options: [
-      'El perfil prefosional con el que llegan los profesionales del área es adecuado para la institución',
+      'El perfil prefesional con el que llegan los profesionales del área es adecuado para la institución',
       'El perfil profesional que ofertan las universidades responde a las demandas del mercado laboral',
       'Los profesionales de las carreras de área de informática son altamente valorados en el mercado laboral'
     ]
@@ -68,7 +68,7 @@ export default ({
       'Las asignaturas de los planes de estudio de las universidades combinan adecuadamente la teoría con la práctica'
     ]
   },
-  ins20: { title: '¿Qué debilidades tienen los Planes de esudio de las universidades?' },
+  ins20: { title: '¿Qué debilidades tienen los Planes de estudio de las universidades?' },
   ins21: { title: '¿Qué fortalezas tienen los Planes de estudio de las universidades?' },
   ins22: { title: 'Mencione al menos 3 materias que considera deben incluirse en el Plan de Estudios de la carrera de Informática' },
   ins23: { title: 'Mencione al menos 3 materias que considera ya no deberian ser parte del Plan de Estudios del área de la informatica' },
@@ -88,7 +88,7 @@ export default ({
   ins28: { title: 'Gestores de bases de datos que utiliza la institución' },
   ins29: { title: 'Metodologías de desarrollo de sistemas que utiliza la institución' },
   ins30: { title: 'Sistemas Operativos que utiliza la institución' },
-  ins31: { title: 'Framenworks que utiliza la instituciṕon' },
+  ins31: { title: 'Frameworks que utiliza la institución' },
   ins32: {
     title: '¿Cuáles son las competencias generales que busca la institución del profesional del área de la Informática?',
     options: [
