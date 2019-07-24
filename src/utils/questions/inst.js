@@ -46,8 +46,10 @@ export default ({
   ins13j: { title: 'Administrador de sistemas' },
   ins13k: { title: 'Otro(s):' },
   ins14: { title: 'Forma en la que se accede a los pagos' },
-  ins15: { title: 'Si tuviera que solicitar personal a una univesidad y/o instituto ¿Cuál eligiría?' },
-  ins15a: { title: 'Justifique:' },
+  ins15: {
+    title1: 'Si tuviera que solicitar personal a una univesidad y/o instituto ¿Cuál eligiría?',
+    title2: 'Justifique:'
+  },
   ins16: { title: 'Principales actividades que desarrolla el personal del área de Informática y sistemas en la institución' },
   ins17: {
     title: 'Sección III Pregunta 1',

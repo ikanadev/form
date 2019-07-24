@@ -21,7 +21,9 @@ const endpoints = {
   formPre: 'form/form-pre',
   searchFormPre: nro => `form/form-pre/${nro}`,
   formDoc: 'form/form-doc',
-  searchFormDoc: nro => `form/form-doc/${nro}`
+  searchFormDoc: nro => `form/form-doc/${nro}`,
+  formIns: 'form/form-ins',
+  searchFormIns: nro => `form/form-ins/${nro}`
 }
 
 const axiosClone = axios.create({
@@ -39,7 +41,8 @@ const forms = {
   'form-est': { id: 1, name: 'Formulario de Estudiantes', endpoint: endpoints.searchFormEst },
   'form-pro': { id: 2, name: 'Formulario Profesionales', endpoint: endpoints.searchFormPro },
   'form-pre': { id: 3, name: 'Formulario Pre-Facultativo', endpoint: endpoints.searchFormPre },
-  'form-doc': { id: 4, name: 'Formulario de Docentes', endpoint: endpoints.searchFormDoc }
+  'form-doc': { id: 4, name: 'Formulario de Docentes', endpoint: endpoints.searchFormDoc },
+  'form-ins': { id: 5, name: 'Formulario Instituciones', endpoint: endpoints.searchFormIns }
 }
 
 export {

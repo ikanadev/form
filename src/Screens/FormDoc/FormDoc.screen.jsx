@@ -3,6 +3,8 @@ import { withSnackbar } from 'notistack'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 import SendIcon from '@material-ui/icons/Send'
+import SaveIcon from '@material-ui/icons/Save'
+import DeleteIcon from '@material-ui/icons/Delete'
 
 import ActionButton from '../../Components/ActionButton/ActionButton'
 import FieldSet from '../../Components/FieldSet/FieldSet'
@@ -116,69 +118,73 @@ const FormDoc = ({
       })
   }
 
+  const isUpdate = Object.keys(formData).length > 0
+
+  const getData = () => ({
+    nro,
+    doc1,
+    doc2,
+    doc3,
+    doc4,
+    doc5,
+    doc6,
+    doc7,
+    doc8,
+    doc9,
+    doc10,
+    doc11,
+    doc12,
+    doc13,
+    doc14a,
+    doc14b,
+    doc14c,
+    doc14d,
+    doc15,
+    doc16,
+    doc17,
+    doc18,
+    doc19,
+    doc20,
+    doc21,
+    doc22,
+    doc23,
+    doc24,
+    doc24a,
+    doc25,
+    doc25a,
+    doc26,
+    doc26a,
+    doc27,
+    doc27a,
+    doc28,
+    doc29,
+    doc30,
+    doc31,
+    doc32,
+    doc33,
+    doc34,
+    doc35,
+    doc36,
+    doc37,
+    doc38,
+    doc39,
+    doc40,
+    doc41,
+    doc42,
+    doc43,
+    doc44,
+    doc45,
+    doc46,
+    doc47
+  })
+
   const onSubmit = () => {
     if (nro.charAt(0) === '0') {
       enqueueSnackbar('El NRO de Formulario no debe tener 0\'s (ceros) por delante.')
       return
     }
     setLoading(true)
-    const data = {
-      nro,
-      doc1,
-      doc2,
-      doc3,
-      doc4,
-      doc5,
-      doc6,
-      doc7,
-      doc8,
-      doc9,
-      doc10,
-      doc11,
-      doc12,
-      doc13,
-      doc14a,
-      doc14b,
-      doc14c,
-      doc14d,
-      doc15,
-      doc16,
-      doc17,
-      doc18,
-      doc19,
-      doc20,
-      doc21,
-      doc22,
-      doc23,
-      doc24,
-      doc24a,
-      doc25,
-      doc25a,
-      doc26,
-      doc26a,
-      doc27,
-      doc27a,
-      doc28,
-      doc29,
-      doc30,
-      doc31,
-      doc32,
-      doc33,
-      doc34,
-      doc35,
-      doc36,
-      doc37,
-      doc38,
-      doc39,
-      doc40,
-      doc41,
-      doc42,
-      doc43,
-      doc44,
-      doc45,
-      doc46,
-      doc47
-    }
+    const data = getData()
     axios.post(endpoints.formDoc, data).then(() => {
       setLoading(false)
       enqueueSnackbar(
@@ -251,9 +257,40 @@ const FormDoc = ({
     })
   }
 
+  const onUpdate = () => {
+    setLoading(true)
+    const data = getData()
+    data.id = formData.id
+    axios.put(endpoints.formDoc, data)
+      .then(() => {
+        setLoading(false)
+        enqueueSnackbar('Formulario Actualizado', { variant: 'success' })
+      })
+      .catch((err) => {
+        setLoading(false)
+        enqueueSnackbar(`Error al guardar formulario: ${err.message}`, { variant: 'error' })
+      })
+  }
+
+  const onDelete = () => {
+    setLoading(true)
+    const data = getData()
+    data.id = formData.id
+    axios.delete(endpoints.formDoc, { data })
+      .then(() => {
+        setLoading(false)
+        enqueueSnackbar('Formulario eliminado')
+        goBack()
+      })
+      .catch((err) => {
+        setLoading(false)
+        enqueueSnackbar(`Error al eliminar formulario: ${err.message}`, { variant: 'error' })
+      })
+  }
+
   return (
     <Fragment>
-      <Title title="Cuestionario para Docentes (en Progreso)" />
+      <Title title="Cuestionario para Docentes" />
       <FieldSet title="I. Aspectos Generales">
         <div ref={firstRef} />
         <Simple width={4} value={nro} text="Nro. Formulario:" setter={setNro} type="number" autoFocus />
@@ -346,11 +383,23 @@ const FormDoc = ({
       <div style={{ width: '100%' }}>
         <ActionButton
           loading={loading}
-          text="Enviar"
-          onClick={onSubmit}
-          iconRight={<SendIcon />}
+          text={isUpdate ? 'Guardar' : 'Enviar'}
+          onClick={isUpdate ? onUpdate : onSubmit}
+          iconRight={isUpdate ? <SaveIcon /> : <SendIcon />}
           full
         />
+        {
+          isUpdate && (
+            <ActionButton
+              loading={loading}
+              text="Eliminar"
+              onClick={onDelete}
+              iconRight={<DeleteIcon />}
+              secondary
+              full
+            />
+          )
+        }
       </div>
     </Fragment>
   )

@@ -372,7 +372,7 @@ const FormEst = ({
     axios.delete(endpoints.formEst, { data })
       .then(() => {
         setLoading(false)
-        enqueueSnackbar('Formulario eliminado de la Base de Datos.')
+        enqueueSnackbar('Formulario eliminado.')
         goBack()
       })
       .catch((err) => {

@@ -29,6 +29,11 @@ const formularios = [
     id: 4,
     name: 'Cuestionario para Docentes de la Carrera de Informática',
     route: 'form-doc'
+  },
+  {
+    id: 5,
+    name: 'Cuestionario para Instituciones',
+    route: 'form-ins'
   }
 ]
 

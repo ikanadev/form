@@ -19,6 +19,7 @@ import FormEst from '../FormEst/FormEst.screen'
 import FormPro from '../FormPro/FormPro.screen'
 import FormPre from '../FormPre/FormPre.screen'
 import FormDoc from '../FormDoc/FormDoc.screen'
+import FormIns from '../FormIns/FormIns.screen'
 import ChangePassword from '../ChangePassword/ChangePassword.screen'
 import Features from '../Features/Features.screen'
 
@@ -76,6 +77,7 @@ const Home = ({
                   <PrivateRoute path={`${path}/form-pro`} component={FormPro} />
                   <PrivateRoute path={`${path}/form-pre`} component={FormPre} />
                   <PrivateRoute path={`${path}/form-doc`} component={FormDoc} />
+                  <PrivateRoute path={`${path}/form-ins`} component={FormIns} />
                   {
                     user.type === 'admin' && (
                       <Fragment>
