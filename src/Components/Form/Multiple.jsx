@@ -49,6 +49,11 @@ const Multiple = ({
       setAnswers(options.map(() => 0))
     }
   }, [value])
+  useEffect(() => {
+    if (value !== '') {
+      setAnswers(value.split(','))
+    }
+  }, [])
   return (
     <Grid
       item

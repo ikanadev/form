@@ -37,6 +37,13 @@ const CustomInputs = ({
       setCustomOptions([])
     }
   }, [value])
+  useEffect(() => {
+    if (value !== '') {
+      const [opts, cOpts] = value.split(';')
+      setOptions(opts ? opts.split(',') : [])
+      setOptions(cOpts ? cOpts.split(',') : [])
+    }
+  }, [])
   return (
     <Grid item xs={12} md={6} lg={width} style={{ paddingLeft: 8, paddingRight: 8, paddingTop: 6 }}>
       <ChipInput

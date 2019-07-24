@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useRef } from 'react'
 import { withSnackbar } from 'notistack'
 import SendIcon from '@material-ui/icons/Send'
+import SaveIcon from '@material-ui/icons/Save'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 
@@ -14,100 +15,100 @@ import Multiple from '../../Components/Form/Multiple'
 import Title from '../../Components/Title/Title'
 import { endpoints, axios } from '../../utils'
 
-const FormEst = ({ enqueueSnackbar }) => {
+const FormEst = ({ enqueueSnackbar, location: { state: { formData } } }) => {
   const firstRef = useRef(null)
   const [loading, setLoading] = useState(false)
-  const [nro, setNro] = useState('')
+  const [nro, setNro] = useState(formData.nro || '')
   // I. ASPECTOS GENERALES
-  const [est1, setEst1] = useState('')
-  const [est2, setEst2] = useState('')
-  const [est3, setEst3] = useState('')
-  const [est4, setEst4] = useState('')
-  const [est5, setEst5] = useState('1970-01-01')
-  const [est6, setEst6] = useState('')
-  const [est7, setEst7] = useState('')
-  const [est8, setEst8] = useState('')
-  const [est9, setEst9] = useState('')
+  const [est1, setEst1] = useState(formData.est1 || '')
+  const [est2, setEst2] = useState(formData.est2 || '')
+  const [est3, setEst3] = useState(formData.est3 || '')
+  const [est4, setEst4] = useState(formData.est4 || '')
+  const [est5, setEst5] = useState(formData.est5 || '1970-01-01')
+  const [est6, setEst6] = useState(formData.est6 || '')
+  const [est7, setEst7] = useState(formData.est7 || '')
+  const [est8, setEst8] = useState(formData.est8 || '')
+  const [est9, setEst9] = useState(formData.est9 || '')
 
-  const [est10, setEst10] = useState('0')
-  const [est11, setEst11] = useState('0')
-  const [est12, setEst12] = useState('0')
-  const [est13, setEst13] = useState('0')
-  const [est14, setEst14] = useState('0')
-  const [est15, setEst15] = useState('0')
+  const [est10, setEst10] = useState(formData.est10 || '0')
+  const [est11, setEst11] = useState(formData.est11 || '0')
+  const [est12, setEst12] = useState(formData.est12 || '0')
+  const [est13, setEst13] = useState(formData.est13 || '0')
+  const [est14, setEst14] = useState(formData.est14 || '0')
+  const [est15, setEst15] = useState(formData.est15 || '0')
 
   // II. VINCULACION CON LA CARRERA
-  const [est16, setEst16] = useState('0')
-  const [est17, setEst17] = useState('')
-  const [est18, setEst18] = useState('')
-  const [est19, setEst19] = useState('')
-  const [est20, setEst20] = useState('')
-  const [est21, setEst21] = useState('')
+  const [est16, setEst16] = useState(formData.est16 || '0')
+  const [est17, setEst17] = useState(formData.est17 || '')
+  const [est18, setEst18] = useState(formData.est18 || '')
+  const [est19, setEst19] = useState(formData.est19 || '')
+  const [est20, setEst20] = useState(formData.est20 || '')
+  const [est21, setEst21] = useState(formData.est21 || '')
 
   // III. SITUACION LABORAL
-  const [est22, setEst22] = useState('0')
-  const [est23, setEst23] = useState('0')
-  const [est24, setEst24] = useState('')
-  const [est25, setEst25] = useState('0')
-  const [est26, setEst26] = useState('0')
-  const [est27, setEst27] = useState('0')
-  const [est28, setEst28] = useState('0')
-  const [est29, setEst29] = useState('0')
-  const [est30, setEst30] = useState('0')
-  const [est31, setEst31] = useState('')
-  const [est32, setEst32] = useState('')
+  const [est22, setEst22] = useState(formData.est22 || '0')
+  const [est23, setEst23] = useState(formData.est23 || '0')
+  const [est24, setEst24] = useState(formData.est24 || '')
+  const [est25, setEst25] = useState(formData.est25 || '0')
+  const [est26, setEst26] = useState(formData.est26 || '0')
+  const [est27, setEst27] = useState(formData.est27 || '0')
+  const [est28, setEst28] = useState(formData.est28 || '0')
+  const [est29, setEst29] = useState(formData.est29 || '0')
+  const [est30, setEst30] = useState(formData.est30 || '0')
+  const [est31, setEst31] = useState(formData.est31 || '')
+  const [est32, setEst32] = useState(formData.est32 || '')
 
   // IV. PERFIL PROFESIONAL ACTUAL
-  const [est33, setEst33] = useState('')
-  const [est34, setEst34] = useState('')
-  const [est35, setEst35] = useState('')
+  const [est33, setEst33] = useState(formData.est33 || '')
+  const [est34, setEst34] = useState(formData.est34 || '')
+  const [est35, setEst35] = useState(formData.est35 || '')
 
   // V. PLAN DE ESTUDIOS ACTUAL
-  const [est36, setEst36] = useState('')
-  const [est37, setEst37] = useState('')
-  const [est38, setEst38] = useState('')
-  const [est39, setEst39] = useState('')
-  const [est40, setEst40] = useState('')
-  const [est41, setEst41] = useState('')
-  const [est42, setEst42] = useState('')
+  const [est36, setEst36] = useState(formData.est36 || '')
+  const [est37, setEst37] = useState(formData.est37 || '')
+  const [est38, setEst38] = useState(formData.est38 || '')
+  const [est39, setEst39] = useState(formData.est39 || '')
+  const [est40, setEst40] = useState(formData.est40 || '')
+  const [est41, setEst41] = useState(formData.est41 || '')
+  const [est42, setEst42] = useState(formData.est42 || '')
 
   // VI INFRAESTRUCTURA
-  const [est43, setEst43] = useState('')
-  const [est44, setEst44] = useState('')
+  const [est43, setEst43] = useState(formData.est43 || '')
+  const [est44, setEst44] = useState(formData.est44 || '')
 
   // VII GRADOS TITULACION Y MENCIONES
-  const [est45, setEst45] = useState('')
-  const [est46, setEst46] = useState('')
-  const [est47, setEst47] = useState('')
-  const [est48, setEst48] = useState('1')
-  const [est49, setEst49] = useState('')
+  const [est45, setEst45] = useState(formData.est45 || '')
+  const [est46, setEst46] = useState(formData.est46 || '')
+  const [est47, setEst47] = useState(formData.est47 || '')
+  const [est48, setEst48] = useState(formData.est48 || '1')
+  const [est49, setEst49] = useState(formData.est49 || '')
 
   // VIII AREAS DE CONOCIMIENTO
-  const [est50, setEst50] = useState('')
-  const [est51, setEst51] = useState('')
-  const [est52, setEst52] = useState('')
-  const [est53, setEst53] = useState('')
-  const [est54, setEst54] = useState('')
+  const [est50, setEst50] = useState(formData.est50 || '')
+  const [est51, setEst51] = useState(formData.est51 || '')
+  const [est52, setEst52] = useState(formData.est52 || '')
+  const [est53, setEst53] = useState(formData.est53 || '')
+  const [est54, setEst54] = useState(formData.est54 || '')
 
   // IX COMPOETENCIAS DEL PROFESIONAL EN EL AREA
-  const [est55, setEst55] = useState('')
-  const [est56, setEst56] = useState('')
-  const [est57, setEst57] = useState('')
+  const [est55, setEst55] = useState(formData.est55 || '')
+  const [est56, setEst56] = useState(formData.est56 || '')
+  const [est57, setEst57] = useState(formData.est57 || '')
 
   // X ASPIRACIONES FUTURAS
-  const [est58, setEst58] = useState('0')
-  const [est59, setEst59] = useState('')
-  const [est60, setEst60] = useState('')
-  const [est61, setEst61] = useState('')
-  const [est62, setEst62] = useState('')
-  const [est63, setEst63] = useState('')
-  const [est64, setEst64] = useState('')
-  const [est65, setEst65] = useState('')
-  const [est66, setEst66] = useState('')
+  const [est58, setEst58] = useState(formData.est58 || '0')
+  const [est59, setEst59] = useState(formData.est59 || '')
+  const [est60, setEst60] = useState(formData.est60 || '')
+  const [est61, setEst61] = useState(formData.est61 || '')
+  const [est62, setEst62] = useState(formData.est62 || '')
+  const [est63, setEst63] = useState(formData.est63 || '')
+  const [est64, setEst64] = useState(formData.est64 || '')
+  const [est65, setEst65] = useState(formData.est65 || '')
+  const [est66, setEst66] = useState(formData.est66 || '')
 
   // DATOS DE LA ENCUESTA
-  const [est67, setEst67] = useState('')
-  const [est68, setEst68] = useState('2019-05-01')
+  const [est67, setEst67] = useState(formData.est67 || '')
+  const [est68, setEst68] = useState(formData.est68 || '2019-05-01')
 
   const scrollToTop = () => window.scrollTo(0, firstRef.current.offsetTop)
 
@@ -176,83 +177,87 @@ const FormEst = ({ enqueueSnackbar }) => {
       })
   }
 
+  const isUpdate = Object.keys(formData).length > 0
+
+  const getData = () => ({
+    nro,
+    est1,
+    est2,
+    est3,
+    est4,
+    est5,
+    est6,
+    est7,
+    est8,
+    est9,
+    est10,
+    est11,
+    est12,
+    est13,
+    est14,
+    est15,
+    est16,
+    est17,
+    est18,
+    est19,
+    est20,
+    est21,
+    est22,
+    est23,
+    est24,
+    est25,
+    est26,
+    est27,
+    est28,
+    est29,
+    est30,
+    est31,
+    est32,
+    est33,
+    est34,
+    est35,
+    est36,
+    est37,
+    est38,
+    est39,
+    est40,
+    est41,
+    est42,
+    est43,
+    est44,
+    est45,
+    est46,
+    est47,
+    est48,
+    est49,
+    est50,
+    est51,
+    est52,
+    est53,
+    est54,
+    est55,
+    est56,
+    est57,
+    est58,
+    est59,
+    est60,
+    est61,
+    est62,
+    est63,
+    est64,
+    est65,
+    est66,
+    est67,
+    est68
+  })
+
   const onSubmit = () => {
     if (nro.charAt(0) === '0') {
       enqueueSnackbar('El NRO de Formulario no debe tener 0\'s (ceros) por delante.')
       return
     }
     setLoading(true)
-    const data = {
-      nro,
-      est1,
-      est2,
-      est3,
-      est4,
-      est5,
-      est6,
-      est7,
-      est8,
-      est9,
-      est10,
-      est11,
-      est12,
-      est13,
-      est14,
-      est15,
-      est16,
-      est17,
-      est18,
-      est19,
-      est20,
-      est21,
-      est22,
-      est23,
-      est24,
-      est25,
-      est26,
-      est27,
-      est28,
-      est29,
-      est30,
-      est31,
-      est32,
-      est33,
-      est34,
-      est35,
-      est36,
-      est37,
-      est38,
-      est39,
-      est40,
-      est41,
-      est42,
-      est43,
-      est44,
-      est45,
-      est46,
-      est47,
-      est48,
-      est49,
-      est50,
-      est51,
-      est52,
-      est53,
-      est54,
-      est55,
-      est56,
-      est57,
-      est58,
-      est59,
-      est60,
-      est61,
-      est62,
-      est63,
-      est64,
-      est65,
-      est66,
-      est67,
-      est68
-    }
+    const data = getData()
     // everithing works fine, but need some refactor to manage tokens
     axios.post(endpoints.formEst, data)
       .then(() => {
@@ -338,6 +343,23 @@ const FormEst = ({ enqueueSnackbar }) => {
         enqueueSnackbar(e.message, { variant: 'error' })
       })
   }
+
+  const onUpdate = () => {
+    setLoading(true)
+    const data = getData()
+    data.id = formData.id
+    axios.put(endpoints.formEst, data)
+      .then(() => {
+        setLoading(false)
+        scrollToTop()
+        enqueueSnackbar('Formulario actualizado.', { variant: 'success' })
+      })
+      .catch((err) => {
+        setLoading(false)
+        enqueueSnackbar(`Error al guardar formulario: ${err.message}`, { variant: 'error' })
+      })
+  }
+
   return (
     <Fragment>
       <Title title="Cuestionario para Estudiantes" />
@@ -973,9 +995,9 @@ const FormEst = ({ enqueueSnackbar }) => {
       <div style={{ width: '100%' }}>
         <ActionButton
           loading={loading}
-          text="Enviar"
-          onClick={onSubmit}
-          iconRight={<SendIcon />}
+          text={isUpdate ? 'Guardar' : 'Enviar'}
+          onClick={isUpdate ? onUpdate : onSubmit}
+          iconRight={isUpdate ? <SaveIcon /> : <SendIcon />}
           full
         />
       </div>

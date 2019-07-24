@@ -34,7 +34,7 @@ const formularios = [
 
 const FormList = ({ history, match }) => {
   const navigate = url => () => {
-    history.push(`${match.url}/${url}`)
+    history.push(`${match.url}/${url}`, { formData: {} })
   }
   return (
     <Fragment>

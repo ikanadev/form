@@ -37,7 +37,20 @@ const UserForms = ({
   }, [])
 
   const viewForm = (formKey, nro) => () => {
-    push('/home/search-form', { formKey, nro })
+    setLoading(true)
+    axios.get(forms[formKey].endpoint(nro))
+      .then(({ data: { content } }) => {
+        setLoading(false)
+        console.log(content.user)
+        console.log(content.form)
+        enqueueSnackbar('Formulario encontrado', { variant: 'success' })
+        push(`/home/${formKey}`, { formData: content.form })
+      })
+      .catch(() => {
+        setLoading(false)
+        enqueueSnackbar('No se encontro el formulario', { variant: 'warning' })
+      })
+    // push('/home/search-form', { formKey, nro })
   }
 
   let content = null
@@ -80,7 +93,7 @@ const UserForms = ({
                       </TableHead>
                       <TableBody>
                         {
-                          userForms[userFormKey].map(innerForm => (
+                          userForms[userFormKey].sort((a, b) => a.nro - b.nro).map(innerForm => (
                             <TableRow key={innerForm.id}>
                               <TableCell>{innerForm.nro}</TableCell>
                               <TableCell>{innerForm.updated_at}</TableCell>
