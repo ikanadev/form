@@ -13,14 +13,15 @@ const ActionButton = ({
   iconLeft = null,
   iconRight = null,
   text = '',
-  typeButton = 'button'
+  typeButton = 'button',
+  secondary = false
 }) => (
   <div className={classes.container}>
     <Button
       onClick={onClick}
       fullWidth={full}
       variant="contained"
-      color="primary"
+      color={secondary ? 'secondary' : 'primary'}
       disabled={loading}
       type={typeButton}
     >

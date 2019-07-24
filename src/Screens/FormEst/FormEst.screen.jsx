@@ -2,6 +2,7 @@ import React, { Fragment, useState, useRef } from 'react'
 import { withSnackbar } from 'notistack'
 import SendIcon from '@material-ui/icons/Send'
 import SaveIcon from '@material-ui/icons/Save'
+import DeleteIcon from '@material-ui/icons/Delete'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 
@@ -15,7 +16,11 @@ import Multiple from '../../Components/Form/Multiple'
 import Title from '../../Components/Title/Title'
 import { endpoints, axios } from '../../utils'
 
-const FormEst = ({ enqueueSnackbar, location: { state: { formData } } }) => {
+const FormEst = ({
+  enqueueSnackbar,
+  location: { state: { formData } },
+  history: { goBack }
+}) => {
   const firstRef = useRef(null)
   const [loading, setLoading] = useState(false)
   const [nro, setNro] = useState(formData.nro || '')
@@ -351,12 +356,28 @@ const FormEst = ({ enqueueSnackbar, location: { state: { formData } } }) => {
     axios.put(endpoints.formEst, data)
       .then(() => {
         setLoading(false)
-        scrollToTop()
         enqueueSnackbar('Formulario actualizado.', { variant: 'success' })
+        goBack()
       })
       .catch((err) => {
         setLoading(false)
         enqueueSnackbar(`Error al guardar formulario: ${err.message}`, { variant: 'error' })
+      })
+  }
+
+  const onDelete = () => {
+    setLoading(true)
+    const data = getData()
+    data.id = formData.id
+    axios.delete(endpoints.formEst, { data })
+      .then(() => {
+        setLoading(false)
+        enqueueSnackbar('Formulario eliminado de la Base de Datos.')
+        goBack()
+      })
+      .catch((err) => {
+        setLoading(false)
+        enqueueSnackbar(`Error al eliminar formulario: ${err.message}`, { variant: 'error' })
       })
   }
 
@@ -1000,6 +1021,18 @@ const FormEst = ({ enqueueSnackbar, location: { state: { formData } } }) => {
           iconRight={isUpdate ? <SaveIcon /> : <SendIcon />}
           full
         />
+        {
+          isUpdate && (
+            <ActionButton
+              loading={loading}
+              text="Eliminar"
+              onClick={onDelete}
+              iconRight={<DeleteIcon />}
+              secondary
+              full
+            />
+          )
+        }
       </div>
     </Fragment>
   )
