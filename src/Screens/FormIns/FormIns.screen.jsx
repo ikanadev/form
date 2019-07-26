@@ -50,8 +50,11 @@ const FormIns = ({
   const [ins13i, setIns13i] = useState(formData.ins13i || '')
   const [ins13j, setIns13j] = useState(formData.ins13j || '')
   const [ins13k, setIns13k] = useState(formData.ins13k || '')
+  const [ins13l, setIns13l] = useState(formData.ins13l || '')
+  const [ins13m, setIns13m] = useState(formData.ins13m || '')
   const [ins14, setIns14] = useState(formData.ins14 || '')
   const [ins15, setIns15] = useState(formData.ins15 || '')
+  const [ins15a, setIns15a] = useState(formData.ins15a || '')
   const [ins16, setIns16] = useState(formData.ins16 || '')
   const [ins17, setIns17] = useState(formData.ins17 || '')
   const [ins18, setIns18] = useState(formData.ins18 || '')
@@ -128,8 +131,11 @@ const FormIns = ({
     ins13i,
     ins13j,
     ins13k,
+    ins13l,
+    ins13m,
     ins14,
     ins15,
+    ins15a,
     ins16,
     ins17,
     ins18,
@@ -192,8 +198,11 @@ const FormIns = ({
       setIns13i('')
       setIns13j('')
       setIns13k('')
+      setIns13l('')
+      setIns13m('')
       setIns14('')
       setIns15('')
+      setIns15a('')
       setIns16('')
       setIns17('')
       setIns18('')
@@ -301,8 +310,11 @@ const FormIns = ({
         <Simple width={12} value={ins13i} text={q.ins13i.title} setter={setIns13i} />
         <Simple width={12} value={ins13j} text={q.ins13j.title} setter={setIns13j} />
         <DobleInput width={12} value={ins13k} text1={q.ins13k.title} text2="Valor" setter={setIns13k} />
+        <DobleInput width={12} value={ins13l} text1={q.ins13l.title} text2="Valor" setter={setIns13l} />
+        <DobleInput width={12} value={ins13m} text1={q.ins13m.title} text2="Valor" setter={setIns13m} />
         <CustomInputs width={12} upTo={4} value={ins14} text={q.ins14.title} setter={setIns14} />
-        <DobleInput width={12} value={ins15} text1={q.ins15.title1} text2={q.ins15.title2} setter={setIns15} />
+        <CustomInputs width={6} upTo={0} value={ins15} text1={q.ins15.title} setter={setIns15} />
+        <Simple width={6} value={ins15a} text={q.ins15a.title} setter={setIns15a} />
         <CustomInputs width={12} upTo={10} value={ins16} text={q.ins16.title} setter={setIns16} />
       </FieldSet>
       <FieldSet title="III. Perfil Profesional">

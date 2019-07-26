@@ -44,11 +44,15 @@ export default ({
   ins13h: { title: 'Jefe de sistemas' },
   ins13i: { title: 'Jefe de IT' },
   ins13j: { title: 'Administrador de sistemas' },
-  ins13k: { title: 'Otro(s):' },
+  ins13k: { title: 'Otro(s) 1:' },
+  ins13l: { title: 'Otro(s) 2:' },
+  ins13m: { title: 'Otro(s) 3:' },
   ins14: { title: 'Forma en la que se accede a los pagos' },
   ins15: {
-    title1: 'Si tuviera que solicitar personal a una univesidad y/o instituto ¿Cuál eligiría?',
-    title2: 'Justifique:'
+    title: 'Si tuviera que solicitar personal a una univesidad y/o instituto ¿Cuál eligiría?'
+  },
+  ins15a: {
+    title: 'Justifique:'
   },
   ins16: { title: 'Principales actividades que desarrolla el personal del área de Informática y sistemas en la institución' },
   ins17: {

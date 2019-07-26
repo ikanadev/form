@@ -46,7 +46,7 @@ const SearchForm = ({ classes, enqueueSnackbar, location: { state } }) => {
   }
   const handleSubmit = () => {
     setLoading(true)
-    axios.get(forms[formType].endpoint(formNro))
+    axios.get(forms[formType].searchForm(formNro))
       .then(({ data: { content } }) => {
         setLoading(false)
         setStudentData(content.user)

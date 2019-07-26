@@ -1,4 +1,5 @@
 import React, { useEffect, useState, Fragment } from 'react'
+import moment from 'moment'
 import { withSnackbar } from 'notistack'
 import Typography from '@material-ui/core/Typography'
 import Card from '@material-ui/core/Card'
@@ -36,13 +37,11 @@ const UserForms = ({
       })
   }, [])
 
-  const viewForm = (formKey, nro) => () => {
+  const viewForm = (formKey, id) => () => {
     setLoading(true)
-    axios.get(forms[formKey].endpoint(nro))
+    axios.get(forms[formKey].getForm(id))
       .then(({ data: { content } }) => {
         setLoading(false)
-        console.log(content.user)
-        console.log(content.form)
         enqueueSnackbar('Formulario encontrado', { variant: 'success' })
         push(`/home/${formKey}`, { formData: content.form })
       })
@@ -87,7 +86,8 @@ const UserForms = ({
                       <TableHead>
                         <TableRow>
                           <TableCell>Nro. Formulario</TableCell>
-                          <TableCell>Fecha enviado</TableCell>
+                          <TableCell>Creado:</TableCell>
+                          <TableCell>&Uacute;ltima Actualizaci&oacute;n</TableCell>
                           <TableCell>Ver</TableCell>
                         </TableRow>
                       </TableHead>
@@ -96,11 +96,16 @@ const UserForms = ({
                           userForms[userFormKey].sort((a, b) => a.nro - b.nro).map(innerForm => (
                             <TableRow key={innerForm.id}>
                               <TableCell>{innerForm.nro}</TableCell>
-                              <TableCell>{innerForm.updated_at}</TableCell>
+                              <TableCell>
+                                {moment(innerForm.created_at).format('YYYY-MM-DD HH:mm')}
+                              </TableCell>
+                              <TableCell>
+                                {moment(innerForm.updated_at).format('YYYY-MM-DD HH:mm')}
+                              </TableCell>
                               <TableCell>
                                 <ActionButton
                                   text="Ver"
-                                  onClick={viewForm(userFormKey, innerForm.nro)}
+                                  onClick={viewForm(userFormKey, innerForm.id)}
                                 />
                               </TableCell>
                             </TableRow>

@@ -41,7 +41,7 @@ const CustomInputs = ({
     if (value !== '') {
       const [opts, cOpts] = value.split(';')
       setOptions(opts ? opts.split(',') : [])
-      setOptions(cOpts ? cOpts.split(',') : [])
+      setCustomOptions(cOpts ? cOpts.split(',') : [])
     }
   }, [])
   return (

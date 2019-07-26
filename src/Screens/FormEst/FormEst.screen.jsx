@@ -1,12 +1,8 @@
 import React, { Fragment, useState, useRef } from 'react'
 import { withSnackbar } from 'notistack'
-import SendIcon from '@material-ui/icons/Send'
-import SaveIcon from '@material-ui/icons/Save'
-import DeleteIcon from '@material-ui/icons/Delete'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 
-import ActionButton from '../../Components/ActionButton/ActionButton'
 import FieldSet from '../../Components/FieldSet/FieldSet'
 import Simple from '../../Components/Form/Simple'
 import Option from '../../Components/Form/Option'
@@ -14,6 +10,7 @@ import CustomOption from '../../Components/Form/CustomOption'
 import CustomInputs from '../../Components/Form/CustomInputs'
 import Multiple from '../../Components/Form/Multiple'
 import Title from '../../Components/Title/Title'
+import FormActions from '../../Components/FormActions/FormActions'
 import { endpoints, axios } from '../../utils'
 
 const FormEst = ({
@@ -1013,27 +1010,13 @@ const FormEst = ({
         <Simple width={8} value={est67} text="Encuestador:" setter={setEst67} />
         <Simple width={4} value={est68} text="Fecha de Encuesta:" type="date" setter={setEst68} />
       </FieldSet>
-      <div style={{ width: '100%' }}>
-        <ActionButton
-          loading={loading}
-          text={isUpdate ? 'Guardar' : 'Enviar'}
-          onClick={isUpdate ? onUpdate : onSubmit}
-          iconRight={isUpdate ? <SaveIcon /> : <SendIcon />}
-          full
-        />
-        {
-          isUpdate && (
-            <ActionButton
-              loading={loading}
-              text="Eliminar"
-              onClick={onDelete}
-              iconRight={<DeleteIcon />}
-              secondary
-              full
-            />
-          )
-        }
-      </div>
+      <FormActions
+        loading={loading}
+        isUpdate={isUpdate}
+        onSubmit={onSubmit}
+        onUpdate={onUpdate}
+        onDelete={onDelete}
+      />
     </Fragment>
   )
 }
