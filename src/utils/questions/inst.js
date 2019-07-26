@@ -47,7 +47,7 @@ export default ({
   ins13k: { title: 'Otro(s) 1:' },
   ins13l: { title: 'Otro(s) 2:' },
   ins13m: { title: 'Otro(s) 3:' },
-  ins14: { title: 'Forma en la que se accede a los pagos' },
+  ins14: { title: 'Forma en la que se accede a los cargos' },
   ins15: {
     title: 'Si tuviera que solicitar personal a una univesidad y/o instituto ¿Cuál eligiría?'
   },
@@ -77,7 +77,9 @@ export default ({
   ins20: { title: '¿Qué debilidades tienen los Planes de estudio de las universidades?' },
   ins21: { title: '¿Qué fortalezas tienen los Planes de estudio de las universidades?' },
   ins22: { title: 'Mencione al menos 3 materias que considera deben incluirse en el Plan de Estudios de la carrera de Informática' },
+  ins22a: { title: 'Justifique:' },
   ins23: { title: 'Mencione al menos 3 materias que considera ya no deberian ser parte del Plan de Estudios del área de la informatica' },
+  ins23a: { title: 'Justifique:' },
   ins24: {
     title: 'Sección V Pregunta 1',
     options: [

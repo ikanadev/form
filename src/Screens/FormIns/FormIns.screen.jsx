@@ -62,7 +62,9 @@ const FormIns = ({
   const [ins20, setIns20] = useState(formData.ins20 || '')
   const [ins21, setIns21] = useState(formData.ins21 || '')
   const [ins22, setIns22] = useState(formData.ins22 || '')
+  const [ins22a, setIns22a] = useState(formData.ins22a || '')
   const [ins23, setIns23] = useState(formData.ins23 || '')
+  const [ins23a, setIns23a] = useState(formData.ins23a || '')
   const [ins24, setIns24] = useState(formData.ins24 || '')
   const [ins25, setIns25] = useState(formData.ins25 || '')
   const [ins26, setIns26] = useState(formData.ins26 || '')
@@ -143,7 +145,9 @@ const FormIns = ({
     ins20,
     ins21,
     ins22,
+    ins22a,
     ins23,
+    ins23a,
     ins24,
     ins25,
     ins26,
@@ -210,7 +214,9 @@ const FormIns = ({
       setIns20('')
       setIns21('')
       setIns22('')
+      setIns22a('')
       setIns23('')
+      setIns23a('')
       setIns24('')
       setIns25('')
       setIns26('')
@@ -243,6 +249,7 @@ const FormIns = ({
       .then(() => {
         setLoading(false)
         enqueueSnackbar('Formulario Actualizado', { variant: 'success' })
+        goBack()
       })
       .catch((err) => {
         setLoading(false)
@@ -326,7 +333,9 @@ const FormIns = ({
         <Simple width={12} value={ins20} text={q.ins20.title} setter={setIns20} multiline />
         <Simple width={12} value={ins21} text={q.ins21.title} setter={setIns21} multiline />
         <CustomInputs width={12} upTo={0} value={ins22} text={q.ins22.title} setter={setIns22} />
+        <Simple width={12} value={ins22a} text={q.ins22a.title} setter={setIns22a} />
         <CustomInputs width={12} upTo={0} value={ins23} text={q.ins23.title} setter={setIns23} />
+        <Simple width={12} value={ins23a} text={q.ins23a.title} setter={setIns23a} />
       </FieldSet>
       <FieldSet title="V. Grados, Titulación y Menciones">
         <Multiple width={12} value={ins24} title={q.ins24.title} setter={setIns24} options={q.ins24.options} />
