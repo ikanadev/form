@@ -34,11 +34,19 @@ const Option = ({
   }
 
   useEffect(() => {
-    if (withInput) {
+    // eslint-disable-next-line
+    if (withInput && !isNaN(value)) {
       setter('')
       otherRef.current.focus()
     }
   }, [withInput])
+
+  useEffect(() => {
+    // eslint-disable-next-line
+    if (isNaN(value)) {
+      setWithInput(true)
+    }
+  }, [])
   return (
     <Grid item xs={12} md={6} lg={width} style={{ paddingLeft: 8, paddingRight: 8, paddingTop: 6 }}>
       <TextField

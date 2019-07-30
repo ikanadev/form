@@ -2,11 +2,7 @@ import React, { Fragment, useState, useRef } from 'react'
 import { withSnackbar } from 'notistack'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
-import SendIcon from '@material-ui/icons/Send'
-import SaveIcon from '@material-ui/icons/Save'
-import DeleteIcon from '@material-ui/icons/Delete'
 
-import ActionButton from '../../Components/ActionButton/ActionButton'
 import FieldSet from '../../Components/FieldSet/FieldSet'
 import Simple from '../../Components/Form/Simple'
 import Option from '../../Components/Form/Option'
@@ -15,6 +11,7 @@ import CustomInputs from '../../Components/Form/CustomInputs'
 import Multiple from '../../Components/Form/Multiple'
 import DobleInput from '../../Components/Form/DobleInput'
 import Title from '../../Components/Title/Title'
+import FormActions from '../../Components/FormActions/FormActions'
 
 import { axios, endpoints } from '../../utils'
 import q from '../../utils/questions/inst'
@@ -320,7 +317,7 @@ const FormIns = ({
         <DobleInput width={12} value={ins13l} text1={q.ins13l.title} text2="Valor" setter={setIns13l} />
         <DobleInput width={12} value={ins13m} text1={q.ins13m.title} text2="Valor" setter={setIns13m} />
         <CustomInputs width={12} upTo={4} value={ins14} text={q.ins14.title} setter={setIns14} />
-        <CustomInputs width={6} upTo={0} value={ins15} text1={q.ins15.title} setter={setIns15} />
+        <CustomInputs width={6} upTo={0} value={ins15} text={q.ins15.title} setter={setIns15} />
         <Simple width={6} value={ins15a} text={q.ins15a.title} setter={setIns15a} />
         <CustomInputs width={12} upTo={10} value={ins16} text={q.ins16.title} setter={setIns16} />
       </FieldSet>
@@ -361,27 +358,13 @@ const FormIns = ({
         <Simple width={8} value={ins36} text={q.ins36.title} setter={setIns36} />
         <Simple width={4} value={ins37} text={q.ins37.title} type="date" setter={setIns37} />
       </FieldSet>
-      <div style={{ width: '100%' }}>
-        <ActionButton
-          loading={loading}
-          text={isUpdate ? 'Guardar' : 'Enviar'}
-          onClick={isUpdate ? onUpdate : onSubmit}
-          iconRight={isUpdate ? <SaveIcon /> : <SendIcon />}
-          full
-        />
-        {
-          isUpdate && (
-            <ActionButton
-              loading={loading}
-              text="Eliminar"
-              onClick={onDelete}
-              iconRight={<DeleteIcon />}
-              secondary
-              full
-            />
-          )
-        }
-      </div>
+      <FormActions
+        loading={loading}
+        isUpdate={isUpdate}
+        onSubmit={onSubmit}
+        onUpdate={onUpdate}
+        onDelete={onDelete}
+      />
     </Fragment>
   )
 }

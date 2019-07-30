@@ -2,9 +2,7 @@ import React, { Fragment, useState, useRef } from 'react'
 import { withSnackbar } from 'notistack'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
-import SendIcon from '@material-ui/icons/Send'
 
-import ActionButton from '../../Components/ActionButton/ActionButton'
 import FieldSet from '../../Components/FieldSet/FieldSet'
 import Simple from '../../Components/Form/Simple'
 import Option from '../../Components/Form/Option'
@@ -12,65 +10,70 @@ import CustomOption from '../../Components/Form/CustomOption'
 import CustomInputs from '../../Components/Form/CustomInputs'
 import Multiple from '../../Components/Form/Multiple'
 import Title from '../../Components/Title/Title'
+import FormActions from '../../Components/FormActions/FormActions'
 
 import { axios, endpoints } from '../../utils'
 import q from '../../utils/questions/pre'
 
-const FormPre = ({ enqueueSnackbar }) => {
+const FormPre = ({
+  enqueueSnackbar,
+  location: { state: { formData } },
+  history: { goBack }
+}) => {
   const firstRef = useRef(null)
   const [loading, setLoading] = useState(false)
-  const [nro, setNro] = useState('')
+  const [nro, setNro] = useState(formData.nro || '')
   // I. ASPECTOS GENERALES
-  const [pre1, setPre1] = useState('')
-  const [pre2, setPre2] = useState('')
-  const [pre3, setPre3] = useState('')
-  const [pre4, setPre4] = useState('')
-  const [pre5, setPre5] = useState('2000-11-01')
-  const [pre6, setPre6] = useState('')
-  const [pre7, setPre7] = useState('')
-  const [pre8, setPre8] = useState('')
-  const [pre9, setPre9] = useState('0')
-  const [pre10, setPre10] = useState('0')
-  const [pre11, setPre11] = useState('0')
-  const [pre12, setPre12] = useState('0')
-  const [pre13, setPre13] = useState('0')
-  const [pre14, setPre14] = useState('0')
+  const [pre1, setPre1] = useState(formData.pre1 || '')
+  const [pre2, setPre2] = useState(formData.pre2 || '')
+  const [pre3, setPre3] = useState(formData.pre3 || '')
+  const [pre4, setPre4] = useState(formData.pre4 || '')
+  const [pre5, setPre5] = useState(formData.pre5 || '2000-11-01')
+  const [pre6, setPre6] = useState(formData.pre6 || '')
+  const [pre7, setPre7] = useState(formData.pre7 || '')
+  const [pre8, setPre8] = useState(formData.pre8 || '')
+  const [pre9, setPre9] = useState(formData.pre9 || '0')
+  const [pre10, setPre10] = useState(formData.pre10 || '0')
+  const [pre11, setPre11] = useState(formData.pre11 || '0')
+  const [pre12, setPre12] = useState(formData.pre12 || '0')
+  const [pre13, setPre13] = useState(formData.pre13 || '0')
+  const [pre14, setPre14] = useState(formData.pre14 || '0')
   // II. VINCULACION CON LA CARRERA
-  const [pre15, setPre15] = useState('')
-  const [pre16, setPre16] = useState('')
-  const [pre17, setPre17] = useState('')
-  const [pre18, setPre18] = useState('')
-  const [pre19, setPre19] = useState('')
-  const [pre20, setPre20] = useState('')
-  const [pre21, setPre21] = useState('')
-  const [pre22, setPre22] = useState('')
-  const [pre23, setPre23] = useState('')
-  const [pre24, setPre24] = useState('')
-  const [pre25, setPre25] = useState('')
-  const [pre26, setPre26] = useState('0')
-  const [pre26a, setPre26a] = useState('')
-  const [pre27, setPre27] = useState('0')
-  const [pre27a, setPre27a] = useState('')
-  const [pre28, setPre28] = useState('')
-  const [pre29, setPre29] = useState('')
-  const [pre30, setPre30] = useState('')
-  const [pre31, setPre31] = useState('')
-  const [pre32, setPre32] = useState('')
+  const [pre15, setPre15] = useState(formData.pre15 || '')
+  const [pre16, setPre16] = useState(formData.pre16 || '')
+  const [pre17, setPre17] = useState(formData.pre17 || '')
+  const [pre18, setPre18] = useState(formData.pre18 || '')
+  const [pre19, setPre19] = useState(formData.pre19 || '')
+  const [pre20, setPre20] = useState(formData.pre20 || '')
+  const [pre21, setPre21] = useState(formData.pre21 || '')
+  const [pre22, setPre22] = useState(formData.pre22 || '')
+  const [pre23, setPre23] = useState(formData.pre23 || '')
+  const [pre24, setPre24] = useState(formData.pre24 || '')
+  const [pre25, setPre25] = useState(formData.pre25 || '')
+  const [pre26, setPre26] = useState(formData.pre26 || '0')
+  const [pre26a, setPre26a] = useState(formData.pre26a || '')
+  const [pre27, setPre27] = useState(formData.pre27 || '0')
+  const [pre27a, setPre27a] = useState(formData.pre27a || '')
+  const [pre28, setPre28] = useState(formData.pre28 || '')
+  const [pre29, setPre29] = useState(formData.pre29 || '')
+  const [pre30, setPre30] = useState(formData.pre30 || '')
+  const [pre31, setPre31] = useState(formData.pre31 || '')
+  const [pre32, setPre32] = useState(formData.pre32 || '')
   // III. SITUACION LABORAL
-  const [pre33, setPre33] = useState('0')
-  const [pre34, setPre34] = useState('0')
-  const [pre35, setPre35] = useState('0')
-  const [pre36, setPre36] = useState('0')
+  const [pre33, setPre33] = useState(formData.pre33 || '0')
+  const [pre34, setPre34] = useState(formData.pre34 || '0')
+  const [pre35, setPre35] = useState(formData.pre35 || '0')
+  const [pre36, setPre36] = useState(formData.pre36 || '0')
   // IV. GRADOS TITULACION Y MENCIONES
-  const [pre37, setPre37] = useState('')
-  const [pre38, setPre38] = useState('')
+  const [pre37, setPre37] = useState(formData.pre37 || '')
+  const [pre38, setPre38] = useState(formData.pre38 || '')
   // V. ASPIRACIONES FUTURAS
-  const [pre39, setPre39] = useState('')
+  const [pre39, setPre39] = useState(formData.pre39 || '')
   // VI. SUGERENCIAS
-  const [pre40, setPre40] = useState('')
+  const [pre40, setPre40] = useState(formData.pre40 || '')
   // DATOS ENCUESTA
-  const [pre41, setPre41] = useState('')
-  const [pre42, setPre42] = useState('2000-11-01')
+  const [pre41, setPre41] = useState(formData.pre41 || '')
+  const [pre42, setPre42] = useState(formData.pre42 || '2000-11-01')
 
   const scrollToTop = () => window.scrollTo(0, firstRef.current.offsetTop)
 
@@ -92,59 +95,63 @@ const FormPre = ({ enqueueSnackbar }) => {
       })
   }
 
+  const isUpdate = Object.keys(formData).length > 0
+
+  const getData = () => ({
+    nro,
+    pre1,
+    pre2,
+    pre3,
+    pre4,
+    pre5,
+    pre6,
+    pre7,
+    pre8,
+    pre9,
+    pre10,
+    pre11,
+    pre12,
+    pre13,
+    pre14,
+    pre15,
+    pre16,
+    pre17,
+    pre18,
+    pre19,
+    pre20,
+    pre21,
+    pre22,
+    pre23,
+    pre24,
+    pre25,
+    pre26,
+    pre26a,
+    pre27,
+    pre27a,
+    pre28,
+    pre29,
+    pre30,
+    pre31,
+    pre32,
+    pre33,
+    pre34,
+    pre35,
+    pre36,
+    pre37,
+    pre38,
+    pre39,
+    pre40,
+    pre41,
+    pre42
+  })
+
   const onSubmit = () => {
     if (nro.charAt(0) === '0') {
       enqueueSnackbar('El NRO de Formulario no debe tener 0\'s (ceros) por delante.')
       return
     }
     setLoading(true)
-    const data = {
-      nro,
-      pre1,
-      pre2,
-      pre3,
-      pre4,
-      pre5,
-      pre6,
-      pre7,
-      pre8,
-      pre9,
-      pre10,
-      pre11,
-      pre12,
-      pre13,
-      pre14,
-      pre15,
-      pre16,
-      pre17,
-      pre18,
-      pre19,
-      pre20,
-      pre21,
-      pre22,
-      pre23,
-      pre24,
-      pre25,
-      pre26,
-      pre26a,
-      pre27,
-      pre27a,
-      pre28,
-      pre29,
-      pre30,
-      pre31,
-      pre32,
-      pre33,
-      pre34,
-      pre35,
-      pre36,
-      pre37,
-      pre38,
-      pre39,
-      pre40,
-      pre41,
-      pre42
-    }
+    const data = getData()
     axios.post(endpoints.formPre, data)
       .then(() => {
         setLoading(false)
@@ -203,6 +210,38 @@ const FormPre = ({ enqueueSnackbar }) => {
           return
         }
         enqueueSnackbar(e.message, { variant: 'error' })
+      })
+  }
+
+  const onUpdate = () => {
+    setLoading(true)
+    const data = getData()
+    data.id = formData.id
+    axios.put(endpoints.formPre, data)
+      .then(() => {
+        setLoading(true)
+        enqueueSnackbar('Formulario Actualizado', { variant: 'success' })
+        goBack()
+      })
+      .catch((err) => {
+        setLoading(false)
+        enqueueSnackbar(`Error al guardar formulario: ${err.message}`, { variant: 'error' })
+      })
+  }
+
+  const onDelete = () => {
+    setLoading(true)
+    const data = getData()
+    data.id = formData.id
+    axios.delete(endpoints.formPre, { data })
+      .then(() => {
+        setLoading(false)
+        enqueueSnackbar('Formulario eliminado')
+        goBack()
+      })
+      .catch((err) => {
+        setLoading(false)
+        enqueueSnackbar(`Error al guardar formulario: ${err.message}`, { variant: 'error' })
       })
   }
 
@@ -294,16 +333,13 @@ const FormPre = ({ enqueueSnackbar }) => {
         <Simple width={8} value={pre41} text={q.pre41.title} setter={setPre41} />
         <Simple width={4} value={pre42} text={q.pre42.title} type="date" setter={setPre42} />
       </FieldSet>
-
-      <div style={{ width: '100%' }}>
-        <ActionButton
-          loading={loading}
-          text="Enviar"
-          onClick={onSubmit}
-          iconRight={<SendIcon />}
-          full
-        />
-      </div>
+      <FormActions
+        loading={loading}
+        isUpdate={isUpdate}
+        onSubmit={onSubmit}
+        onUpdate={onUpdate}
+        onDelete={onDelete}
+      />
     </Fragment>
   )
 }
