@@ -31,7 +31,7 @@ const FormDoc = ({
   const [doc4, setDoc4] = useState(formData.doc4 || '')
   const [doc5, setDoc5] = useState(formData.doc5 || '0')
   const [doc6, setDoc6] = useState(formData.doc6 || '0')
-  const [doc7, setDoc7] = useState(formData.doc7 || '0')
+  const [doc7, setDoc7] = useState(formData.doc7 || '')
   const [doc8, setDoc8] = useState(formData.doc8 || '0')
   const [doc9, setDoc9] = useState(formData.doc9 || '')
   const [doc10, setDoc10] = useState(formData.doc10 || '')
@@ -44,7 +44,7 @@ const FormDoc = ({
   const [doc14d, setDoc14d] = useState(formData.doc14d || '')
   const [doc15, setDoc15] = useState(formData.doc15 || '')
   // II. VINCULACIÓN CON LA CARRERA
-  const [doc16, setDoc16] = useState(formData.doc16 || '0')
+  const [doc16, setDoc16] = useState(formData.doc16 || '')
   const [doc17, setDoc17] = useState(formData.doc17 || '')
   // III. PERFIL PROFESIONAL
   const [doc18, setDoc18] = useState(formData.doc18 || '')
@@ -196,7 +196,7 @@ const FormDoc = ({
       setDoc4('')
       setDoc5('0')
       setDoc6('0')
-      setDoc7('0')
+      setDoc7('')
       setDoc8('0')
       setDoc9('')
       setDoc10('')
@@ -208,7 +208,7 @@ const FormDoc = ({
       setDoc14c('')
       setDoc14d('')
       setDoc15('')
-      setDoc16('0')
+      setDoc16('')
       setDoc17('')
       setDoc18('')
       setDoc19('')
@@ -310,7 +310,7 @@ const FormDoc = ({
         <Simple width={6} value={doc4} text={q.doc4.title} setter={setDoc4} />
         <Option width={4} value={doc5} text={q.doc5.title} setter={setDoc5} options={q.doc5.options} />
         <CustomOption width={4} value={doc6} text={q.doc6.title} setter={setDoc6} options={q.doc6.options} />
-        <CustomOption width={4} value={doc7} text={q.doc7.title} setter={setDoc7} options={q.doc7.options} />
+        <CustomInputs width={4} upTo={15} value={doc7} text={q.doc7.title} setter={setDoc7} />
         <Option width={6} value={doc8} text={q.doc8.title} setter={setDoc8} options={q.doc8.options} />
         <CustomInputs width={6} upTo={6} value={doc9} text={q.doc9.title} setter={setDoc9} />
         <CustomInputs width={12} upTo={0} value={doc10} text={q.doc10.title} setter={setDoc10} />
@@ -324,7 +324,7 @@ const FormDoc = ({
         <Simple width={12} value={doc15} text={q.doc15.title} setter={setDoc15} />
       </FieldSet>
       <FieldSet title="II. Vinculación con la Carrera">
-        <Option width={6} value={doc16} text={q.doc16.title} setter={setDoc16} options={q.doc16.options} />
+        <CustomInputs width={6} upTo={7} value={doc16} text={q.doc16.title} setter={setDoc16} />
         <CustomInputs width={6} upTo={8} value={doc17} text={q.doc17.title} setter={setDoc17} />
       </FieldSet>
       <FieldSet title="III. Perfil Profesional">
@@ -355,8 +355,8 @@ const FormDoc = ({
         <Multiple width={12} value={doc32} title={q.doc32.title} setter={setDoc32} options={q.doc32.options} />
         <CustomOption width={6} value={doc33} text={q.doc33.title} setter={setDoc33} options={q.doc33.options} />
         <CustomInputs width={6} upTo={5} value={doc34} text={q.doc34.title} setter={setDoc34} />
-        <CustomOption width={6} value={doc36} text={q.doc36.title} setter={setDoc36} options={q.doc36.options} />
         <DobleInput width={12} value={doc35} setter={setDoc35} text1={q.doc35.title} text2={q.doc35.title2} />
+        <CustomOption width={8} value={doc36} text={q.doc36.title} setter={setDoc36} options={q.doc36.options} />
       </FieldSet>
       <FieldSet title="VII. Áreas de Conocimiento">
         <CustomInputs width={6} upTo={12} value={doc37} text={q.doc37.title} setter={setDoc37} />

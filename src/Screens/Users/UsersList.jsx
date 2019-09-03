@@ -35,6 +35,7 @@ const UsersList = ({
                 <TableCell align="right">C.I.:</TableCell>
                 <TableCell align="right">Actions:</TableCell>
                 <TableCell align="right">Activo:</TableCell>
+                <TableCell align="right">Admin?</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>

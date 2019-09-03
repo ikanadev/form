@@ -12,6 +12,7 @@ const endpoints = {
   newUser: 'user',
   usersList: 'users',
   handleActive: 'user/active',
+  handleAdmin: 'user/admin',
   getForms: id => `user/forms/${id}`,
   student: 'student',
   formEst: 'form/form-est',
