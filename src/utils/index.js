@@ -15,6 +15,7 @@ const endpoints = {
   handleAdmin: 'user/admin',
   getForms: id => `user/forms/${id}`,
   student: 'student',
+  getReport: key => key,
   formEst: 'form/form-est',
   searchFormEst: nro => `form/form-est/${nro}`,
   getFormEst: id => `form-est/${id}`,

@@ -4,7 +4,10 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction'
+import IconButton from '@material-ui/core/IconButton'
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks'
+import InsertChartIcon from '@material-ui/icons/InsertChartOutlinedOutlined'
 import Paper from '@material-ui/core/Paper'
 
 import Title from '../../Components/Title/Title'
@@ -41,6 +44,9 @@ const FormList = ({ history, match }) => {
   const navigate = url => () => {
     history.push(`${match.url}/${url}`, { formData: {} })
   }
+  const goToReport = form => () => {
+    history.push(`${match.url}/report`, { form })
+  }
   return (
     <Fragment>
       <Title title="Formularios" />
@@ -53,6 +59,11 @@ const FormList = ({ history, match }) => {
                   <LibraryBooksIcon />
                 </ListItemIcon>
                 <ListItemText primary={form.name} />
+                <ListItemSecondaryAction>
+                  <IconButton onClick={goToReport(form)}>
+                    <InsertChartIcon />
+                  </IconButton>
+                </ListItemSecondaryAction>
               </ListItem>
             ))
           }

@@ -22,6 +22,7 @@ import FormDoc from '../FormDoc/FormDoc.screen'
 import FormIns from '../FormIns/FormIns.screen'
 import ChangePassword from '../ChangePassword/ChangePassword.screen'
 import Features from '../Features/Features.screen'
+import Report from '../Report/Report.screen'
 
 import styles from './Home.styles'
 
@@ -84,6 +85,7 @@ const Home = ({
                         <PrivateRoute path={`${path}/search-form`} component={SeachForm} />
                         <PrivateRoute path={`${path}/users`} component={Users} />
                         <PrivateRoute path={`${path}/user-forms`} component={UserForms} />
+                        <PrivateRoute path={`${path}/report`} component={Report} />
                       </Fragment>
                     )
                   }

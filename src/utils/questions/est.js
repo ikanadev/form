@@ -2,18 +2,63 @@ export default ({
   est1: { title: 'C.I.:' },
   est2: { title: 'Nombre Completo:' },
   est3: { title: 'Gestión que Ingresó:' },
-  est4: { title: 'Semestre que Cursa:' },
+  est4: {
+    title: 'Semestre que Cursa:',
+    options: {
+      Primer: 'Primer',
+      Segundo: 'Segundo',
+      Tercer: 'Tercer',
+      Cuarto: 'Cuarto',
+      Quinto: 'Quinto',
+      Sexto: 'Sexto',
+      Séptimo: 'Séptimo',
+      Octavo: 'Octavo',
+      Noveno: 'Noveno',
+      Décimo: 'Décimo'
+    }
+  },
   est5: { title: 'Fecha de Nacimiento:' },
   est6: { title: 'Lugar de Nacimiento:' },
   est7: { title: 'Telefono:' },
   est8: { title: 'Celular/Whatsapp:' },
   est9: { title: 'Correo:' },
-  est10: { title: 'Género:' },
-  est11: { title: 'Tipo Unidad Educativa:' },
+  est10: {
+    title: 'Género:',
+    options: [
+      'Mujer', 'Varón'
+    ]
+  },
+  est11: {
+    title: 'Tipo Unidad Educativa:',
+    options: [
+      'Fiscal', 'Particular', 'Convenio'
+    ]
+  },
   est12: { title: 'Ubicación Unidad Educativa:' },
-  est13: { title: 'Lugar de Residencia:' },
-  est14: { title: 'Desde su Hogar Accede a Internet por:' },
-  est15: { title: 'Estado Civil:' },
+  est13: {
+    title: 'Lugar de Residencia:',
+    options: [
+      'La Paz - Centro',
+      'La Paz - Zona Sur',
+      'La Paz - Zona Norte',
+      'El Alto',
+      'Viacha'
+    ]
+  },
+  est14: {
+    title: 'Desde su Hogar Accede a Internet por:',
+    options: [
+      'Telefonía Móvil',
+      'Fibra Óptica',
+      'ADSL'
+    ]
+  },
+  est15: {
+    title: 'Estado Civil:',
+    options: [
+      'Soltero/a', 'Casado/a', 'Divorciado/a', 'Viudo/a'
+    ]
+  },
   est16: { title: 'Modalidad de Ingreso:' },
   est17: { title: 'Motivos por que eligió la carrera:' },
   est18: { title: 'Área de preferencia en la Carrera:' },
