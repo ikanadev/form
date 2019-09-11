@@ -55,7 +55,7 @@ const Report = ({
   useEffect(() => {
     fetchData()
   }, [])
-
+  console.log(chartData)
   return (
     <div>
       <Paper style={{ padding: 20 }}>
@@ -97,6 +97,7 @@ const Report = ({
         onClose={handleModal}
         title={chartData.title}
         data={chartData.opts}
+        others={chartData.others ? chartData.others : []}
         name={chartData.name}
       />
     </div>

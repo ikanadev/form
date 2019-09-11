@@ -66,20 +66,94 @@ export default ({
     ]
   },
   est17: { title: 'Motivos por que eligió la carrera:' },
-  est18: { title: 'Área de preferencia en la Carrera:' },
-  est19: { title: 'Razones por las que Abandonó Materias:' },
+  est18: {
+    title: 'Área de preferencia en la Carrera:',
+    options: [
+      'Programación', 'Desarrollo de Sistemas', 'Algorítmica', 'Redes', 'Intelig. Artificial', 'Big Data', 'Desarrollo Web', 'Robótica'
+    ]
+  },
+  est19: {
+    title: 'Razones por las que Abandonó Materias:',
+    options: [
+      'Nunca abandoné materias', 'Por materias de servicio', 'Por choque de horarios', 'Por mi trabajo'
+    ]
+  },
   est20: { title: 'Materias que prefiere cursar en verano y/o invierno' },
-  est21: { title: 'Razones por las que Abandonó la Carrera:' },
-  est22: { title: 'Actualmente:' },
-  est23: { title: 'Relación de su trabajo con la Carrera' },
-  est24: { title: 'Razones por las que trabaja:' },
-  est25: { title: 'Tipo de empleo' },
-  est26: { title: 'Alcance de la institución:' },
-  est27: { title: 'Rubro o actividad de la institución:' },
-  est28: { title: 'Cargo que ocupa' },
-  est29: { title: 'Forma de ingreo a la institución' },
-  est30: { title: 'Tipo de institución:' },
-  est31: { title: 'Principales actividades que desarrolla durante su trabajo:' },
+  est21: {
+    title: 'Razones por las que Abandonó la Carrera:',
+    options: [
+      'Motivos personales', 'No vencí materias de Servicio', 'La carrera no tienen horarios de trabajo', 'Motivos familiares'
+    ]
+  },
+  est22: {
+    title: 'Actualmente:',
+    options: [
+      'Trabajo a tiempo completo',
+      'Trabajo a medio tiempo',
+      'Trabajo de forma eventual',
+      'Emprendimiento propio',
+      'No trabajo'
+    ]
+  },
+  est23: {
+    title: 'Relación de su trabajo con la Carrera',
+    options: [
+      'Muy relacionado', 'Poco relacionado', 'No está relacionado'
+    ]
+  },
+  est24: {
+    title: 'Razones por las que trabaja:',
+    options: [
+      'Económico', 'Ganar experiencia', 'Capacitación'
+    ]
+  },
+  est25: {
+    title: 'Tipo de empleo',
+    options: [
+      'Planta', 'Eventual', 'Consultoría'
+    ]
+  },
+  est26: {
+    title: 'Alcance de la institución:',
+    options: [
+      'Local', 'Nacional', 'Internacional'
+    ]
+  },
+  est27: {
+    title: 'Rubro o actividad de la institución:',
+    options: [
+      'Banca', 'Educación regular', 'Educación superior', 'Administración pública', 'Telecomunicaciones',
+      'Desarrollo de software', 'Prensa', 'Salud', 'Transporte', 'Turismo',
+      'Hotelería', 'Agropecuaria', 'Minería', 'Gastronomía', 'Construcción',
+      'Comercio', 'Automotores', 'Publicidad', 'Entretenimiento', 'Comercio'
+    ]
+  },
+  est28: {
+    title: 'Cargo que ocupa',
+    options: [
+      'Operador en computadoras', 'Transcriptor', 'Programador', 'Analista de sistemas', 'Jefe de proyecto',
+      'Admin. de Base de datos', 'Admin. de redes', 'Jefe de sistemas', 'Jefe de TI', 'Admin. de sistemas'
+    ]
+  },
+  est29: {
+    title: 'Forma de ingreo a la institución',
+    options: [
+      'Independiente', 'Pasantía', 'Beca Trabajo', 'Convocatoría pública', 'Invitación'
+    ]
+  },
+  est30: {
+    title: 'Tipo de institución:',
+    options: [
+      'Estatal', 'Privada', 'Emprendimiento'
+    ]
+  },
+  est31: {
+    title: 'Principales actividades que desarrolla durante su trabajo:',
+    options: [
+      'Análisis y diseño de sistemas', 'Admin. de base de datos', 'Diseño de páginas web', 'Soporte técnico', 'Transcripción de datos',
+      'Admin. de redes', 'Seguridad de información', 'Testing', 'Capacitación', 'Investigación'
+    ]
+  },
   est32: { title: 'Aspectos en su formacion' },
   est33: { title: 'El licenciado en Informática, al concluir la curricula será capaz de:' },
   est34: { title: 'Pregunta 34, Pagina 3' },
