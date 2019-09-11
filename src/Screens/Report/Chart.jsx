@@ -40,13 +40,14 @@ const Chart = ({
           display: 'flex', height: 500, justifyContent: 'center'
         }}
         >
-          <div style={{ width: '100%', height: 500, maxWidth: 500 }}>
+          <div style={{ width: '100%', height: 600, maxWidth: 600 }}>
             <ResponsivePie
               animate
+              startAngle={-90}
               data={chartData}
               radialLabel="label"
               margin={{
-                top: 10, right: 110, bottom: 10, left: 110
+                top: 10, right: 150, bottom: 10, left: 150
               }}
               innerRadius={0.5}
               cornerRadius={6}

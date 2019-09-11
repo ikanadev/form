@@ -59,7 +59,12 @@ export default ({
       'Soltero/a', 'Casado/a', 'Divorciado/a', 'Viudo/a'
     ]
   },
-  est16: { title: 'Modalidad de Ingreso:' },
+  est16: {
+    title: 'Modalidad de Ingreso:',
+    options: [
+      'Curso prefacultativo', 'Examen de dispensación', 'Admisión directa', 'Traspaso', 'Carrera Paralela'
+    ]
+  },
   est17: { title: 'Motivos por que eligió la carrera:' },
   est18: { title: 'Área de preferencia en la Carrera:' },
   est19: { title: 'Razones por las que Abandonó Materias:' },
