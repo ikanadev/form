@@ -77,7 +77,6 @@ const Report = ({
   useEffect(() => {
     fetchData()
   }, [])
-  console.log(chartData)
   return (
     <div>
       <Paper style={{ padding: 20 }}>

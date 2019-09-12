@@ -3,8 +3,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const CompressionPlugin = require('compression-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const HtmlWebPackPlugin = require("html-webpack-plugin")
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
+const MinifyPlugin = require("babel-minify-webpack-plugin")
+// const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
 const webpack = require('webpack')
+
 module.exports = {
   output: {
     path: path.join(__dirname, '/dist'),
@@ -64,7 +66,7 @@ module.exports = {
   },
   optimization: {
     minimizer: [
-      new UglifyJsPlugin({
+      /* new UglifyJsPlugin({
         uglifyOptions: {
           ecma: 8,
           warnings: false,
@@ -89,7 +91,8 @@ module.exports = {
           keep_fnames: false,
           safari10: false,
         }
-      }),
+      }), */
+      new MinifyPlugin(),
       new OptimizeCSSAssetsPlugin({})
     ]
   },
