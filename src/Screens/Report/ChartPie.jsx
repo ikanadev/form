@@ -1,5 +1,6 @@
 import React from 'react'
-import Modal from '@material-ui/core/Modal'
+import Dialog from '@material-ui/core/Dialog'
+import DialogContent from '@material-ui/core/DialogContent'
 import Paper from '@material-ui/core/Paper'
 import Table from '@material-ui/core/Table'
 import Chip from '@material-ui/core/Chip'
@@ -43,77 +44,79 @@ const ChartPie = ({
     return chartItem
   }).sort((a, b) => b.value - a.value)
   return (
-    <Modal open={open} onClose={onClose} style={{ overflow: 'scroll' }}>
-      <Paper style={{
-        padding: 20, maxWidth: 1100, marginLeft: 'auto', marginRight: 'auto'
-      }}
-      >
-        <div style={{
-          display: 'flex', height: 400, justifyContent: 'center', alignItems: 'center'
+    <Dialog open={open} onClose={onClose} fullWidth fullScreen>
+      <DialogContent>
+        <Paper style={{
+          padding: 20, maxWidth: 1100, marginLeft: 'auto', marginRight: 'auto'
         }}
         >
-          <div style={{ width: '100%', height: 400 }}>
-            <ResponsivePie
-              animate
-              sortByValue
-              radialLabelsSkipAngle={5}
-              startAngle={-90}
-              data={chartData}
-              radialLabel="label"
-              sliceLabel="percent"
-              margin={{
-                top: 20, right: 170, bottom: 20, left: 170
-              }}
-              innerRadius={0.5}
-              cornerRadius={6}
-              padAngle={1}
-              colors={{ scheme: 'category10' }}
-              slicesLabelsTextColor="#FFFFFF"
-            />
+          <div style={{
+            display: 'flex', height: 400, justifyContent: 'center', alignItems: 'center'
+          }}
+          >
+            <div style={{ width: '100%', height: 400 }}>
+              <ResponsivePie
+                animate
+                sortByValue
+                radialLabelsSkipAngle={5}
+                startAngle={-90}
+                data={chartData}
+                radialLabel="label"
+                sliceLabel="percent"
+                margin={{
+                  top: 20, right: 170, bottom: 20, left: 170
+                }}
+                innerRadius={0.5}
+                cornerRadius={6}
+                padAngle={1}
+                colors={{ scheme: 'category10' }}
+                slicesLabelsTextColor="#FFFFFF"
+              />
+            </div>
           </div>
-        </div>
-        <br />
-        <br />
-        <Typography variant="h5" color="primary" align="center">
-          { title }
-        </Typography>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Opci&oacute;n</TableCell>
-              <TableCell>Cantidad</TableCell>
-              <TableCell>Porcentaje</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {
-              chartData.map(item => (
-                <TableRow key={item.id}>
-                  <TableCell>{ item.label }</TableCell>
-                  <TableCell>{ item.value }</TableCell>
-                  <TableCell>{ `${((item.value / total) * 100).toFixed(2)}%` }</TableCell>
-                </TableRow>
-              ))
-            }
-          </TableBody>
-        </Table>
-        {
-          others.length > 0 && (
-            <div>
-              <Typography variant="h6">
-                Otras respuestas:
-              </Typography>
+          <br />
+          <br />
+          <Typography variant="h5" color="primary" align="center">
+            { title }
+          </Typography>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>Opci&oacute;n</TableCell>
+                <TableCell>Cantidad</TableCell>
+                <TableCell>Porcentaje</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
               {
-                others.map((othersVal, index) => (
-                  // eslint-disable-next-line
-                  <Chip key={index} size="medium" label={othersVal} style={{ marginLeft: 10, marginBottom: 5 }} />
+                chartData.map(item => (
+                  <TableRow key={item.id}>
+                    <TableCell>{ item.label }</TableCell>
+                    <TableCell>{ item.value }</TableCell>
+                    <TableCell>{ `${((item.value / total) * 100).toFixed(2)}%` }</TableCell>
+                  </TableRow>
                 ))
               }
-            </div>
-          )
-        }
-      </Paper>
-    </Modal>
+            </TableBody>
+          </Table>
+          {
+            others.length > 0 && (
+              <div>
+                <Typography variant="h6">
+                  Otras respuestas:
+                </Typography>
+                {
+                  others.map((othersVal, index) => (
+                    // eslint-disable-next-line
+                    <Chip key={index} size="medium" label={othersVal} style={{ marginLeft: 10, marginBottom: 5 }} />
+                  ))
+                }
+              </div>
+            )
+          }
+        </Paper>
+      </DialogContent>
+    </Dialog>
   )
 }
 
