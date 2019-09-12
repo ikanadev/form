@@ -56,17 +56,8 @@ const ChartBar = ({
                 layout="horizontal"
                 data={chartData}
                 margin={{
-                  top: 20, right: 250, bottom: 30, left: 10
+                  top: 20, right: 20, bottom: 30, left: 250
                 }}
-                legends={[{
-                  dataFrom: 'indexes',
-                  anchor: 'bottom-right',
-                  translateX: 160,
-                  direction: 'column',
-                  itemsSpacing: 2,
-                  itemWidth: 150,
-                  itemHeight: 20
-                }]}
                 colors={{ scheme: 'category10' }}
               />
             </div>
