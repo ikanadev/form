@@ -11,9 +11,31 @@ import ExpandLess from '@material-ui/icons/ExpandLess'
 import ExpandMore from '@material-ui/icons/ExpandMore'
 import InsertChartIcon from '@material-ui/icons/InsertChartOutlinedOutlined'
 
-import Chart from './Chart'
+import ChartPie from './ChartPie'
+import ChartBar from './ChartBar'
 
 import { axios, endpoints } from '../../utils'
+
+const charts = {
+  select: (open, onClose, chartData) => (
+    <ChartPie
+      open={open}
+      onClose={onClose}
+      chartData={chartData}
+      title={chartData.title}
+      data={chartData.opts}
+      others={chartData.others ? chartData.others : []}
+      name={chartData.name}
+    />
+  ),
+  multiple: (open, onClose, chartData) => (
+    <ChartBar
+      open={open}
+      onClose={onClose}
+      chartData={chartData}
+    />
+  )
+}
 
 const Report = ({
   history,
@@ -23,7 +45,7 @@ const Report = ({
   const [data, setData] = useState([])
   const [expandedItems, setExpandedItems] = useState([])
   const [showModal, setShowModal] = useState(false)
-  const [chartData, setChartData] = useState({})
+  const [chartData, setChartData] = useState(null)
   const fetchData = () => {
     axios.get(endpoints.getReport(form.route))
       .then(({ data: { content: { res } } }) => {
@@ -92,14 +114,9 @@ const Report = ({
           }
         </List>
       </Paper>
-      <Chart
-        open={showModal}
-        onClose={handleModal}
-        title={chartData.title}
-        data={chartData.opts}
-        others={chartData.others ? chartData.others : []}
-        name={chartData.name}
-      />
+      {
+        chartData && charts[chartData.type](showModal, handleModal, chartData)
+      }
     </div>
   )
 }

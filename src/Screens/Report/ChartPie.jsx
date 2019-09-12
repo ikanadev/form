@@ -12,14 +12,16 @@ import { ResponsivePie } from '@nivo/pie'
 
 import est from '../../utils/questions/est'
 
-const Chart = ({
-  title, open, data, onClose, name, others
+const ChartPie = ({
+  open, onClose,
+  chartData: {
+    title, opts, name, total, others = []
+  }
 }) => {
-  if (!data) {
+  if (!opts) {
     return <br />
   }
-  let total = 0
-  const chartData = data.map((item) => {
+  const chartData = opts.map((item) => {
     const chartItem = {}
     if (item.opt === '0') {
       chartItem.id = '-1'
@@ -37,7 +39,7 @@ const Chart = ({
       }
     }
     chartItem.value = parseInt(item.qty, 10)
-    total += chartItem.value
+    chartItem.percent = `${((chartItem.value / total) * 100).toFixed(2)} %`
     return chartItem
   }).sort((a, b) => b.value - a.value)
   return (
@@ -58,6 +60,7 @@ const Chart = ({
               startAngle={-90}
               data={chartData}
               radialLabel="label"
+              sliceLabel="percent"
               margin={{
                 top: 20, right: 170, bottom: 20, left: 170
               }}
@@ -114,4 +117,4 @@ const Chart = ({
   )
 }
 
-export default Chart
+export default ChartPie
