@@ -154,7 +154,15 @@ export default ({
       'Admin. de redes', 'Seguridad de información', 'Testing', 'Capacitación', 'Investigación'
     ]
   },
-  est32: { title: 'Aspectos en su formacion' },
+  est32: {
+    title: 'Aspectos en su formacion',
+    options: [
+      'Materias de servicio (Mat - Fis)',
+      'Materias de carrera (Prog. - BD - Redes)',
+      'Materias con laboratorios',
+      'Prestigio de la universidad'
+    ]
+  },
   est33: { title: 'El licenciado en Informática, al concluir la curricula será capaz de:' },
   est34: { title: 'Pregunta 34, Pagina 3' },
   est35: { title: 'Qué se debe mejorar del perfil profesional actual?' },

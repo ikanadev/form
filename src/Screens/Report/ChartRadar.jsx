@@ -1,0 +1,133 @@
+import React from 'react'
+import { withStyles } from '@material-ui/core/styles'
+import Dialog from '@material-ui/core/Dialog'
+import DialogContent from '@material-ui/core/DialogContent'
+import Paper from '@material-ui/core/Paper'
+import Typography from '@material-ui/core/Typography'
+import Table from '@material-ui/core/Table'
+import TableHead from '@material-ui/core/TableHead'
+import TableBody from '@material-ui/core/TableBody'
+import TableRow from '@material-ui/core/TableRow'
+import TCell from '@material-ui/core/TableCell'
+
+import { ResponsiveRadar } from '@nivo/radar'
+
+import est from '../../utils/questions/est'
+
+const TableCell = withStyles(theme => ({
+  head: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+    fontSize: 17,
+    fontWeight: 'bold'
+  },
+  body: {
+    fontSize: 15
+  }
+}))(TCell)
+
+const ChartRadar = ({
+  open, onClose,
+  chartData: {
+    title, opts, name
+  }
+}) => {
+  console.log(title, opts, name)
+  const chartData = opts.map((item, index) => {
+    const chartItem = { ...item }
+    chartItem.index = `Preg. ${index + 1}`
+    chartItem.media = item.media.toFixed(2)
+    chartItem.question = est[name].options[index]
+    return chartItem
+  })
+  return (
+    <Dialog open={open} onClose={onClose} fullWidth fullScreen>
+      <DialogContent>
+        <Paper style={{
+          padding: 20, maxWidth: 1100, marginLeft: 'auto', marginRight: 'auto'
+        }}
+        >
+          <Typography variant="h5" color="primary" align="center">
+            { title }
+          </Typography>
+          <br />
+          <br />
+          <div style={{
+            display: 'flex', height: 400, justifyContent: 'center', alignItems: 'center'
+          }}
+          >
+            <div style={{ width: '100%', height: 400 }}>
+              <ResponsiveRadar
+                enableDotLabel
+                dotLabel={d => d.value}
+                data={chartData}
+                indexBy="index"
+                maxValue={5}
+                keys={['media']}
+                borderWidth={4}
+                dotSize={10}
+                margin={{
+                  top: 40, right: 40, bottom: 40, left: 40
+                }}
+              />
+            </div>
+          </div>
+          <br />
+          <br />
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>Clave</TableCell>
+                <TableCell>Pregunta</TableCell>
+                <TableCell>Media Likert</TableCell>
+                <TableCell>Votos</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {
+                chartData.map((item, index) => (
+                  // eslint-disable-next-line
+                  <TableRow key={index}>
+                    <TableCell>{ item.index }</TableCell>
+                    <TableCell>{ item.question }</TableCell>
+                    <TableCell>{ item.media }</TableCell>
+                    <TableCell>
+                      <Table size="small">
+                        <TableHead>
+                          <TableRow>
+                            <TableCell>
+                              Opci&oacute;n
+                            </TableCell>
+                            <TableCell>
+                              Cantidad
+                            </TableCell>
+                          </TableRow>
+                        </TableHead>
+                        <TableBody>
+                          {
+                            ['Sin respuesta', 1, 2, 3, 4, 5].map((nro, ind) => (
+                              <TableRow key={nro}>
+                                <TableCell>
+                                  { nro }
+                                </TableCell>
+                                <TableCell>
+                                  { item[ind] }
+                                </TableCell>
+                              </TableRow>
+                            ))
+                          }
+                        </TableBody>
+                      </Table>
+                    </TableCell>
+                  </TableRow>
+                ))
+              }
+            </TableBody>
+          </Table>
+        </Paper>
+      </DialogContent>
+    </Dialog>
+  )
+}
+
+export default ChartRadar
