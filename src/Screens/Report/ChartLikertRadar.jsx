@@ -11,12 +11,13 @@ import TableRow from '@material-ui/core/TableRow'
 import TCell from '@material-ui/core/TableCell'
 
 import { ResponsiveRadar } from '@nivo/radar'
+import { ResponsiveBar } from '@nivo/bar'
 
 import est from '../../utils/questions/est'
 
 const TableCell = withStyles(theme => ({
   head: {
-    backgroundColor: theme.palette.common.black,
+    backgroundColor: '#848484',
     color: theme.palette.common.white,
     fontSize: 17,
     fontWeight: 'bold'
@@ -26,17 +27,16 @@ const TableCell = withStyles(theme => ({
   }
 }))(TCell)
 
-const ChartRadar = ({
-  open, onClose,
+const ChartLikertRadar = ({
+  open, onClose, isRadar = false,
   chartData: {
     title, opts, name
   }
 }) => {
-  console.log(title, opts, name)
   const chartData = opts.map((item, index) => {
     const chartItem = { ...item }
     chartItem.index = `Preg. ${index + 1}`
-    chartItem.media = item.media.toFixed(2)
+    chartItem.media = parseFloat(item.media.toFixed(2))
     chartItem.question = est[name].options[index]
     return chartItem
   })
@@ -57,23 +57,51 @@ const ChartRadar = ({
           }}
           >
             <div style={{ width: '100%', height: 400 }}>
-              <ResponsiveRadar
-                enableDotLabel
-                dotLabel={d => d.value}
-                data={chartData}
-                indexBy="index"
-                maxValue={5}
-                keys={['media']}
-                borderWidth={4}
-                dotSize={10}
-                margin={{
-                  top: 40, right: 40, bottom: 40, left: 40
-                }}
-              />
+              {
+                isRadar
+                  ? (
+                    <ResponsiveRadar
+                      enableDotLabel
+                      dotLabel={d => d.value}
+                      data={chartData}
+                      indexBy="index"
+                      maxValue={5}
+                      keys={['media']}
+                      borderWidth={4}
+                      dotSize={10}
+                      margin={{
+                        top: 40, right: 40, bottom: 40, left: 40
+                      }}
+                    />
+                  )
+                  : (
+                    <ResponsiveBar
+                      animate
+                      indexBy="question"
+                      keys={['media']}
+                      maxValue={5}
+                      label={l => l.data.media}
+                      minValue={0}
+                      padding={0.3}
+                      borderRadius={5}
+                      labelTextColor="#FFFFFF"
+                      colorBy="index"
+                      layout="horizontal"
+                      data={chartData}
+                      margin={{
+                        top: 20, right: 20, bottom: 30, left: 650
+                      }}
+                      colors={{ scheme: 'category10' }}
+                    />
+                  )
+              }
             </div>
           </div>
           <br />
           <br />
+          <Typography variant="h5" color="primary" align="center">
+            Detalle
+          </Typography>
           <Table>
             <TableHead>
               <TableRow>
@@ -130,4 +158,4 @@ const ChartRadar = ({
   )
 }
 
-export default ChartRadar
+export default ChartLikertRadar

@@ -13,7 +13,7 @@ import InsertChartIcon from '@material-ui/icons/InsertChartOutlinedOutlined'
 
 import ChartPie from './ChartPie'
 import ChartBar from './ChartBar'
-import ChartRadar from './ChartRadar'
+import ChartLikertRadar from './ChartLikertRadar'
 
 import { axios, endpoints } from '../../utils'
 
@@ -36,8 +36,16 @@ const charts = {
       chartData={chartData}
     />
   ),
-  likert: (open, onClose, chartData) => (
-    <ChartRadar
+  likertRadar: (open, onClose, chartData) => (
+    <ChartLikertRadar
+      open={open}
+      onClose={onClose}
+      chartData={chartData}
+      isRadar
+    />
+  ),
+  likertBar: (open, onClose, chartData) => (
+    <ChartLikertRadar
       open={open}
       onClose={onClose}
       chartData={chartData}

@@ -163,23 +163,94 @@ export default ({
       'Prestigio de la universidad'
     ]
   },
-  est33: { title: 'El licenciado en Informática, al concluir la curricula será capaz de:' },
-  est34: { title: 'Pregunta 34, Pagina 3' },
+  est33: {
+    title: 'El licenciado en Informática, al concluir la curricula será capaz de:',
+    options: [
+      'Generar conocimientos para modernizar los procesos de gestión y producción industrial',
+      'Organizar y administrar sistemas informáticos',
+      'Organizar el trabajo interdisciplinario',
+      'Innovar tecnologías para el mercado',
+      'Desarrollar y dirigir la investigación'
+    ]
+  },
+  est34: {
+    title: 'Pregunta 34, Pagina 3',
+    options: [
+      'El perfil del profesional en Informática es pertinente con la realidad actual',
+      'El perfil del profesional en Informática expresa con claridad las competencias del futuro profesional'
+    ]
+  },
   est35: { title: 'Qué se debe mejorar del perfil profesional actual?' },
-  est36: { title: 'Asignaturas y plan de estudio.' },
+  est36: {
+    title: 'Asignaturas y plan de estudio.',
+    options: [
+      'Las asignaturas del plan de estudios son adecuadas para formar al profesional en Informática',
+      'Los contenidos de las asignaturas del plan de estudios están actualizados',
+      'Las asignaturas del plan de estudios se imparten de manera didáctica.',
+      'La cantidad de asignaturas del plan de estudios es adecuada para formar al profesional en informática',
+      'La proporción de horas teóricas y práctica de las adsignaturas son adecuadas para el proceso de formación',
+      'La estructura de materias es adecuada para la formación del profesional en Informática'
+    ]
+  },
   est37: { title: 'Qué debilidades tiene el plan de estudios actual?' },
   est38: { title: 'Qué fortalezas tiene el plan de estudios actual?' },
   est39: { title: 'Mencione al menos 3 materias que considera le hacen falta a la Mención Ingeniería de Sistemas Informáticos' },
   est40: { title: 'Mencione al menos 3 materias que considera le hacen falta a la Mención de Ciencias de la Computación' },
   est41: { title: 'Mencione al menos 3 materias que NO debería estar en la Mención Ingeniería de sistemas informáticos.' },
   est42: { title: 'Mencione al menos 3 materias que NO deberían estar en la Mención Ciencias de la Computación' },
-  est43: { title: 'Aulas y Equipamiento' },
+  est43: {
+    title: 'Aulas y Equipamiento',
+    options: [
+      'La cantidad de aulas es adecuada para atender las necesidades de estudiantes y docentes',
+      'El equipamiento de las aulaas es suficiente para atender las necesidades de los docentes y estudiantes.',
+      'La cantidad de laboratorios es adecuada para atender las necesidades de estudiantes y docentes.',
+      'El equipamiento de los laboratorios es suficiente para atender las nececidades de estudiantes y docentes.',
+      'La biblioteca es adecuada para atender las necesidades de docentes y estudiantes.',
+      'El equipamiento de la biblioteca es suficiente para atender las necesidades de docentes y estudiantes.',
+      'La infraestructura tecnológica es adecuada para atender las necesidades de estudiantes y docentes.',
+      'El servicio de Internet en la carrera permite desarrollar las actividades académicas satisfactoriamente.'
+    ]
+  },
   est44: { title: '¿Desde su vivencia, qué sugiere mejorar de la infraestructura actual de la carrera?' },
-  est45: { title: 'Licenciado en Informática' },
+  est45: {
+    title: 'Licenciado en Informática',
+    options: [
+      'El título de licenciado en Informática es coherente con la demanda del mercado acutal',
+      'La meción Ingeniería en Sistemas Informáticos es coherente con la demanda del mercado actual',
+      'La Mención Ciencias de la Computación es coherente con la demanda del mercado actual'
+    ]
+  },
   est46: { title: '¿Qué otros programas se deben implementar en Informática?' },
-  est47: { title: 'Carreras o Programas' },
-  est48: { title: 'La especialización debería hacerse:' },
-  est49: { title: '¿Qué modalidades de graduación elegiría?' },
+  est47: {
+    title: 'Carreras o Programas',
+    options: [
+      'Licenciatura en Informática',
+      'Ingeniería en Sistemas Informáticos',
+      'Licenciatura en Ciencias de la Computación',
+      'Ingeniería en Software',
+      'Ingeniería Infomática',
+      'Ingeniería en Sistemas',
+      'Licenciatura en Informática Educativa',
+      'Ingeniería en Redes y TIC',
+      'Ingeniería en Redes y Telecomunicaciones',
+      'Ingeniería en Informática Industrial',
+      'Licenciatura en Seguridad de la Información'
+    ]
+  },
+  est48: {
+    title: 'La especialización debería hacerse:',
+    options: [
+      'En el postgrado',
+      'En el pregrado',
+      'Otro'
+    ]
+  },
+  est49: {
+    title: '¿Qué modalidades de graduación elegiría?',
+    options: [
+      'Tesis de grado', 'Proyecto de grado', 'Por excelencia', 'Examen de grado', 'Trabajo dirigido'
+    ]
+  },
   est50: { title: 'En cuanto a lenguajes de programación' },
   est51: { title: 'En cuanto a gestores de bases de datos' },
   est52: { title: 'En cuanto a metodologías de desarrollo' },
