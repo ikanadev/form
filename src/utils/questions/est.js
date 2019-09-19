@@ -251,17 +251,164 @@ export default ({
       'Tesis de grado', 'Proyecto de grado', 'Por excelencia', 'Examen de grado', 'Trabajo dirigido'
     ]
   },
-  est50: { title: 'En cuanto a lenguajes de programación' },
-  est51: { title: 'En cuanto a gestores de bases de datos' },
-  est52: { title: 'En cuanto a metodologías de desarrollo' },
-  est53: { title: 'En cuanto a sistemas operativos' },
-  est54: { title: 'En cuanto a Frameworks' },
-  est55: { title: '¿Cuáles considera que son las competencias generales que debe tener un Informático?' },
-  est56: { title: '¿Cuáles considera que son las competencias específicas que debe tener un Informático?' },
-  est57: { title: 'Líneas de Investigación' },
-  est58: { title: 'Cuando termine la carrera, me gustaría trabajar en:' },
+  est50: {
+    title: 'En cuanto a lenguajes de programación',
+    options: [
+      'Java',
+      'C',
+      'C#',
+      'PHP',
+      'Phyton',
+      'C++',
+      'Visual Basic .NET',
+      'JavaScript',
+      'Kotlin',
+      'Swift',
+      'Go',
+      'Ruby'
+    ]
+  },
+  est51: {
+    title: 'En cuanto a gestores de bases de datos',
+    options: [
+      'Oracle',
+      'MySQL',
+      'SQL Server',
+      'Mongo DB',
+      'PostgreSQL',
+      'SQLite',
+      'Access',
+      'Maria DB',
+      'Informix',
+      'DB4O',
+      'IBMdb2',
+      'Redis'
+    ]
+  },
+  est52: {
+    title: 'En cuanto a metodologías de desarrollo',
+    options: [
+      'Análisis y Diseño Orientado a Objetos',
+      'Análisis y Diseño Orientado a Servicios',
+      'Desarrollo Rápido de Aplicaciones',
+      'Metodología XP'
+    ]
+  },
+  est53: {
+    title: 'En cuanto a sistemas operativos',
+    options: [
+      'Microsoft Windows',
+      'GNU/Linux',
+      'OSX',
+      'Android'
+    ]
+  },
+  est54: {
+    title: 'En cuanto a Frameworks',
+    options: [
+      'Spring',
+      'Vaadin',
+      'Laravel',
+      'Django',
+      'Angular',
+      'React',
+      'Vue',
+      'Flutter',
+      'Hibernate',
+      'CodeIgniter',
+      'Ionic',
+      'Express'
+    ]
+  },
+  est55: {
+    title: '¿Cuáles considera que son las competencias generales que debe tener un Informático?',
+    options: [
+      'Trabajar en un contexto multidisciplinario',
+      'Trabajar en el contexto internaciones',
+      'Comportamineto ético enla profesión y la vida',
+      'Capacidad de actualizarse permanentemente',
+      'Capacidad crítica',
+      'Capacidad de trabajo en equipo',
+      'Capacidad reflexiva',
+      'Capacidad Creativa',
+      'Conocimiento del idioma Inglés',
+      'Capacidad de emprender proyectos',
+      'Capacidad de tomar decisiones',
+      'Capacidad de adaptarse a nuevas situaciones',
+      'Utilizar metodologías de investigación'
+    ]
+  },
+  est56: {
+    title: '¿Cuáles considera que son las competencias específicas que debe tener un Informático?',
+    options: [
+      'Diseñar soluciones informáticas a pedido',
+      'Aplicar metodologías de desarrollo',
+      'Capacidad de siseñar construir y administar redes',
+      'Aplicar el enfoque sistémico para resolver problemas',
+      'Documentar proyectos del área',
+      'Capacidad de dirigir proyectos informáticos',
+      'Capacidad de trabajo en entornos virtuales',
+      'Comunicación escrita en el ámbito académico',
+      'Capacidad de proponer alternativas tecnológicas',
+      'Capacidad de adaptarse a tecnologías futuras',
+      'Capacidad de diseñar e implementar software educativo',
+      'Capacidad de impartir docencia e investigar',
+      'Capacidad de diseñar e implementar sistemas embebidos'
+    ]
+  },
+  est57: {
+    title: 'Líneas de Investigación',
+    options: [
+      'Desarrollo de software',
+      'Desarrollo web',
+      'Aplicaciones móviles',
+      'Inteligencia artificial',
+      'Robótica y autmomatización',
+      'Pensamiento computacional',
+      'TIC en educación',
+      'Computación cuántica',
+      'Bioinformática',
+      'Simulación',
+      'Seguridad de la información',
+      'Data Science',
+      'BlockChain',
+      'Redes de información',
+      'Big data',
+      'Machine Learning',
+      'Realidad aumentada y virtual',
+      'Comunicación digital',
+      'Internet de las cosas',
+      'Visión artificial',
+      'Videojuegos'
+    ]
+  },
+  est58: {
+    title: 'Cuando termine la carrera, me gustaría trabajar en:',
+    options: [
+      'Emprendimiento propio',
+      'Educación regular',
+      'Sector público',
+      'Banca',
+      'ONG s',
+      'Empresas de desarrollo de software',
+      'Empresas de telecomunicaciones',
+      'Empresas de seguridad Informática',
+      'Empresas de monitoreo',
+      'Institutos de investigación',
+      'Educación superior',
+      'Freelance',
+      'Marketing digital',
+      'Auditoría de sistemas',
+      'Análisis de riesgo'
+    ]
+  },
   est59: { title: '¿Dónde te gustaría trabajar?' },
-  est60: { title: '¿Que certificaciones consideras importantes?' },
+  est60: {
+    title: '¿Que certificaciones consideras importantes?',
+    options: [
+      'ORACLE', 'ISACA', 'SCRUM', 'SQA', 'COBIT', 'SAP', 'CISCO'
+    ]
+  },
   est61: { title: 'Diplomado:' },
   est62: { title: 'Maestría:' },
   est63: { title: 'Doctorado:' },

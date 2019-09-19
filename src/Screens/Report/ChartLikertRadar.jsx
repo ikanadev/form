@@ -64,7 +64,7 @@ const ChartLikertRadar = ({
                       enableDotLabel
                       dotLabel={d => d.value}
                       data={chartData}
-                      indexBy="index"
+                      indexBy="question"
                       maxValue={5}
                       keys={['media']}
                       borderWidth={4}

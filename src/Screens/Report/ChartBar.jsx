@@ -41,10 +41,10 @@ const ChartBar = ({
         }}
         >
           <div style={{
-            display: 'flex', height: 400, justifyContent: 'center', alignItems: 'center'
+            display: 'flex', height: opts.length > 10 ? 550 : 400, justifyContent: 'center', alignItems: 'center'
           }}
           >
-            <div style={{ width: '100%', height: 400 }}>
+            <div style={{ width: '100%', height: opts.length > 10 ? 550 : 400 }}>
               <ResponsiveBar
                 animate
                 indexBy="label"
