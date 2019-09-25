@@ -12,9 +12,21 @@ import Typography from '@material-ui/core/Typography'
 import { ResponsivePie } from '@nivo/pie'
 
 import est from '../../utils/questions/est'
+import pro from '../../utils/questions/pro'
+import ins from '../../utils/questions/inst'
+import pre from '../../utils/questions/pre'
+import doc from '../../utils/questions/doc'
+
+const routeQuestions = {
+  'form-est': est,
+  'form-pro': pro,
+  'form-ins': ins,
+  'form-pre': pre,
+  'form-doc': doc
+}
 
 const ChartPie = ({
-  open, onClose,
+  open, onClose, route,
   chartData: {
     title, opts, name, total, others = []
   }
@@ -34,9 +46,9 @@ const ChartPie = ({
     } else {
       const optIndex = parseInt(item.opt, 10)
       if (optIndex) {
-        chartItem.label = est[name].options[item.opt - 1]
+        chartItem.label = routeQuestions[route][name].options[item.opt - 1]
       } else {
-        chartItem.label = est[name].options[item.opt]
+        chartItem.label = routeQuestions[route][name].options[item.opt]
       }
     }
     chartItem.value = parseInt(item.qty, 10)
@@ -100,7 +112,7 @@ const ChartPie = ({
             </TableBody>
           </Table>
           {
-            others.length > 0 && (
+            others && others.length > 0 && (
               <div>
                 <Typography variant="h6">
                   Otras respuestas:

@@ -12,9 +12,21 @@ import TableRow from '@material-ui/core/TableRow'
 import { ResponsiveBar } from '@nivo/bar'
 
 import est from '../../utils/questions/est'
+import pro from '../../utils/questions/pro'
+import ins from '../../utils/questions/inst'
+import pre from '../../utils/questions/pre'
+import doc from '../../utils/questions/doc'
+
+const routeQuestions = {
+  'form-est': est,
+  'form-pro': pro,
+  'form-ins': ins,
+  'form-pre': pre,
+  'form-doc': doc
+}
 
 const ChartBar = ({
-  open, onClose,
+  open, onClose, route,
   chartData: {
     title, total, opts, others = [], name
   }
@@ -26,12 +38,13 @@ const ChartBar = ({
       chartItem.label = 'Sin Respuesta/Ninguno'
     } else {
       const optIndex = parseInt(opt.opt, 10)
-      chartItem.label = est[name].options[optIndex - 1]
+      chartItem.label = routeQuestions[route][name].options[optIndex - 1]
     }
     chartItem.value = parseInt(opt.qty, 10)
     chartItem.percent = `${((chartItem.value / total) * 100).toFixed(2)} %`
     return chartItem
   }).sort((a, b) => a.value - b.value)
+  // console.log(chartData)
   return (
     <Dialog open={open} onClose={onClose} fullWidth fullScreen>
       <DialogContent>
@@ -41,10 +54,10 @@ const ChartBar = ({
         }}
         >
           <div style={{
-            display: 'flex', height: opts.length > 10 ? 550 : 400, justifyContent: 'center', alignItems: 'center'
+            display: 'flex', height: opts.length > 10 ? 600 : 400, justifyContent: 'center', alignItems: 'center'
           }}
           >
-            <div style={{ width: '100%', height: opts.length > 10 ? 550 : 400 }}>
+            <div style={{ width: '100%', height: opts.length > 10 ? 600 : 400 }}>
               <ResponsiveBar
                 animate
                 indexBy="label"
@@ -90,7 +103,7 @@ const ChartBar = ({
           <br />
           <br />
           {
-            others.length > 0 && (
+            others && others.length > 0 && (
               <div>
                 <Typography variant="h6">
                   Otras respuestas:

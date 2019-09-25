@@ -94,7 +94,21 @@ export default ({
     options: ['Independiente', 'Pasantía', 'Beca trabajo', 'Convocatoria pública', 'Invitación', 'Otro:']
   },
   pro29: { title: 'Tipo de institución', options: ['Estatal', 'Privada', 'ONG', 'Otro'] },
-  pro30: { title: 'Actividades que desarrolla en su trabajo' },
+  pro30: {
+    title: 'Actividades que desarrolla en su trabajo',
+    options: [
+      'Análisis y diseño de sistemas',
+      'Administración de bases de datos',
+      'Diseño de páginas web',
+      'Soporte técnico',
+      'Transcripción de datos',
+      'Administración de redes',
+      'Seguridad de información',
+      'Testing',
+      'Capacitación',
+      'Investigación'
+    ]
+  },
   pro31: {
     title: 'Aspectos en su formación académica que son útiles en su desempeño laboral',
     options: [
@@ -140,18 +154,98 @@ export default ({
     ]
   },
   pro40: { title: '¿Qué otros programas y/o carreras considera se deben implementar en el área de Informática?' },
-  pro41: { title: '¿Cuáles de las siguientes denominaciones considera que son y serán requeridas en el mercado laboral futuro?' },
+  pro41: {
+    title: '¿Cuáles de las siguientes denominaciones considera que son y serán requeridas en el mercado laboral futuro?',
+    options: [
+      'Licenciatura en Informática',
+      'Ingeniería en Sistemas Informáticos',
+      'Licenciatura en Ciencias de la Computación',
+      'Ingeniería de Software',
+      'Ingeniería Informática',
+      'Ingeniería de Sistemas',
+      'Licenciatura en Informática Educativa',
+      'Ingeniería en Redes y TIC',
+      'Ingeniería en Redes y Telecomunicaciones',
+      'Ingeniería en Informática Industrial',
+      'Licenciatura en seguridad de la Información'
+    ]
+  },
   pro42: { title: 'La especialización en el área de Informática debería hacerse', options: ['En el postgrado', 'En el pregrado', 'Otro:'] },
   pro43: {
     title: '¿Con cúal de las siguientes modalidades se tituló?',
     options: ['Tesis de grado', 'Proyecto de grado', 'Por excelencia', 'Examen de grado', 'Trabajo dirigido', 'Otro:']
   },
   // ÁREAS DE CONOCIMIENTO
-  pro44: { title: 'Lenguajes de programación que utiliza en el trabajo' },
-  pro45: { title: 'Gestores de base de datos que utiliza en su trabajo' },
-  pro46: { title: 'Metodologías de desarrollo de sistemas que utiliza en su trabajo' },
-  pro47: { title: 'Sistemas operativos que utiliza en su trabajo' },
-  pro48: { title: 'Frameworks que utiliza en si trabajo' },
+  pro44: {
+    title: 'Lenguajes de programación que utiliza en el trabajo',
+    options: [
+      'Java',
+      'C',
+      'C#',
+      'PHP',
+      'Phyton',
+      'C++',
+      'Visual Basic .NET',
+      'JavaScript',
+      'Kotlin',
+      'Swift',
+      'Go',
+      'Ruby'
+    ]
+  },
+  pro45: {
+    title: 'Gestores de base de datos que utiliza en su trabajo',
+    options: [
+      'Oracle',
+      'MySQL',
+      'SQL Server',
+      'Mongo DB',
+      'PostgreSQL',
+      'SQLite',
+      'Access',
+      'Maria DB',
+      'Informix',
+      'DB4O',
+      'IBMdb2',
+      'Redis'
+    ]
+  },
+  pro46: {
+    title: 'Metodologías de desarrollo de sistemas que utiliza en su trabajo',
+    options: [
+      'Análisis y Diseño Orientado a Objetos',
+      'Análisis y Diseño Orientado a Servicios',
+      'Desarrollo Rápido de Aplicaciones',
+      'Metodología XP',
+      'Otros'
+    ]
+  },
+  pro47: {
+    title: 'Sistemas operativos que utiliza en su trabajo',
+    options: [
+      'Microsoft Windows',
+      'GNU/Linux',
+      'OSX',
+      'Android'
+    ]
+  },
+  pro48: {
+    title: 'Frameworks que utiliza en si trabajo',
+    options: [
+      'Spring',
+      'Vaadin',
+      'Laravel',
+      'Django',
+      'Angular',
+      'React',
+      'Vue',
+      'Flutter',
+      'Hibernate',
+      'CodeIgniter',
+      'Ionic',
+      'Express'
+    ]
+  },
   // COMPETENCIAS DEL PROFESIONAL EN EL ÁREA DE INFORMÁTICA Y SISTEMAS
   pro49: {
     title: '¿Cuáles son las competencias generales que se busca en el mercado laboral?',
@@ -189,9 +283,53 @@ export default ({
       'Capacidad de diseñar e implementar sistemas embebidos'
     ]
   },
-  pro51: { title: '¿Cuáles son las áreas y tecnologías que tienen y tendrán mayor impacto en los siguientes años?' },
+  pro51: {
+    title: '¿Cuáles son las áreas y tecnologías que tienen y tendrán mayor impacto en los siguientes años?',
+    options: [
+      'Desarrollo de software',
+      'Desarrollo web',
+      'Aplicaciones móviles',
+      'Inteligencia artificial',
+      'Robótica y autmomatización',
+      'Pensamiento computacional',
+      'TIC en educación',
+      'Computación cuántica',
+      'Bioinformática',
+      'Simulación',
+      'Seguridad de la información',
+      'Data Science',
+      'BlockChain',
+      'Redes de información',
+      'Big data',
+      'Machine Learning',
+      'Realidad aumentada y virtual',
+      'Comunicación digital',
+      'Internet de las cosas',
+      'Visión artificial',
+      'Videojuegos'
+    ]
+  },
   // ASPIRACIONES FUTURAS
-  pro52: { title: 'En los siguientes 5 años te gustaría trabajar en:' },
+  pro52: {
+    title: 'En los siguientes 5 años te gustaría trabajar en:',
+    options: [
+      'Emprendimiento propio',
+      'Educación regular',
+      'Sector público',
+      'Banca',
+      'ONG s',
+      'Empresas de desarrollo de software',
+      'Empresas de telecomunicaciones',
+      'Empresas de seguridad Informática',
+      'Empresas de monitoreo',
+      'Institutos de investigación',
+      'Educación superior',
+      'Freelance',
+      'Marketing digital',
+      'Auditoría de sistemas',
+      'Análisis de riesgo'
+    ]
+  },
   pro53: { title: '¿Qué estudios de postgrado te interesaría seguir en los siguientes años? (Diplomado)' },
   pro54: { title: '¿Qué estudios de postgrado te interesaría seguir en los siguientes años? (Maestría)' },
   pro55: { title: '¿Qué estudios de postgrado te interesaría seguir en los siguientes años? (Doctorado)' },

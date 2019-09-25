@@ -15,7 +15,33 @@ export default ({
       'Otro:'
     ]
   },
-  ins9: { title: 'Rubro de la institución' },
+  ins9: {
+    title: 'Rubro de la institución',
+    options: [
+      'Banca',
+      'Educación Regular',
+      'Educación Superior',
+      'Administración Pública',
+      'Telecomunicaciones',
+      'Desarrollo de Software',
+      'Prensa',
+      'Salud',
+      'Transporte',
+      'Turismo',
+      'Exportación de Software',
+      'Hotelería',
+      'Agropecuaria',
+      'Minería',
+      'Gastronomía',
+      'Construcción',
+      'Comercio',
+      'Automotores',
+      'Publicidad',
+      'Entretenimiento',
+      'Comercio',
+      'Servicios'
+    ]
+  },
   ins10: {
     title: 'Nro. de empleados en la institución',
     options: [
@@ -47,14 +73,36 @@ export default ({
   ins13k: { title: 'Otro(s) 1:' },
   ins13l: { title: 'Otro(s) 2:' },
   ins13m: { title: 'Otro(s) 3:' },
-  ins14: { title: 'Forma en la que se accede a los cargos' },
+  ins14: {
+    title: 'Forma en la que se accede a los cargos',
+    options: [
+      'Pasantía',
+      'Beca Trabajo',
+      'Convocatoría Pública',
+      'Invitación'
+    ]
+  },
   ins15: {
     title: 'Si tuviera que solicitar personal a una univesidad y/o instituto ¿Cuál eligiría?'
   },
   ins15a: {
     title: 'Justifique:'
   },
-  ins16: { title: 'Principales actividades que desarrolla el personal del área de Informática y sistemas en la institución' },
+  ins16: {
+    title: 'Principales actividades que desarrolla el personal del área de Informática y sistemas en la institución',
+    options: [
+      'Análisis y diseño de sistemas',
+      'Administración de bases de datos',
+      'Diseño de páginas web',
+      'Soporte técnico',
+      'Transcripción de datos',
+      'Administración de redes',
+      'Seguridad de información',
+      'Testing',
+      'Capacitación',
+      'Investigación'
+    ]
+  },
   ins17: {
     title: 'Sección III Pregunta 1',
     options: [
@@ -90,13 +138,90 @@ export default ({
   },
   ins25: { title: '¿Qué otros programas considera que se deben inplementar en el área de Informática?' },
   ins26: {
-    title: 'A continuación se presentan algunas denominaciones. ¿Cuál(es)considera que son y serán requridas por el mercado laboral?'
+    title: 'A continuación se presentan algunas denominaciones. ¿Cuál(es)considera que son y serán requridas por el mercado laboral?',
+    options: [
+      'Licenciatura en Informática',
+      'Ingeniería en Sistemas Informáticos',
+      'Licenciatura en Ciencias de la Computación',
+      'Ingeniería en Software',
+      'Ingeniería Infomática',
+      'Ingeniería en Sistemas',
+      'Licenciatura en Informática Educativa',
+      'Ingeniería en Redes y TIC',
+      'Ingeniería en Redes y Telecomunicaciones',
+      'Ingeniería en Informática Industrial',
+      'Licenciatura en Seguridad de la Información'
+    ]
   },
-  ins27: { title: 'Lenguajes de programación que utiliza la institución' },
-  ins28: { title: 'Gestores de bases de datos que utiliza la institución' },
-  ins29: { title: 'Metodologías de desarrollo de sistemas que utiliza la institución' },
-  ins30: { title: 'Sistemas Operativos que utiliza la institución' },
-  ins31: { title: 'Frameworks que utiliza la institución' },
+  ins27: {
+    title: 'Lenguajes de programación que utiliza la institución',
+    options: [
+      'Java',
+      'C',
+      'C#',
+      'PHP',
+      'Phyton',
+      'C++',
+      'Visual Basic .NET',
+      'JavaScript',
+      'Kotlin',
+      'Swift',
+      'Go',
+      'Ruby'
+    ]
+  },
+  ins28: {
+    title: 'Gestores de bases de datos que utiliza la institución',
+    options: [
+      'Oracle',
+      'MySQL',
+      'SQL Server',
+      'Mongo DB',
+      'PostgreSQL',
+      'SQLite',
+      'Access',
+      'Maria DB',
+      'Informix',
+      'DB4O',
+      'IBMdb2',
+      'Redis'
+    ]
+  },
+  ins29: {
+    title: 'Metodologías de desarrollo de sistemas que utiliza la institución',
+    options: [
+      'Análisis y Diseño Orientado a Objetos',
+      'Análisis y Diseño Orientado a Servicios',
+      'Desarrollo Rápido de Aplicaciones',
+      'Metodología XP'
+    ]
+  },
+  ins30: {
+    title: 'Sistemas Operativos que utiliza la institución',
+    options: [
+      'Microsoft Windows',
+      'GNU/Linux',
+      'OSX',
+      'Android'
+    ]
+  },
+  ins31: {
+    title: 'Frameworks que utiliza la institución',
+    options: [
+      'Spring',
+      'Vaadin',
+      'Laravel',
+      'Django',
+      'Angular',
+      'React',
+      'Vue',
+      'Flutter',
+      'Hibernate',
+      'CodeIgniter',
+      'Ionic',
+      'Express'
+    ]
+  },
   ins32: {
     title: '¿Cuáles son las competencias generales que busca la institución del profesional del área de la Informática?',
     options: [
@@ -133,7 +258,32 @@ export default ({
       'Capacidad de diseñar e implementar sistemas embebidos'
     ]
   },
-  ins34: { title: '¿Cuáles son las áreas y tecnologías que tienen y tendrán mayor impacto en el mercado laboral en los siguientes años?' },
+  ins34: {
+    title: '¿Cuáles son las áreas y tecnologías que tienen y tendrán mayor impacto en el mercado laboral en los siguientes años?',
+    options: [
+      'Desarrollo de software',
+      'Desarrollo web',
+      'Aplicaciones móviles',
+      'Inteligencia artificial',
+      'Robótica y autmomatización',
+      'Pensamiento computacional',
+      'TIC en educación',
+      'Computación cuántica',
+      'Bioinformática',
+      'Simulación',
+      'Seguridad de la información',
+      'Data Science',
+      'BlockChain',
+      'Redes de información',
+      'Big data',
+      'Machine Learning',
+      'Realidad aumentada y virtual',
+      'Comunicación digital',
+      'Internet de las cosas',
+      'Visión artificial',
+      'Videojuegos'
+    ]
+  },
   ins35: { title: 'Mencione alguna(s) sugerencias para mejorar el plan de estudio' },
   ins36: { title: 'Encuestador(es):' },
   ins37: { title: 'Fecha de encuesta:' }

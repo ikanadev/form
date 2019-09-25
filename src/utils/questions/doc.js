@@ -20,7 +20,17 @@ export default ({
     title: 'Procedencia:',
     options: ['Nacional', 'Extrangero']
   },
-  doc9: { title: 'Profesión(es):' },
+  doc9: {
+    title: 'Profesión(es):',
+    options: [
+      'Lic. en Informática',
+      'Ing. Sistemas',
+      'Ing. Electrónico',
+      'Lic. en Economía',
+      'Lic. en Matemática',
+      'Lic. en Física'
+    ]
+  },
   doc10: { title: 'Formación Postgradual (Especialidad):' },
   doc11: { title: 'Fomarción Postgradual (Maestría):' },
   doc12: { title: 'Formación Postgradual (Doctorado):' },
@@ -35,7 +45,19 @@ export default ({
     title: 'Categoría docente:',
     options: ['Invitado', 'Interino', 'Contratado', 'Titular A', 'Titular B', 'Titular C', 'Emérito']
   },
-  doc17: { title: 'Área(s) en que se desempeña actualmente:' },
+  doc17: {
+    title: 'Área(s) en que se desempeña actualmente:',
+    options: [
+      'Programación',
+      'Algorítmica',
+      'Redes',
+      'Tecnológica',
+      'Sistemas',
+      'Matemáticas',
+      'Gestión y Administración',
+      'General'
+    ]
+  },
   // PERFIL PROFESIONAL
   doc18: {
     title: 'El licenciado en Informática al concluir la curricula será capaz de:',
@@ -135,11 +157,76 @@ export default ({
     options: ['Dos semestres', 'Tres semestres', 'Cuatro semestres', 'Otro']
   },
   // ÁREAS DE CONOCIMIENTO
-  doc37: { title: 'En cuanto a lenguages de programación:' },
-  doc38: { title: 'En cuanto a gestores de base de datos:' },
-  doc39: { title: 'En cuanto a metodologías de desarrollo de sistemas:' },
-  doc40: { title: 'En cuanto a sistemas operativos:' },
-  doc41: { title: 'En cuanto a frameworks:' },
+  doc37: {
+    title: 'En cuanto a lenguages de programación:',
+    options: [
+      'Java',
+      'C',
+      'C#',
+      'PHP',
+      'Phyton',
+      'C++',
+      'Visual Basic .NET',
+      'JavaScript',
+      'Kotlin',
+      'Swift',
+      'Go',
+      'Ruby'
+    ]
+  },
+  doc38: {
+    title: 'En cuanto a gestores de base de datos:',
+    options: [
+      'Oracle',
+      'MySQL',
+      'SQL Server',
+      'Mongo DB',
+      'PostgreSQL',
+      'SQLite',
+      'Access',
+      'Maria DB',
+      'Informix',
+      'DB4O',
+      'IBMdb2',
+      'Redis'
+    ]
+  },
+  doc39: {
+    title: 'En cuanto a metodologías de desarrollo de sistemas:',
+    options: [
+      'Análisis y Diseño Orientado a Objetos',
+      'Análisis y Diseño Orientado a Servicios',
+      'Desarrollo Rápido de Aplicaciones',
+      'Metodología XP',
+      'Otros'
+    ]
+  },
+  doc40: {
+    title: 'En cuanto a sistemas operativos:',
+    options: [
+      'Microsoft Windows',
+      'GNU/Linux',
+      'OSX',
+      'Android'
+    ]
+  },
+  doc41: {
+    title: 'En cuanto a frameworks:',
+    options: [
+      'Spring',
+      'Vaadin',
+      'Laravel',
+      'Django',
+      'Angular',
+      'React',
+      'Vue',
+      'Flutter',
+      'Hibernate',
+      'CodeIgniter',
+      'Ionic',
+      'Express'
+    ]
+  },
   doc42: {
     title: '¿Cuáles considera que son las competencias generales que debe tener el profesional del área de la Informática?',
     options: [
@@ -176,7 +263,32 @@ export default ({
       'Capacidad de diseñar e implementar sistemas embebidos'
     ]
   },
-  doc44: { title: 'Línea de Investigación:' },
+  doc44: {
+    title: 'Línea de Investigación:',
+    options: [
+      'Desarrollo de software',
+      'Desarrollo web',
+      'Aplicaciones móviles',
+      'Inteligencia artificial',
+      'Robótica y autmomatización',
+      'Pensamiento computacional',
+      'TIC en educación',
+      'Computación cuántica',
+      'Bioinformática',
+      'Simulación',
+      'Seguridad de la información',
+      'Data Science',
+      'BlockChain',
+      'Redes de información',
+      'Big data',
+      'Machine Learning',
+      'Realidad aumentada y virtual',
+      'Comunicación digital',
+      'Internet de las cosas',
+      'Visión artificial',
+      'Videojuegos'
+    ]
+  },
   // SUGERENCIAS
   doc45: { title: 'Mecione algunas sugerencias para desarrollar en el Proyecto de Rediseño y Diseño curricular en la Carrera.' },
   doc46: { title: 'Encuestador:' },

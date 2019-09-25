@@ -18,9 +18,10 @@ import ChartLikertRadar from './ChartLikertRadar'
 import { axios, endpoints } from '../../utils'
 
 const charts = {
-  select: (open, onClose, chartData) => (
+  select: (open, onClose, chartData, route) => (
     <ChartPie
       open={open}
+      route={route}
       onClose={onClose}
       chartData={chartData}
       title={chartData.title}
@@ -29,24 +30,27 @@ const charts = {
       name={chartData.name}
     />
   ),
-  multiple: (open, onClose, chartData) => (
+  multiple: (open, onClose, chartData, route) => (
     <ChartBar
       open={open}
+      route={route}
       onClose={onClose}
       chartData={chartData}
     />
   ),
-  likertRadar: (open, onClose, chartData) => (
+  likertRadar: (open, onClose, chartData, route) => (
     <ChartLikertRadar
       open={open}
+      route={route}
       onClose={onClose}
       chartData={chartData}
       isRadar
     />
   ),
-  likertBar: (open, onClose, chartData) => (
+  likertBar: (open, onClose, chartData, route) => (
     <ChartLikertRadar
       open={open}
+      route={route}
       onClose={onClose}
       chartData={chartData}
     />
@@ -130,7 +134,7 @@ const Report = ({
         </List>
       </Paper>
       {
-        chartData && charts[chartData.type](showModal, handleModal, chartData)
+        chartData && charts[chartData.type](showModal, handleModal, chartData, form.route)
       }
     </div>
   )

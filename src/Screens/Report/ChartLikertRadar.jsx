@@ -14,6 +14,18 @@ import { ResponsiveRadar } from '@nivo/radar'
 import { ResponsiveBar } from '@nivo/bar'
 
 import est from '../../utils/questions/est'
+import pro from '../../utils/questions/pro'
+import ins from '../../utils/questions/inst'
+import pre from '../../utils/questions/pre'
+import doc from '../../utils/questions/doc'
+
+const routeQuestions = {
+  'form-est': est,
+  'form-pro': pro,
+  'form-ins': ins,
+  'form-pre': pre,
+  'form-doc': doc
+}
 
 const TableCell = withStyles(theme => ({
   head: {
@@ -28,7 +40,7 @@ const TableCell = withStyles(theme => ({
 }))(TCell)
 
 const ChartLikertRadar = ({
-  open, onClose, isRadar = false,
+  open, onClose, isRadar = false, route,
   chartData: {
     title, opts, name
   }
@@ -37,7 +49,7 @@ const ChartLikertRadar = ({
     const chartItem = { ...item }
     chartItem.index = `Preg. ${index + 1}`
     chartItem.media = parseFloat(item.media.toFixed(2))
-    chartItem.question = est[name].options[index]
+    chartItem.question = routeQuestions[route][name].options[index]
     return chartItem
   })
   return (
