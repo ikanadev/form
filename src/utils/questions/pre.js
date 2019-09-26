@@ -34,9 +34,44 @@ export default ({
   },
   // VINCULACIÓN CON LA CARRERA
   pre15: { title: 'Mencione los motivos por los que eligió postularse a la carrera de Informática.' },
-  pre16: { title: 'Áreas en las que le gustaría profundizar.' },
-  pre17: { title: 'Medio por el que se informó sobre la Carrera de Informática.' },
-  pre18: { title: 'Participación en Concursos de Programación.' },
+  pre16: {
+    title: 'Áreas en las que le gustaría profundizar.',
+    options: [
+      'Programación',
+      'Desarrollo de Sistemas',
+      'Desarrollo Web',
+      'Desarrollo de Juegos',
+      'Redes',
+      'Robótica',
+      'Programación Móvil',
+      'Internet de las Cosas'
+    ]
+  },
+  pre17: {
+    title: 'Medio por el que se informó sobre la Carrera de Informática.',
+    options: [
+      'El portal web',
+      'El periódico',
+      'Ferias de orientación vocacional',
+      'Publicidad en televisión',
+      'Redes sociales',
+      'En el colegio',
+      'Mi familia',
+      'Terceras personas',
+      'Las olimpiadas científicas',
+      'Afiches'
+    ]
+  },
+  pre18: {
+    title: 'Participación en Concursos de Programación.',
+    options: [
+      'Participé en la Unidad Educativa',
+      'Participé a nivel distrital',
+      'Participé a nivel departamental',
+      'Participé a nivel nacional',
+      'Nunca participé'
+    ]
+  },
   pre19: { title: 'Ofimática (Paquetes):' },
   pre20: { title: 'Lenguajes de programación:' },
   pre21: { title: 'Sistemas Operativos:' },

@@ -38,7 +38,7 @@ export default ({
       'Automotores',
       'Publicidad',
       'Entretenimiento',
-      'Comercio',
+      'Comercio2',
       'Servicios'
     ]
   },

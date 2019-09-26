@@ -53,6 +53,11 @@ const ChartBar = ({
           padding: 20, maxWidth: 1200, marginLeft: 'auto', marginRight: 'auto', minWidth: 900
         }}
         >
+          <Typography variant="h5" color="primary" align="center">
+            { title }
+          </Typography>
+          <br />
+          <br />
           <div style={{
             display: 'flex', height: opts.length > 10 ? 600 : 400, justifyContent: 'center', alignItems: 'center'
           }}
@@ -75,11 +80,6 @@ const ChartBar = ({
               />
             </div>
           </div>
-          <br />
-          <br />
-          <Typography variant="h5" color="primary" align="center">
-            { title }
-          </Typography>
           <Table>
             <TableHead>
               <TableRow>

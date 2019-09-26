@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Dialog from '@material-ui/core/Dialog'
 import DialogContent from '@material-ui/core/DialogContent'
@@ -9,6 +9,9 @@ import TableHead from '@material-ui/core/TableHead'
 import TableBody from '@material-ui/core/TableBody'
 import TableRow from '@material-ui/core/TableRow'
 import TCell from '@material-ui/core/TableCell'
+import RadioGroup from '@material-ui/core/RadioGroup'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import Radio from '@material-ui/core/Radio'
 
 import { ResponsiveRadar } from '@nivo/radar'
 import { ResponsiveBar } from '@nivo/bar'
@@ -45,6 +48,7 @@ const ChartLikertRadar = ({
     title, opts, name
   }
 }) => {
+  const [chartType, setChartType] = useState(isRadar ? 'radar' : 'bar')
   const chartData = opts.map((item, index) => {
     const chartItem = { ...item }
     chartItem.index = `Preg. ${index + 1}`
@@ -52,6 +56,9 @@ const ChartLikertRadar = ({
     chartItem.question = routeQuestions[route][name].options[index]
     return chartItem
   })
+  const handleChange = ({ target: { value } }) => {
+    setChartType(value)
+  }
   return (
     <Dialog open={open} onClose={onClose} fullWidth fullScreen>
       <DialogContent>
@@ -59,9 +66,17 @@ const ChartLikertRadar = ({
           padding: 20, maxWidth: 1100, marginLeft: 'auto', marginRight: 'auto'
         }}
         >
-          <Typography variant="h5" color="primary" align="center">
-            { title }
-          </Typography>
+          <div style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
+            <Typography variant="h5" color="primary" align="center">
+              { title }
+            </Typography>
+            <div style={{ position: 'absolute', top: 0, right: 0 }}>
+              <RadioGroup aria-label="chartType" value={chartType} onChange={handleChange}>
+                <FormControlLabel value="radar" control={<Radio />} label="Radar" />
+                <FormControlLabel value="bar" control={<Radio />} label="Barras" />
+              </RadioGroup>
+            </div>
+          </div>
           <br />
           <br />
           <div style={{
@@ -70,7 +85,7 @@ const ChartLikertRadar = ({
           >
             <div style={{ width: '100%', height: 400 }}>
               {
-                isRadar
+                chartType === 'radar'
                   ? (
                     <ResponsiveRadar
                       enableDotLabel
