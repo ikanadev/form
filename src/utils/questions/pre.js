@@ -168,8 +168,42 @@ export default ({
       'La mención Ciencias de la Computación es coherente con la demanda del mercado actual.'
     ]
   },
-  pre38: { title: 'A continuación se presentan algunas denominaciones de las carreras del área, ¿Con cuáles está de acuerdo?' },
-  pre39: { title: '¿Cuando termines la Carrera, te gustaría trabajar en?' },
+  pre38: {
+    title: 'A continuación se presentan algunas denominaciones de las carreras del área, ¿Con cuáles está de acuerdo?',
+    options: [
+      'Licenciatura en Informática',
+      'Ingeniería en Sistemas Informáticos',
+      'Licenciatura en Ciencias de la Computación',
+      'Ingeniería en Software',
+      'Ingeniería Infomática',
+      'Ingeniería en Sistemas',
+      'Licenciatura en Informática Educativa',
+      'Ingeniería en Redes y TIC',
+      'Ingeniería en Redes y Telecomunicaciones',
+      'Ingeniería en Informática Industrial',
+      'Licenciatura en Seguridad de la Información'
+    ]
+  },
+  pre39: {
+    title: '¿Cuando termines la Carrera, te gustaría trabajar en?',
+    options: [
+      'Emprendimiento propio',
+      'Educación regular',
+      'Sector público',
+      'Banca',
+      'ONG s',
+      'Empresas de desarrollo de software',
+      'Empresas de telecomunicaciones',
+      'Empresas de seguridad Informática',
+      'Empresas de monitoreo',
+      'Institutos de investigación',
+      'Educación superior',
+      'Freelance',
+      'Marketing digital',
+      'Auditoría de sistemas',
+      'Análisis de riesgo'
+    ]
+  },
   // SUGERENCIAS
   pre40: { title: 'Mencione algunas sugerencias para mejorar el Plan de estudios de la Carrera de Informática:' },
   // DATOS DE LA ENCUESTA
